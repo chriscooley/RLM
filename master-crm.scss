@@ -1,0 +1,2826 @@
+// Global Elements 
+@import "var";
+@import "mixins";
+@import "base";
+
+// UI style
+@include grid-custom($gw: true);
+.header {
+    overflow: hidden;
+    @extend .gw;
+	& h1 {
+	    color: #fff;
+	    float: left;
+	    font-size: 1.4em;
+	    font-weight: 400;
+	    padding: 46px 0 0 28px;
+	}
+	& .logo {
+	    background: url(../images/logo.png) no-repeat scroll left center transparent;
+	    border-right: 1px solid #fff;
+	    height: 72px;
+	    margin: 20px 0;
+	    width: 154px;
+	    display: block;
+	    float: left;
+	    & span {
+		    color: #FFFFFF;
+		    display: block;
+		    font-size: 82%;
+		    font-weight: normal;
+		    padding: 58px 0 0;
+		}
+	}
+}
+// button
+.button, .btnIn, .btnNext {
+	@extend .btnAll;
+}
+// box
+.boxW {
+	@extend .gw;
+	position:relative;
+}
+.box {
+	overflow: hidden;
+	height:180px;
+	position: relative;
+	&:hover {
+		@include box-shadow-2(0 1px 3px rgba(255,255,255,.6), 0 1px 4px rgba(0,0,0,.8) inset);
+		& .iconBox {
+			background: none repeat scroll 0 0 transparent;
+		}
+	}
+	&.leads, &.rem, &.perfStat, &.accSet, &.prodSet, &.share {
+		@extend .gd2;
+	}
+	&.active {
+		@extend .gd8;
+		min-height: 400px;
+		height:auto;
+		& h2 {
+			font-size: 2em;
+		}
+		& .iconBox {
+			width:100%;
+			padding:0;
+			overflow: hidden;
+			height: auto;
+			& .icon, & h2 {
+			    margin: 0;
+			    float: left;
+			}
+			& h2 {
+				padding:4% 0 0 0;
+			}
+		}
+		&:hover {
+			@include box-shadow(none);
+			& .iconBox {
+				background: url("../images/spacer.png") repeat scroll 0 0 transparent;
+			}
+		}
+	}
+}
+// Main Page
+.main .box {
+	&.leads, &.share, &.rem, &.perfStat {
+		@extend .gd5;
+		& .iconBox {width:50%;}
+		&:hover {
+			@include box-shadow(none);
+			& .iconBox {
+				background: url("../images/spacer.png") repeat scroll 0 0 transparent;
+			}
+		}
+	}
+	&.rem {
+		background: $green;
+	    margin: $top $right $bottom $left;
+	    & .addBtn, & .openBtn {
+    		float: left;
+		    margin: 2% 0 2% 3%;
+		    width: 21%;
+    	}
+	}
+	&.perfStat {
+		background: $purp; 
+		& .perFace {
+			background: url("../images/face.png") no-repeat scroll center 34% transparent;
+		    float: right;
+		    margin: 6% 0 1.8% 0;
+		    min-height: 100px;
+		    width: 50%;
+		    &.high {background-position:center 34%;}
+		    &.med {background-position:center 67%;}
+		    &.low {background-position:center 100%;}
+		}
+	}
+	&.leads {
+		background: $teal;
+		 & .openBtn {
+    		background:$red;
+    		&:hover {
+    			background:$orange;
+    		}
+    	}
+	}
+	&.share {
+		background: $blue;
+	}
+	& p {
+		padding:4% 6% 0 6%;
+		font-size: 110%;
+		color: #fff;
+		line-height: 1.6em;
+		width: 50%;
+		float: right;
+	}
+}
+// Child main contentBox
+.contentBox {
+	@extend .gd8;
+	height:auto;
+	&.form, &.smForm {
+		min-height: auto;
+		margin: $top $right 26% $left;
+	}
+	&.smForm {
+		@extend .gd6;
+		& .subBox {
+			margin: 2%;
+			width: 96%;
+			float: left;
+			height: auto;
+			& h2 {
+				width:100%;
+				float: left;
+				margin: 2% 1% 0 1%;
+			}
+			& label {
+				font-weight: bold;
+				width: 98%;
+				margin: 1.8% 1% 0 1%;
+				float: left;
+				font-size: 100%;
+				& span {
+					font-weight: normal;
+					font-size: 80%;
+					padding:0 0 0 1%;
+				}
+			}
+			& .short {
+				@extend .gd6;
+			}
+			& .dig3, & .dig4 {
+				width:14%;
+				float: left;
+				margin: 0 2% 0 0;
+			}
+			& .dig4 {
+				width:18%;
+			}
+			& .dig5, & .stateDrop, & .city {
+				width: 30%;
+				float: left;
+				margin: 0 2% 0 0;
+			}
+			& label.dig5, & label.stateDrop, & label.city {
+				margin: 2% 1% 0 1%;
+			}
+			& .address2 {
+				margin:1.6% 0 0 0;
+			}
+			& p {
+				font-size: 80%;
+				clear: both;
+				width: 98%;
+				margin: 2% 1% 0 1%;
+				float: left;
+			}
+			& .inlinelabel {
+				float: left;
+			    line-height: 32px;
+			    padding: 0 1% 0 0;
+			}
+			& .passBox, & .timeZone {
+				float: left;
+			    margin: 0 4% 0 0;
+			    width: 49%;
+			}
+			& .passStrength {
+				width:46%;
+				float: right;
+			}
+			& .button {
+		    	text-align:center;
+		    	font-size: 100%;
+		    	margin: 2% 2% 0 0;
+		    	width:49%;
+		    	background:$green;
+		    	float: left;
+		    	&.downplay {
+		    		margin: 2% 0 0 0;
+		    		background:$gray-blue;
+		    	}
+		    	&:hover {
+		    		background: $orange;
+		    		color:#fff;
+		    	}
+		    }
+		}
+	}
+	& .iconBox {
+		width:100%;
+		padding:0;
+		overflow: hidden;
+		height: auto;
+		& .icon, & h2 {
+		    margin: 0;
+		    float: left;
+		}
+		& h2 {
+			padding:4% 0 0 0;
+		}
+	}
+	& > h5, & > h6, & > span  {
+		font-size: 1em;
+		float: left;
+	}
+	& > h5 {
+		margin: 0 0 0 2%;
+		font-size: 1em;
+		float: left;
+		clear: left;
+		line-height: 1.6em;
+	}
+	& > span {
+		font-size: .8em;
+		line-height: 1.7em;
+		color: #fff;
+		margin: .2em;
+	}
+	& > input[type="text"] {
+		width: 14%;
+		float: left;
+		margin: .2em;
+		font-size: .8em;
+		padding:.2em;
+		border:0 none;
+		@include box-shadow(0 1px 1px rgba(0,0,0,.4));
+	}
+	& > input[type="text"]:focus {
+		@include box-shadow(0 1px 1px rgba(0,0,0,.8) inset);
+	}
+	& .reminders:hover, & .notes:hover {
+		overflow-y: scroll; 
+		padding:2% 0 2% 2%;
+		@include box-shadow-2(0 1px 1px rgba(255,255,255,.4), 0 1px 2px rgba(0,0,0,.8) inset);
+	}
+	& .sendM {
+		@extend .btnAll;
+		background: url("../images/lead-icon.png") no-repeat scroll 0 86% $red;
+		&:hover {
+			background: url("../images/lead-icon.png") no-repeat scroll 0 86% $orange;
+		}
+	}
+}
+.mList, .oList {
+	overflow: hidden;
+	display:block;
+	clear:both;
+	float:left;
+	@extend .gd12;
+	& .lHead, & li {
+		overflow: hidden;
+		width: 100%;
+		background: $blue;
+		min-height: 20px;
+		padding:.4em .1em;
+		border-bottom:2px solid $gray;
+		color: #fff;
+	}
+	& li {
+		text-align: center;
+		border:none;
+		min-height: 20px;
+		color: $gray;
+		border-bottom:2px solid $gray-blue;
+		background: url("../images/spacer90.png") repeat scroll 0 0 transparent;
+	}
+	& li:nth-child(even) {
+		background:$teal-soft;
+	}
+	& span {
+		width:12%;
+		margin: 0 1% 0 0;
+		float: left;
+		line-height: 1.2em;
+		display: block;
+		&.paymentC {
+			width:20%;
+		}
+	}
+}
+.oList {
+	& li:nth-child(even) {
+		background:$teal-soft;
+	}
+	& li:hover {
+		background:$green;
+		color:#fff;
+		cursor: pointer;
+		border-bottom:2px solid $gray;
+	}
+	& span {
+		width:33%;
+		margin: 0;
+	}
+}
+// pagging
+.pagging {
+	overflow:hidden;
+	float:left;
+	width:98%;
+	margin:1%;
+	font-size:80%;
+	& .left {
+		float: left;
+	}
+	& .right {
+		float: right;
+	}
+}
+// Body color
+.main {}
+.myLead {
+	& .box:hover {background: $red repeat scroll 0 0;}
+	& .contentBox, & .box.active, & .box.leads {background: $teal repeat scroll 0 0;@include box-shadow(0 0 10px #000);}
+	& .box.leads:hover {@include box-shadow(0 0 10px #000);}
+}
+.social {
+	& .box:hover {background: $teal repeat scroll 0 0;}
+	& .contentBox, & .box.active, & .box.share {background: $blue repeat scroll 0 0;}
+	// & .subBox.emailTrack {
+	//     float: right;
+	//     margin: 1% 2% 1% 0;
+	//     min-height: 178px;
+	// }
+
+	 .msg p {
+	    font-size: 1.4em;
+	}
+
+	.socialLins {
+	    height: 26px;
+	    margin: 0;
+	    padding: 0;
+	}
+
+	.contentBox .subBox {
+	    height: auto;
+	    min-height: 80px;
+	    padding: 2.8%;
+	}
+
+	.subBox h3 {
+	    color: #43484E;
+	    float: left;
+	    font-size: 1em;
+	    width: 27%;
+	}
+	.cs_import {
+	    float: left;
+	    width: 72%;
+	}
+	.cs_import > img {
+	    width: 100%;
+	}
+	.subBox input[type="text"], input[type="email"] {
+	    float: left;
+	    margin:1% 0;
+	    width: 49%;
+	}
+	.subBox input[type="text"]:nth-child(2n), input[type="email"]:nth-child(2n) {
+	    margin-left: 2%;
+	}
+	.subBox .button {
+	    margin-top: 2%;
+	}
+	.invite.title {
+	    color: #333333;
+	    font-weight: bold;
+	    padding: 2%;
+	}
+	.subBox .invite {
+	    float: left;
+	    padding: 1% 2%;
+	    width: 50%;
+	    @include ellipsis();
+	}
+
+	.inviteBox {
+	    border: 2px solid #8ACDE6;
+	    float: left;
+	    overflow: hidden;
+	    width: 100%;
+	}
+	.pagging .left {
+	    color: #949494;
+	    padding: 1% 0;
+	}
+
+	.subBox {
+		h1 {
+			display: block;
+		    float: left;
+		    font-size: 1.4em;
+			b {
+			    background-color: #E64849;
+			    -webkit-border-radius: 50%;
+			    -moz-border-radius: 50%;
+			    border-radius: 50%;
+			    color: #FFFFFF;
+			    display: block;
+			    float: right;
+			    font-size: 50%;
+			    height: 0;
+			    margin: 0.3em 0 0 0.6em;
+			    padding: 0.3em 0 1.7em;
+			    text-align: center;
+			    text-shadow: none;
+			    width: 2em;
+			}
+		}
+	}
+
+	.iconBox {
+		h3 {
+			float: right;
+		    font-size: 3em;
+		    padding: 0.5% 2% 0;
+			span {
+			    display: block;
+			    font-size: 32%;
+			    font-weight: normal;
+			    padding: 0 0 0.4em;
+			}
+		}
+	}
+
+}
+.account {
+	& .box:hover {background: $teal repeat scroll 0 0;}
+	& .contentBox, & .box.active, & .box.accSet {background: $blue repeat scroll 0 0;}
+	& .liG a {
+		color:$gray;
+		@include box-shadow(0 1px 1px rgba(0,0,0,.5));
+		&:hover {
+			background:$teal;
+			text-shadow: 0 1px 1px rgba(0,0,0,.8);
+			color: $white;
+			@include box-shadow-2(0 1px 1px rgba(255,255,255,.5), 0 1px 1px rgba(0,0,0,.5) inset);
+		}
+	}
+	& .boxWrap .subBox .dig5 {
+		float: none;
+		clear: left;
+	}
+}
+.productSet {
+	& .box:hover {background: $red repeat scroll 0 0;}
+	& .contentBox, & .box.active, & .box.prodSet {background: $blue repeat scroll 0 0;}
+	& .contentBox .box {overflow:visible;}
+	& .boxWrap .box.active {background: none repeat scroll 0 0;}
+	& .mLinks a {
+	    margin: 0 2%;
+	    width: 26%;
+	    background:$green;
+	}
+	& .menu {
+		width: 16%;
+		z-index: 9999;
+	}
+}
+.performance {
+	& .box:hover {background: $teal repeat scroll 0 0;}
+	& .contentBox, & .box.active, & .box.perfStat {background: $purp repeat scroll 0 0;}
+	
+	& .mList span, & .oList span {
+		height: 13px;
+	    width: 15.6%;
+	    white-space: nowrap;
+		overflow: hidden;
+		text-overflow:ellipsis;
+	}
+	& .mList .lHead {
+		background:$purp;
+		& span {
+			height: auto;
+		}
+	}
+	& .contentBox.smForm .subBox .button {
+	    margin: 0;
+	    width: 44%;
+	    float: right;
+	}
+}
+.signIn {
+	& .contentBox {background: $teal repeat scroll 0 0;}
+}
+.interstial {
+	& .boxW {
+		// @extend .signIn;
+	}
+	& .inBox {
+		padding:0;
+		min-height: 168px;
+		&.a1 li, &.a2 li, &.a3 li, &.a4 li, &.a5 li, & .li0 {display:none;}
+		&.a1 .li1{display:block;}
+		&.a2 .li2{display:block;}
+		&.a3 .li3{display:block;}
+		&.a4 .li4{display:block;}
+		&.a5 .li5{display:block;}
+	}
+	& .inBox {
+		position:relative;
+		height:100%;
+		overflow: hidden;
+	}
+	& .inBox li{
+		width:100%;
+		height:100%;
+		float: left;
+		padding:0 16% 2% 16%;
+		margin: 0;
+		font-size: 80%;
+		display: none;
+		&.odd {
+			background:$teal-soft;
+		}
+		& h2, & p {
+			text-align: center;
+			color: #fff;
+			margin:0 10%;
+			padding:2% 0;
+		}
+		& p {
+			font-size: 1.6em;
+		}
+		& h2 {
+			font-size: 4em;
+			background:url(../images/border-in.png) left bottom repeat-x;
+		}
+	}
+	& .imgLoader {
+		display: block;
+	    float: right;
+	    margin: 9.5% 4% 0 20.5%;
+	    position: absolute;
+	    width: 40px;
+	}
+}
+.iconSprite {
+	background: url("../images/30.gif") no-repeat scroll center center transparent;
+    height: 22px;
+    margin: 0 auto;
+    width: 160px;
+    display: block;
+    opacity: .8;
+}
+.perWeek {
+    float: left;
+    font-size: 90%;
+    line-height: 36px;
+    margin: 0 0 0 2%;
+}	
+// Toggle links
+.toggleW {
+    float: right;
+    padding: 2.5% 0 0;
+    width: 26%;
+    margin: 0 1% 0 0;
+    overflow: hidden;
+}
+.gridT, .listT {
+	background:url(../images/crm-icons.png) center 70% no-repeat;
+	width:46px;
+	height:46px;
+	margin:0 1.5%;
+	cursor:pointer;
+	display:block;
+	float:right;
+}
+.gridT {
+	&:hover, &.open {background-position: center 78%;}
+}
+.listT {
+	background-position: center 87%;
+	&:hover, &.open {background-position: center 97%;}
+}
+// List grid
+.liG {
+    clear: both;
+    position: relative;
+    overflow: hidden;
+    margin: 0 0 2% 0;
+	& > li, & > a {
+		float: left;
+		display: block;
+		width:22.5%;
+		margin: 2.2% 0 0 2%;
+		padding:1.8%;
+		background: url("../images/spacer90.png") repeat scroll 0 0 transparent;
+		font-size: 100%;
+		overflow: hidden;
+		& .listIcon, & .accIcon {
+			width: 38px;
+			min-height: 30px;
+			display: block;
+			float: right;
+			background:url(../images/lead-icon-color.png) 0 0 no-repeat;
+		}
+		& .accIcon {
+			background:url(../images/crm-account-icon.png) 0 0 no-repeat;
+		}
+		&.presInfo .accIcon {background-position:0 0;}
+		&.changePass .accIcon {background-position:0 12%;}
+		&.messDe .accIcon {background-position:0 24%;}
+		&.timeZone .accIcon {background-position:0 36%;}
+		&.payHis .accIcon {background-position:0 49%;}
+		&.orderHis .accIcon {background-position:0 73%;}
+		&.creditCard .accIcon {background-position:0 85%;}
+		&.pauseMy .accIcon {background-position:0 97%;}
+		&.reActMy .accIcon {background-position:0 97%;}
+		&.balanceRefill .accIcon {background-position:0 61%;}
+		&.lead-won .listIcon {background-position:94% 43%;}
+		&.lead-lost .listIcon {background-position:94% 32%;}
+		&.lead-quoted .listIcon {background-position:94% 52.8%;}
+		&.lead-contact .listIcon {background-position:94% 21%;}
+		&.lead-notContact .listIcon {background-position:94% 10.6%;}
+	}
+	& > a {
+		min-height: 70px;
+	}
+	& h3, & h4, & .phNum, & .emailL, & .editLoc, & input[type="text"] {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow:ellipsis;
+		color:$gray;
+	}
+	& h3 {}
+	& h4 {margin: 0 0 .4em 0;}
+	& .phNum, & .emailL, & .editLoc, & input[type="text"] {
+		background:$teal-soft;
+		padding:.1em .6em;
+		margin: 0 0 .6em 0;
+		display: block;
+		text-align: center;
+		cursor: pointer;
+		@include box-shadow(0 1px 2px rgba(0,0,0,.6) inset);
+		&:hover {
+			background:$green;
+			color:$white;
+			text-shadow: 0 -1px 1px rgba(0,0,0,.4)
+		}
+	}
+	& .editLoc {
+		margin: 0 2% 0 0;
+	}
+	& input[type="text"] {
+		border:none;
+		background:url(../images/strength.png) 8% -8% no-repeat;
+		margin: 0;
+		&.poor {background-position:8% -8%;}
+		&.fair {background-position:8% 31%;}
+		&.good {background-position:8% 71%;}
+		&.great {background-position:8% 108%;}
+		&:focus {
+			background:url(../images/strength.png) 8% -8% no-repeat $white;
+			@include box-shadow(0 1px 2px rgba(0,0,0,.6) inset);
+			&:hover {
+				background:url(../images/strength.png) 8% -8% no-repeat $white;
+				color:$gray;
+				text-shadow: 0 1px 1px #fff;
+			}
+			&.poor {background-position:8% -8%;}
+			&.fair {background-position:8% 31%;}
+			&.good {background-position:8% 71%;}
+			&.great {background-position:8% 108%;}
+		}
+	}
+	& .emailL {}
+	& p {color:$red;}
+}
+.liG.listOn {
+	& > li, & > a {
+		float: none;
+		width:96%;
+		margin: 2.2% 2% 0 2%;
+		position:relative;
+		padding:2.8% 1.8% .8% 1.8%;
+	}
+	& .listIcon, & h3, & h4, & .phNum, & .emailL, & .editLoc, & input[type="text"], & p {float:left;}
+	& .bidWeek {
+		width: 30%;
+		float: right;
+		input[type="text"] {
+			width: 65%;
+			margin: 0 0 .4em 0;
+		}
+		input.weekBudget[type="text"] {
+			background-image:none;
+			margin: 0;
+		}
+		label {
+			float: right;
+			font-size: .8em;
+			line-height: 2em;
+		}
+	}
+	& .listIcon {}
+	& h3, & h4, & .phNum, & .emailL, & .editLoc, & input[type="text"] {width:21.5%; margin:0 1%;}
+	& .emailL {
+		margin: 0;
+	}
+	& p {
+		left: 2%;
+	    line-height: 1em;
+	    position: absolute;
+	    top: 8%;
+	    color: $red;
+	}
+	.productSet & > li, .productSet & > a {
+		padding:1.8%;
+	}
+	.productSet & .listIcon {
+		min-height: 0;
+		height:0;
+		width: 10%;
+		padding:0 0 5% 0;
+		cursor: pointer;
+		background: url("../images/onOff.png") no-repeat scroll 0 0 transparent;
+		background-size:100% auto;
+		&.enabled {
+			background-position: 0 0;
+		}
+		&.disabled {
+			background-position: 0 100%;
+		}
+	}
+	& li.liHeader {
+		padding:1% 1.8%;
+		& span, & h5 {
+			color: #43484E;
+		    display: block;
+		    float: left;
+		    font-size: 80%;
+		    line-height: 100%;
+		    padding: 0.1em 0;
+		    text-align: left;
+		    width: 22%;
+		    font-weight: bold;
+		}
+		& h5 {
+			width:12%;
+		}
+	}
+	& .editLoc {
+		margin: 0 2% 0 0;
+	}
+	& input[type="text"] {
+		margin: 0;
+	}
+	& h4 {
+		margin: 0 1% 0 0;
+		& a {
+			display: block;
+		}
+	}
+	&.col3 {
+		& h5, & span, & h4, & input[type="text"], & .liHeader span {
+			width:41%;
+		}
+		// & .listIcon, & .liHeader h5 {
+		// 	width:16%;
+		// }
+	}
+}
+// toolTip 
+.toolTip {
+	display:none;
+	color: #FFFFFF;
+    font-size: 90%;
+    height: 100%;
+    left: 8%;
+    padding: 2.4% 1em;
+    position: absolute;
+    top: 0;
+    line-height: 1.2em;
+    min-height: 50px;
+    padding: 14% 1em;
+	@include box-shadow(0 1px 1px rgba(0,0,0,.6));
+	.enabled & {
+		background: $red;
+		background-position: 0 99%;
+	}
+	.disabled & {
+		background: $green;
+		background-position: 0 85%;
+	}
+}
+.social .contentBox { 
+	min-height:auto;
+	padding:0 0 1% 0;
+	& .iconBox {
+		margin: 0 0 1% 0;
+		& .icon {
+			background-position: 0 35%;
+		}
+	}
+	& .subBox{
+		height: auto;	
+		padding: 2.8%;
+	}
+}
+.subBox.emailTrack > h1 {
+    float: left;
+}
+.emailLink {
+    background: url("../images/crm-account-icon.png") no-repeat scroll 0 25% transparent;
+    display: block;
+    float: right;
+    height: 20px;
+    margin: 3% 0 0;
+    width: 36px;
+}
+.shareHead {
+	margin:2% 2% 1% 2%;
+	& p {
+		font-size: 96%;
+	}
+}
+.socialLins {
+	float:right;
+	padding:3% 0 0 0;
+}
+// subBox
+.subBox {
+	margin: 1% 0 1% 2%;
+	width: 47%;
+	float: left;
+	height: 290px;
+	padding:2%;
+	overflow: hidden;
+	background: url("../images/spacer90.png") repeat scroll 0 0 transparent;
+	& h1 {
+		color: $gray;
+		text-shadow: 0 1px 1px #fff;
+	}
+	& h2, & h3 {
+		font-size: 1.2em;
+		color: $teal;
+		text-shadow: 0 1px 1px #fff;
+	}
+	& h3 {font-size: 1em;}
+	& p {
+		line-height: 1.6em;
+	}
+	& .subHead{
+		overflow: hidden;
+		h1 {
+			float: left;
+		}
+		& .subCount {
+			display: block;
+		    float: left;
+		    padding: 0.3em 0.6em;
+		    margin: 0.3em;
+			@include box-shadow-2(0 1px 1px rgba(255,255,255,.4), 0 1px 2px rgba(0,0,0,.5) inset);
+		}
+		& .subAdd {
+			float: right;
+			padding: .6em;
+		    margin: 0.3em;
+		    font-size: 1em;
+		    width:23%;
+		    cursor: pointer;
+		    color: #fff;
+		    background: url("../images/crm-icon-sm.png") no-repeat scroll 98% 15% $green;
+		    @include box-shadow(0 1px 1px rgba(0,0,0,.5));
+		    &:hover {
+		    	background-color: $red;
+		    }
+		}
+	}
+	&.notes .subAdd{
+		@include box-shadow(0 1px 1px rgba(0,0,0,.5));
+    	background-position: 98% 89%;
+    }
+	&.contact span, &.contact a {
+		background:$teal-soft;
+		padding:.1em .6em;
+		margin:.6em 0 0 0;
+		display: block;
+		text-align: center;
+		cursor: pointer;
+		@include box-shadow(0 1px 2px rgba(0,0,0,.6));
+		&:hover {
+			background:$red;
+			color:$white;
+			text-shadow: 0 -1px 1px rgba(0,0,0,.4)
+		}
+	}
+	& .sendM {
+		margin: .6em 0 0 0;
+	}
+	&.contact {
+	    clear: both;
+	}
+	& .result {
+		overflow: hidden;
+		border-bottom: 2px solid $teal;
+		margin: 0 0 2% 0;
+		padding:2% 3% 0 3%;
+		& > span, & > a {
+			background:$gray;
+			color: #fff;
+			float: left;
+			padding:.1em .6em;
+			margin:.6em .6em 0 0;
+			display: block;
+			text-align: center;
+			cursor: pointer;
+			@include box-shadow(0 1px 2px #000);
+			&:hover {
+				background:$red;
+				color:$white;
+				text-shadow: 0 -1px 1px rgba(0,0,0,.4)
+			}
+		}
+		&.rLead {
+			& h3 {
+				background-position:0 88%;
+			}
+		}
+		&.newLead {
+			background:$teal;
+			& h3 {
+				background: url("../images/lead-icon-color.png") no-repeat scroll 0 0 transparent;
+			}
+		}
+	}
+	&.requ, &.selLoc, &.message {
+		height: auto;
+		margin: 2% 0 2% 2%;
+		& .button {
+	    	text-align:center;
+	    	font-size: 100%;
+	    	margin: 2% 2% 0 0;
+	    	width:48%;
+	    	background:$green;
+	    	&.downplay {
+	    		margin: 2% 0 0 0;
+	    		background:$gray-blue;
+	    	}
+	    	&:hover {
+	    		background: $orange;
+	    		color:#fff;
+	    	}
+	    }
+	}
+	&.message {
+		width: 96%;
+		& input[type="text"] {
+			width:40%;
+			float: left;
+		}
+		& label {
+			clear: both;
+			display: block;
+		}
+	}
+	&.callOut {
+		background:none;
+		height: auto;
+		& h3 {
+			text-shadow: 0 -1px 1px $gray;
+			color: #fff;
+			font-size: 160%;
+			padding:2% 0;
+		}
+		& p {
+			font-size: 100%;
+			line-height: 1.6em;
+		}
+	}
+}
+// extraBox
+.extraBox {
+	width:96%;
+	margin:2% 2% 0 2%;
+}
+.updateStat {
+	float: right;
+	margin: 1.4% 2% 0 2%;
+	cursor: pointer;
+	position:relative;
+	width: 23%;
+	z-index:1000;
+	@include box-shadow-2(0 1px 1px rgba(255,255,255,.4), 0 1px 2px rgba(0,0,0,.5) inset);
+	background: url("../images/lead-icon.png") no-repeat scroll 94% -1% transparent;
+	&.stat-con {background-position:94% 20.5%;}
+	&.stat-notCon {background-position:94% 9.8%;}
+	&.stat-quoted {background-position:94% 52.8%;}
+	&.stat-won {background-position:94% 43%;}
+	&.stat-lost {background-position:94% 32%;}
+	& h5 {
+		padding: 3% 30% 3% 10%;
+		width: 66%;
+		@include box-shadow(0 1px 2px rgba(0,0,0,.4));
+		background: url("../images/lead-icon.png") no-repeat scroll 98% 74% $green;
+	}
+	& > ul {
+		position:absolute;
+		display: none;
+		border: 4px solid #fff;
+		background:$red;
+		right: 0;
+		width: 160%;
+		@include box-shadow(0 1px 12px rgba(0,0,0,.5));
+	}
+	&:hover > ul {
+		display: block;
+	}
+	& li {
+		padding:.6em 1.4em .6em 3em;
+		font-size: 1em;
+		color: #fff;
+		border-bottom: 2px solid #fff;
+		text-shadow: 0 -1px 1px rgba(0,0,0,.6);
+		background: url("../images/lead-icon.png") no-repeat scroll 2% 74% transparent;
+		&.stat-con {background-position:2% 21%;}
+		&.stat-notCon {background-position:2% 10%;}
+		&.stat-quoted {background-position:2% 53%;}
+		&.stat-won {background-position:2% 43%;}
+		&.stat-lost {background-position:2% 32%; border: 0 none;}
+		&:hover {
+			background-color:$green;
+		}
+	}
+}
+
+// iconBox
+.iconBox {
+	background: url("../images/spacer.png") repeat scroll 0 0 transparent;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    line-height: 1.5em;
+    text-align: center;
+    padding:8% 2% 0 2%;
+    float: left;
+    width: 100%;
+    height: 100%;
+	& .icon {
+		background:url(../images/crm-icons.png) 0 0 no-repeat;
+		display: block;
+		margin: 0 auto;
+		width: 80px;
+		height: 80px;
+		.newL & {background-position:center 0;}
+		.allL & {background-position:center -80px;}
+		.rem & {background-position:center -160px;}
+		.perfStat & {background-position:center -240px;}
+		.accSet & {background-position:center -560px;}
+		.prodSet & {background-position:center -480px;}
+		.share & {background-position:center -320px;}
+	}
+}
+// boxCount
+.boxCount {
+	font-size:8em;
+	width:50%;
+	height:72%;
+	text-align:center;
+	float:right;
+	line-height:1em;
+	padding: 0;
+}
+// button
+.openBtn {
+	@extend .btnAll;
+	background: url("../images/spacer.png") repeat scroll 0 0 transparent;
+	width:40%;
+	float:right;
+	margin:2% 5%;
+	font-size:.9em;
+	text-align:center;
+}
+// formlayout
+.formlayout {
+	width:96%;
+	margin:2%;
+	padding:2% 3% 0 3%;
+	float:left;
+	overflow:hidden;
+	background: url("../images/spacer90.png") repeat scroll 0 0 transparent;
+	& h2 {
+		color: $teal;
+		font-size: 120%;
+		text-align: center;
+		margin: 0 0 4% 0;
+	}
+	& label {
+		display: block;
+	    font-size: 100%;
+	    font-weight: bold;
+	    text-align: left;
+	    width: 80%;
+	    padding:.2% 0 0 0;
+	    margin: 0 auto;
+	    line-height: 100%;
+		& span {
+			font-weight: normal;
+			display: block;
+			float: right;
+			text-align: right;
+			font-size: 70%;
+		}
+	}
+	& .button {
+		width: 80%;
+		float: none;
+		margin: 0 auto;
+		display: block;
+	}
+	& > a {
+		float: left;
+	    margin: 6% 0 3% 0;
+	    position: relative;
+	    text-align: left;
+	    width: 100%;
+	    font-size: 80%;
+	}
+	& input[type="text"], & input[type="number"], & input[type="email"], & input[type="password"],  {
+		margin: 0 auto 2% auto;
+    	width: 80%;
+	}
+}
+#oppvaluesetlink {
+	@extend .btnAll;
+    display: inline;
+    font-size: 80%;
+    padding: 0.2em 0.6em;
+    text-align: center;
+}
+// overlay
+.overlayboxlightbox {
+	width: 400px;
+	left: 50%;
+	margin:0 0 0 -200px; 
+    padding: 0;
+    display: block;
+    height: auto; 
+    position: fixed;
+    top: 25%;
+    z-index: 1002;
+    & h3 {
+    	background: url("../images/crm-icon-smColor.png") no-repeat scroll 0 3px transparent;
+	    color: #43484E;
+	    line-height: 100%;
+	    font-size: 2em;
+	    padding: 2% 0 2% 40px;
+    	&.rem-sm {background-position:0 -75px;}
+    	&.perf-sm {background-position:0 -124px;}
+    	&.leads {background-position:0 -44px;}
+    }
+    & .result h3 {
+    	background-position:0 -7px;
+    	font-size: 1em;
+    }
+    & .button {
+    	text-align:center;
+    	font-size: 100%;
+    	margin: 2% 2% 0 0;
+    	width:48%;
+    	background:$green;
+    	&.downplay {
+    		margin: 2% 0 0 0;
+    		background:$gray-blue;
+    	}
+    	&:hover {
+    		background: $orange;
+    		color:#fff;
+    	}
+    }
+    & > .subBox {
+		width:100%;
+		margin: 0;
+		float: none;
+		height: auto;
+		padding: 16px 20px 20px 20px;
+		background: $white repeat scroll;
+		@include box-shadow(0 0 20px $gray);
+		&.reminders {
+	    	height: 290px;
+	    	&:hover {
+		    	overflow-y: scroll;
+			}
+		}
+	}
+	& > .subBox > .subBox {
+		padding:0; 
+		margin: 1% 0 1% 1%;
+		overflow-y:scroll; 
+		width:100%; 
+		height:230px;
+		border:1px #ccc solid;
+	}
+}
+.openMe .overlayboxlightbox {
+	width: $start-width;
+	left: 50%;
+	margin:0 0 0 -570px; 
+    padding: 0;
+    display: block;
+    height: 80%; 
+    position:fixed;
+    top: 10%;
+    z-index: 1002;
+    & h3 {
+	    padding: 1% 0 1% 40px;
+    }
+    & > .subBox {
+		width:67%;
+		height: 100%;
+		padding:2%;
+	}
+	& .controlW {
+		width:67%;
+	}
+	& > .subBox > .subBox {
+		height: 90%;
+		width: 98%;
+		& .result {
+			margin:0;
+		}
+	}
+}
+.result.future h3 { color: $blue; }
+.result.pastdue h3 { color: $teal; }
+
+.lb_overlay {
+	height: 100%; 
+	position: fixed; 
+	width: 100%; 
+	top: 0; 
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	z-index: 1001; 
+	background: url(../images/spacerBlack-50.png) repeat scroll 0% 0%; 
+}
+// signIn
+.signIn {
+	& .contentBox {
+		min-height: auto;
+		width: 48.77%;
+		margin: 0 auto;
+		float: none;
+		overflow: hidden;
+	}
+	& .formlayout {
+	    margin: 4%;
+	    width: 92%;
+	}
+	& .box {
+		opacity:.2;
+		filter: alpha(opacity=30);
+	}
+}
+// check
+.checkBox {
+	width:4%;
+	float:left;
+	margin:2% 0 0 0;
+}
+.checkBoxLabel {
+	width:94%;
+	float:left;
+	margin:1.6% 0 0 0;
+}
+// span.selWrap
+span.selWrap {
+	&.sort {
+	    clear: both;
+	    display: block;
+	    float: right;
+	    height: 36px;
+	    margin: 2% 2% 0 0;
+    	padding: 0;
+	    position: relative;
+	    width: 26%;
+	}
+	&.savedTemp {
+		width: 40%;
+		float: left;
+	}
+	&.scc {
+		width:47%;
+		margin:$globalSpace;
+		float: left;
+	}
+	#gadvform &.scc {
+		clear: both;
+	}
+	&.shortSm {
+		margin: 0 2% 0 0;
+	    float: left;
+		width:24%;
+	}
+	&.catSel {
+		margin: 1% 0 2% 0;
+	}
+	&.radSel{
+		width: 49%;
+		float: right;
+	}
+}
+.fakeinput	{
+    clear: both;
+    display: block;
+    float: left;
+    height: 36px;
+    margin: 1.8% 1% 0 1%;
+    position: relative;
+    width: 26%;
+    color: $blue;
+    letter-spacing: .3em;
+    font-weight: bold;
+}
+input[type="text"], input[type="number"] {
+	&.searchLi {
+		width:47%;
+		float:left;
+	}
+}
+// export
+.export {
+	@extend .btnAll;
+	width:auto;
+	font-size:1.2em;
+	margin:2% 0 0 2%;
+	line-height:30px;
+	text-align:left;
+	height:34px;
+	padding:.2em .6em .2em 6%;
+	background:url(../images/lead-icon-color.png) 0 91% no-repeat $blue;
+	&:hover {
+		background:url(../images/lead-icon-color.png) 0 91% no-repeat $orange;
+	}
+}
+// MENU
+.menu {
+	@extend .btnAll;
+    background: url("../images/crm-icon-smColor.png") no-repeat scroll 0 73% $blue;
+    float: right;
+    font-size: 80%;
+    line-height: 100%;
+    margin: 3% 2% 0 0;
+    padding: 0.4em 0.8em 0.4em 40px;
+    text-align: left;
+    width: 13%;
+    position:relative;
+    &:hover {
+    	background: url("../images/crm-icon-smColor.png") no-repeat scroll 0 73% $orange;
+    }
+    &.active {
+    	background: url("../images/crm-icon-smColor.png") no-repeat scroll 0 73% $orange;
+    	@include box-shadow-2(0 1px 1px $gray inset, 0 1px 1px rgba(255,255,255,.4));
+    }
+}
+.mLinks {
+	display: none;
+	z-index: 999;
+	width:100%;
+	& a {
+		width: 18%;
+		margin: 0 1%;
+		font-size: 70%;
+		text-align:center;
+		padding:.4em .8em;
+		float: left;
+		background: $blue;
+		@include box-shadow(0 1px 2px $gray);
+		color: $white;
+		&:hover {
+			background: $orange;
+		}
+	}
+}
+// productSet
+.productSet {
+
+}
+// LEAD LOCATION
+.radioWrap {
+	float: right;
+    overflow: hidden;
+    width: 50%;
+    height: 36px;
+    margin: 2% 0 0;
+	& input[type="radio"] {
+		margin: 0 1% 0 3%;
+		display: inline-block;
+	}
+	& label {
+		display: inline-block;
+		width: auto;
+		font-size: 74%;
+	}
+}
+// Add Remove 
+.addMe {
+    float: left;
+    height: auto;
+    margin:$globalSpace;
+    width: 47%;
+    position:relative;
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: $uiBorder;
+	height: 200px;
+	padding:0;
+	overflow: scroll;
+	overflow-x: hidden;
+    & li{
+    	font-weight: 700;
+    	cursor: pointer;
+    	font-size: .7em;
+    	line-height: 1.5em;
+    	padding:1% 2%;
+    	color:$gray;
+    	display: block;
+    	position:relative;
+    	width: auto;
+    	padding: 1% 2% 1% 13%;
+	    background:url("../images/icon.png") no-repeat scroll 3px -944px ;
+    	&:hover, &.added {
+		    color:$white;
+		    background-position:3px -834px;
+		    background-color: $green;
+	    }
+	    &:hover {
+	    	width:100%;
+	    }
+	}
+}
+.removeMe {
+	clear: right;
+    float: right;
+    width: 50%;
+    @extend .addMe;
+    & li{
+    	padding: 1% 2%;
+	    background-position:3px -965px;
+	    &:hover {
+	    	width:100%;
+	    	padding: 1% 2% 1% 13%;
+	    	background-position:3px -873px;
+	    	background-color: $red;
+	    }
+    }
+}
+.mapBox {
+    background:url("../images/map.jpg") no-repeat scroll center center #FFFFFF;
+    border: $uiBorder;
+    clear: both;
+    height: 244px;
+    width: 100%;
+    margin:2% 0;
+    float: left;
+}
+.mapClick {
+    background: none repeat scroll 0 0 $green;
+    padding: .1em .4em;
+    float: right;
+    color: $white;
+    font-size: 70%;
+    margin: 0;
+    width: auto;
+    border: none;
+}
+// addRemoveBtn
+.addRemoveBtn {
+	display:none;
+}
+.addRemoveText {
+	float:right;
+}
+// hideServ 
+.hideServ {
+	clear: both;
+    overflow: hidden;
+}
+.hideServ h5, .hideServ h6, .hideShow h5, .hideShow h6 {
+	font-size: 100%;
+	color: $gray;
+	z-index: 999;
+	float:left;
+	width:50%;
+	clear: right;
+	padding: 0 0 0 1%;
+}
+.hideServ h6, .hideShow h6 {
+	float:right;
+}
+// selLoc
+.selLoc h4, .selLoc h5, .selLoc h6 {
+	color:$gray;
+	font-weight:normal;
+	font-size:90%;
+	padding:.2em 0;
+}
+.setBudget {
+	background: none repeat scroll 0 0 $green;
+	@extend .btnAll;
+	width:20%;
+	float:right;
+}
+// t2form
+#t2form .hideServ {
+	display:none;
+}
+// boxWrap
+.boxWrap {
+	background: url("../images/spacer90.png") repeat scroll 0 0 transparent;
+    float: left;
+    margin: 2%;
+    overflow: hidden;
+    padding: 0;
+    width: 96% !important;
+    & > .box {
+    	width: 96%;
+    	margin: 2%;
+    	& h2 {
+    		color: $teal;
+    		margin: 0 0 1% 0;
+    	}
+    	& h1 {
+    		font-size: 90%;
+    		margin: 1% 0;
+    		color: $gray;
+    		& .t3catname {
+    			color: $blue !important;
+    		}
+    	}
+    	& .radZip , & .radSel{
+    		width: 48%;
+    		float: left;
+    	}
+    	& .radSel{
+    		width: 49%;
+    		float: right;
+    	}
+    	& .searchLi {display:none;}
+    }
+	& > .box.active:hover {
+		background: none;
+	}
+}
+// toolTip
+.infoIcon {
+	background: rgba(255,255,255,.5);
+	height: 20px;
+    margin: 0;
+    width: 20px;
+    position:absolute;
+	& span{
+		color: #3FB1A4;
+	    font-size: 20px;
+	    text-align: center;
+		display: block;
+	}
+	.tooltipWap {
+		display: none;
+		position: absolute;
+		width:144px;
+		margin:0;
+		padding:0;
+		z-index:999;
+		top:100%;
+		right:0;
+		background:rgba(255,255,255,.8);
+		& .tipIcon {
+			background: url(../images/training.png) no-repeat -5px -40px; 
+			height: 21px;
+		    margin: 6px;
+		    position: absolute;
+		    width: 21px;
+			} 
+		
+		& p {
+			color: #3FB1A4;
+		    display: inline-block;
+		    font-size: 12px;
+		    line-height: 16px;
+		    margin: 8px 4px 4px 10px;
+		    text-indent: 24px;
+		}
+		&::after { 
+			background: url("../images/training.png") no-repeat scroll -46px -168px transparent;
+		    display: block;
+		    height: 25px;
+		    margin: -8px 0 0 10px;
+		    width: 30px;
+		}
+	}	
+	&:hover {
+		background: rgba(255,255,255,.8);
+		& .tooltipWap {
+			display: block;
+		}
+	}
+}
+// icon key
+.iconKey {
+	left: 0;
+    position: fixed;
+    top: 0;
+    width: 50px;
+    z-index: 100000;
+	&.active {
+		width: auto;
+	}
+	& h4 {
+		font-size: 100%;
+	    line-height: 1.2em;
+	    padding: 22% 0;
+	    text-align: center;
+	    width: 50px;
+	}
+	& .key {
+		width: 50px;
+		height:50px;
+		background:url("../images/lead-icon.png") no-repeat scroll 94% -1% rgba(255,255,255,.1);
+		margin: 0 0 4% 0;
+		position:relative;
+		&:hover {
+			background-color:$blue;
+			@include box-shadow-2(0 1px 3px rgba(255,255,255,.6), 0 1px 4px rgba(0,0,0,.5) inset);
+			& .toolTip {
+				display: block;
+				top: 0;
+				width: auto;
+				left:100%;
+				height: auto;
+				color: $dark-blue;
+				font-weight: bold;
+				text-shadow: 0 1px 1px rgba(255,255,255,.4);
+				background:rgba(255,255,255,.9);
+			}
+		}
+		&.lead-new {background-position:center -1.6%;}
+		&.lead-won {background-position:center 43%;}
+		&.lead-lost {background-position:center 32%;}
+		&.lead-quoted {background-position:center 52.8%;}
+		&.lead-contact {background-position:center 20.6%;}
+		&.lead-notContact {background-position:center 9.6%;}
+		&.help {background-position:center 95%;}
+	}
+}
+// toolPage
+.toolWrapper {
+	width:65.77%;
+	position: relative;
+	.toolPage {
+		overflow:hidden;
+		position:relative;
+		padding:20px;
+		& p {
+			background:#fff;
+			border:3px solid $blue;
+			padding:1em;
+		}
+		& .tip {
+			display: block;
+			background:url(../images/tooptipSprite.png) 0 0 no-repeat;
+			width: 18px;
+			height: 18px;
+			position:absolute;
+			left: 20px;
+			bottom:8px;
+			&.top {
+				background-position: 0 -158px;
+		    	top: 8px;
+		    }
+		    &.left {
+		    	background-position: 0 -260px;
+			    bottom: 19px;
+			    left: 8px;
+			}
+			&.leftTop {
+				background-position: 0 -366px;
+			    left: 7px;
+			    top: 20px;
+			}
+			&.right {
+		    	background-position: right -211px;
+			    left: auto;
+			    right: 8px;
+			    top: 20px;
+			}
+			&.rightTop {
+				background-position: right -211px;
+			    left: auto;
+			    right: 8px;
+			    top: 20px;
+			}
+		}
+		&.grid-tool, &.sort-tool, &.email-tool, &.phone-tool, &.leads-home, &.share-home, &.reminders-home, &.perf-home, &.setting-home, &.setup-home, &.menu-lead, &.menu-click, &.menu-campaign, &.status-lead, &.value-lead, &.contact-lead, &.detail-lead, &.bid-lead, &.notes-lead, &.reminder-lead {
+		    position: absolute;
+		}
+		&.export-tool {
+			width:30%;
+		}
+		&.grid-tool, &.sort-tool {
+		    width: 27%;
+		}
+		&.grid-tool {
+		    right: -122px;
+		    top: -80px;
+		}
+		&.sort-tool {
+		    right: -323px;
+		    top: 32px;
+		    width: 47%;
+		}
+		&.email-tool {
+		    right: -242px;
+    		top: 168px;
+		    width: 40%;
+		}
+		&.phone-tool {
+		    right: 134px;
+		    top: 212px;
+		    width: 30%;
+		}
+		&.service-tool {
+			left: 20px;
+    		top: -48px;
+		    width: 28%;
+		}
+		&.lead-tool {
+			left: 250px;
+    		top: -10px;
+		    width: 27%;
+		}
+		// Home
+		&.leads-home {
+			left: 20px;
+		    top: 22px;
+		    width: 28%;
+		}
+		&.share-home {
+			right: 390px;
+		    top: 8px;
+		    width: 22%;
+		}
+		&.reminders-home {
+			left: 0;
+		    top: 212px;
+		    width: 25%;
+		}
+		&.perf-home {
+			right: 345px;
+		    top: 250px;
+		    width: 20%;
+		}
+		&.setting-home {
+			right: -110px;
+    		width: 18%;
+		}
+		&.setup-home {
+			right: -110px;
+		    top: 230px;
+		    width: 18%;
+		}
+		// lead
+		&.menu-lead {
+			top: -90px;
+    		width: 28%;
+		}
+		&.menu-click {
+			left: auto;
+		    right: 80px;
+		    top: 50px;
+		    width: 30%;
+		}
+		&.menu-campaign {
+			right: -120px;
+		    top: -90px;
+		    width: 30%;
+		}
+		&.status-lead {
+			left: auto;
+		    right: -130px;
+		    top: -10px;
+		    width: 30%;
+		}
+		&.value-lead {
+			left: 150px;
+		    top: 40px;
+		    width: 40%;
+		}
+		&.contact-lead {
+			left: 90px;
+		    top: 150px;
+		    width: 30%;
+		}
+		&.detail-lead {
+			left: 490px;
+		    top: 190px;
+		    width: 40%;
+		}
+		&.reminder-lead {
+			left: 70px;
+		    top: 340px;
+		    width: 36%;
+		}
+		&.notes-lead {
+			left: 430px;
+		    top: 330px;
+		    width: 36%;
+		}
+		&.bid-lead {display:none;}
+		// Account
+		&.account-tool {
+			left: 110px;
+    		top: 70px;
+    		width: 48%;
+		}
+		// share
+		&.share-tool {
+			left: 230px;
+		    top: -10px;
+		    width: 48%;
+		}
+		// emailSem-tool
+		&.emailSem-tool {
+			left: 110px;
+		    top: 323px;
+		    width: 48%;
+		}
+		// Setup
+		&.main-setup {
+			left: 20%;
+		    top: -130px;
+		    width: 46%;
+		}
+		&.bid-setup {
+			left: 28px;
+		    top: -80px;
+		    width: 28%;
+		}
+		&.loc-setup {
+			left: 400px;
+		    top: -170px;
+		    width: 27%;
+		}
+		&.adjust-setup {
+			left: 600px;
+		    top: -180px;
+		    width: 27%;
+		}
+	}
+	&.listOn {
+		& .toolPage {
+			&.email-tool {
+			    right: -182px;
+			    top: 108px;
+			}
+			&.phone-tool {
+			    right: 78px;
+			    top: 184px;
+			}
+			&.service-tool {
+				left: 70px;
+			    top: -30px;
+			}
+			&.lead-tool {
+				left: 240px;
+			    top: -40px;
+			}
+		}
+	}
+}
+.main .toolWrapper {
+	width:100%;
+}
+// msgSpace
+.msgSpace {
+    height: auto;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+}
+.msg {
+    margin-bottom: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+.fixed .msg {
+	position:fixed;
+}
+.msg p{ 
+	padding:.9em .6em .9em 40px; 
+	font-size:1.6em; 
+	background-repeat:no-repeat; 
+	background-position:10px 51%;
+}
+.msg a.close{ 
+	font-size:0; 
+	line-height:0; 
+	position:absolute; 
+	top:0; 
+	right:0; 
+	width:34px; 
+	height:34px; 
+	background:url(../images/crm/close.gif); 
+	text-indent: -4000px;
+}
+.msg-ok p { 
+	background-color:#fffac2; 
+	border:solid 1px #dbd6a2; 
+	color:#5e5c40; 
+	background-image:url(../images/crm/msg-ok.gif); 
+}
+.msg-error p { 
+	background-color:#E8E8E8; 
+    border-bottom: 3px solid #E53F2D;
+    color: #E53F2D;
+    text-shadow: 0 1px 1px #FFFFFF;
+	background-image:url(../images/crm/msg-error.png);  
+}
+.msg-prepay p { padding-left:50px; background-color:#f3c598; border:solid 1px #e8b084; color:#ba4c32; background-image:url(../images/msg-prepay_30x21.png);  }
+.msg p { -moz-border-radius:6px; -webkit-border-radius:6px; }
+.overlaybox .msg {
+	left: 0;
+    position: absolute;
+    top: -40px;
+    width: 100%;
+    font-size: 46%;
+}
+
+// overlayHowTo
+.overlayHowTo {
+	height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+    background:url(../images/xOut.png) 98% 8% no-repeat rgba(0,0,0,.4);
+    top:0;
+    right:0;
+    left:0;
+	& .overLeadWrap {
+		@extend .gw;
+		margin: 134px auto 0 auto !important;
+	    overflow: visible !important;
+	    position: relative;
+	}
+	& .overGWrap {
+		@extend .gw;
+		margin: 123px auto 0 auto !important;
+	    overflow: visible !important;
+	    position: relative;
+		& .box, & .contentBox {
+			overflow: visible !important;
+			background:none;
+			position:relative;
+			&:hover {
+				background:none;
+				@include box-shadow(none);
+			}
+			& h1 ,& h2 ,& h4 {
+				font-family: 'Handlee', cursive;
+				font-weight: normal;
+			}
+			& h4 {
+				font-size: 120%;
+				position:absolute;
+				padding:10% 20% 10% 0;
+				height: 190px;
+				overflow: hidden;
+				text-overflow:ellipsis;
+				background: url("../images/trainingSprite.png") no-repeat scroll 140% 0 transparent;
+			}
+			& .liG {
+				background: none;
+				& li, & .listIcon	,& h3,& h4 ,& .phNum ,& .emailL ,& p {
+					background: none;
+					@include box-shadow(none);
+				}
+			}
+		}
+		& .topCallOut {
+			background: url("../images/trainingSprite.png") no-repeat scroll 72% -16% transparent;
+		    height: 190px;
+		    position: relative;
+		}
+
+		& .share, & .leads {
+			& h4 {
+				bottom: 80%;
+				background-position: 92% -19%;
+			}
+		}
+		& .rem, & .perfStat {
+			& h4 {
+				top: 80%;
+				background-position: 92% 94%;
+			}
+		}
+		& .closeMe {
+			background: url("../images/trainingSprite.png") no-repeat scroll 0 100% transparent;
+		    height: 20px;
+		    position: absolute;
+		    right: 0;
+		    top: -10%;
+		    width: 20px;
+		    cursor: pointer;
+		    z-index: 1000;
+		}
+	}
+}
+.boxW #alertbox {
+    height: auto;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    width: 67%;
+}
+.boxW #alertboxcontent {
+	height:auto;
+}
+#top-navigation { 
+	font-size:.8em; 
+	color:#ddd; 
+	float:right; 
+	line-height:22px;
+	.userName {
+		font-size: 120%;
+	}
+}
+/*** paginator ***/
+.pagging { 
+	padding:8px 10px; 
+	line-height:19px; 
+	color:#949494;
+	& a{ 
+		background:$teal-soft; 
+		float:left; 
+		padding:.3em .5em;
+		text-decoration: none; 
+		color:$gray;
+		text-shadow:0 1px 1px $white;
+		margin-left:5px;
+		@include box-shadow(0 1px 4px rgba(0,0,0,.5));  
+	}
+	& a:hover {
+		background:$green;
+		@include box-shadow-2(0 1px 3px rgba(255,255,255,.6), 0 1px 4px rgba(0,0,0,.5) inset);
+	}
+	& a.pagesel { 
+		background:$blue; 
+		color:#024270; 
+		@include box-shadow-2(0 1px 3px rgba(255,255,255,.6), 0 1px 4px rgba(0,0,0,.5) inset);
+	}
+	& span{ 
+		float:left; margin-left:5px; 
+		padding-top:2px; 
+	}
+	& .left { 
+		color: $white; 
+	}
+}
+// Expand
+.controlW {
+	background: url("../images/spacer90.png") repeat scroll 0 0 transparent;
+	overflow:hidden;
+	height: 26px;
+	width:100%;
+	top: -26px;
+	left:0;
+    position: absolute;
+}
+.expand, .lbclose {
+    background: url("../images/lead-icon.png") no-repeat scroll center bottom $teal-soft;
+    height: 100%;
+    width: 26px;
+    cursor: pointer;
+    text-align: center;
+    float: left;
+    &:hover {
+    	background-color:$blue;
+    }
+}
+.lbclose {
+	background: none no-repeat scroll center bottom $teal-soft;
+	float:right;
+	font-size:100%;
+	font-weight:bold;
+	text-shadow:0 1px 1px #fff;
+}
+.messCount {
+	margin: 0 1% 0 2%;
+	text-align:right;
+	display:block;
+	& > div {
+		display:inline-block;
+		color: #fff;
+		background:$blue;
+		width:22px;
+		padding:0 0 22px 0;
+		height:0;
+		margin: 0 1%;
+		text-align: center;
+		font-weight: bold;
+		@include border-radius(50%);
+	}
+	&:hover {
+		& > div {
+			background:$red;
+		}
+	}
+}
+.earnedAmount {
+    float: right;
+    font-size: 486%;
+    padding: 3% 5% 0;
+    text-align: center;
+    width: 50%;
+}
+.earnedSpan {
+    color: #FFFFFF;
+    display: block;
+    font-size: 120%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.box.active.faq {
+	margin-bottom: 6%;
+}
+.faq h2, .faq p {
+	padding:0 2%;
+	margin:2% 0 0 0;
+}
+.faq p {
+	color:#bcbcbc;
+}
+.faq b {
+	font-size:1.8em;
+	color:#fff;
+	padding:0 1% 0 0;
+}
+// add from signup
+.toolSignUp {
+    background: none repeat scroll 0 0 rgba(255,255,255,.9);
+    font-size: 120%;
+    left: -61%;
+    padding: 4.6% 4%;
+    position: absolute;
+    text-align: center;
+    top: 184px;
+    width: 50%;
+    z-index: 99999;
+    b {font-size:120%;}
+    &::after, &:after {
+		background:url("../images/arrowToolSignUp.png") no-repeat scroll 0 0 transparent;
+	    clear: both;
+	    content: "";
+	    display: block;
+	    height: 93px;
+	    position: absolute;
+	    right: -21%;
+	    top: 0;
+	    width: 45px;
+	    display:none\9; /* ie fix */
+	}
+	&.rightSelect {
+		top: 140px;
+		left:590px;
+		&::after, &:after {
+			background:url("../images/arrowToolSignUp-left.png") no-repeat scroll 0 0 transparent;
+			left:-45px;
+		}
+	}
+	&.billingCard {
+    	top: 349px;
+    	 &::after, &:after {
+    		top: 26px;
+    	}
+    }
+    & .closeTool {
+    	width: 30px;
+    	height: 30px;
+    	position:absolute;
+    	right:0;
+    	top:0;
+    	background:url("../images/xOut.png") no-repeat scroll top right;
+    }
+}
+
+// t3form
+#t3form {
+	.msg {
+		position: absolute;
+	}
+}
+.msg {z-index:999999999999 !important;}
+
+// #bidlist
+// #bidlist {
+// 	input[type="text"] {
+// 		margin: 0 0 2% 0;
+// 	}
+// 	label {
+// 		font-size: 1.4em;
+// 	    margin: -36px 0 0;
+// 	    position: absolute;
+// 	    right: 10px;
+// 	}
+// }
+#bidsform {
+	.toolSignUp {display:none !important;}
+}
+
+// Temp fix
+ul.gdL {
+	margin: 0 0 2% 0;
+	width:100%;
+	& li {
+		position:relative;
+		width:49%;
+		margin: 0 1% 2% 0;
+		font-size:106%;
+		padding:2%;
+		float: left;
+		text-align: center;
+		background:$blue;
+		&.liHead {
+			display: none;
+		}
+		&:nth-child(odd) {
+			margin: 0 0 2% 1%;
+			// background:rgba(255,255,255,.2);
+		}
+		& .edit {
+			display: none;
+			position:absolute;
+			left: 0;
+			width: 100%;
+			height:2em;
+			& button {
+				height: 100%;
+				padding: 0 1%;
+				font-size: 1em;
+				&.editMe {
+					float: right;
+				}
+			}
+		}
+		& span, & input[type="text"], & input[type="number"]  {
+			height: autop;
+    		line-height: 22px;
+			text-align: center;
+			border:none;
+			background:none;
+			color: $white;
+			&:focus {    
+				color: $gray;
+				background:$white;
+				border-bottom:none;
+				@include box-shadow(0 1px 1px rgba(0,0,0,.7) inset);
+			}
+			&:focus::-webkit-input-placeholder, &:focus::-moz-placeholder {
+			    @include box-shadow(none);
+			    color: $gray;
+			    border-bottom:none;
+			}
+		}
+		& span {
+			// white-space: nowrap;
+			// overflow: hidden;
+			// text-overflow:ellipsis;
+			display: block;
+		    height: 92px;
+		    padding: 6% 0 0;
+		    width: 100%;
+		}
+		label {
+			font-size: 0.8em;
+		    height: 36px;
+		    line-height: 1.1em;
+		    padding: 0.3em 0;
+		    text-align: left;
+		    display: block;
+		}
+		& input[type="text"], & input[type="number"]  {
+			background:$white;
+			background:none repeat scroll 0 0 rgba(255, 255, 255, 0.6);
+			border-bottom:2px solid #105270;
+			@include letterpress(1);
+			margin: 2% 0 0 1%;
+    		width: 66%;
+    		color: $gray;
+    		float: right;
+    		font-weight: bold;
+    		text-align: left;
+    		padding:1% 6%;
+			&:hover {
+				border-bottom:none;
+				cursor: pointer;
+				background:$white;
+				background:none repeat scroll 0 0 rgba(255, 255, 255, 0.8);
+				&:focus {    
+					color: $gray;
+					background:$white;
+					border-bottom:none;
+				}
+			}
+		}
+		& span.st-icon {
+			background:url(../images/strength.png) no-repeat 94% -78px;
+			height: 22px;
+			width: 38px;
+			bottom: 53px;
+		    position: absolute;
+		    right: 8px;
+		    z-index: 99999;
+			&.great {
+				background-position: center -62px;
+			}
+			&.good {
+				background-position: center -41px;
+			}
+			&.fair {
+				background-position: center -17px;
+			}
+			&.poor {
+				background-position: center 4px;
+			}
+		}
+		& span.selWrap{
+		    height: 22px;
+		    margin: 0 0 1px 0;
+		    padding: 0;
+		    & select.selIner {
+			    height: 22px;
+			    left: 0;
+			}
+			& span.selText {
+				width:100%;
+				padding: 0 16px 0 0;
+				background:url(../images/sm-arrow-green.png) no-repeat 100% 97.8% $white;
+				color:$gray;
+				border-bottom:2px solid #105270;
+				@include letterpress(0);
+			}
+		}
+	}
+}
+
+// Error
+input.inputred[type="text"] {
+	background:#E53F2D !important;
+	color:#fff !important;
+	text-shadow:0 -1px 1px rgba(0,0,0,.5) !important;
+}
+// Media Querys
+@media only screen and (max-width: $start-width + 70px)
+{
+	.iconKey {
+		display:none;
+	}
+}
+@media only screen and (max-width: $start-width)
+{
+	@include grid-wrap($gw-width: 100%);
+	body {font-size:80%;}
+	.subBox .subHead .subAdd{
+		width: 28%;
+	}
+	.overlayboxlightbox {
+		left: 30%;
+	    margin: 0;
+	    padding: 0;
+	    width: 40%;
+	    & .subBox {
+			padding: 2% 5%;
+		}
+	}
+	.openMe .overlayboxlightbox {
+	    left: auto;
+	    margin: 0;
+	    padding: 0;
+	    top: 10%;
+	    width: 100%;
+	}
+}
+@media only screen and (min-width: $mobile-lr) and (max-width: 940px)
+{
+	.boxCount {
+	    font-size: 7em;
+	    padding: 8% 0 0 0;
+	}
+}
+@media only screen and (min-width: $mid-sm) and (max-width: $mid-lr)
+{
+    @include grid-custom($gw-width: 100%);
+    body {font-size:80%;}
+	.box {
+		&.leads, &.rem, &.perfStat, &.accSet, &.prodSet, &.share {@extend .gd4;}
+		&.active {&.leads, &.rem, &.perfStat, &.accSet, &.prodSet, &.share {@extend .gd12;}}
+	}
+	.main .box {
+		&.leads, &.rem {@extend .gd6;}
+		&.share, &.accSet, &.prodSet, &.perfStat {width:24%;}
+		&.share, &.perfStat {
+			& .iconBox {
+				width:100%;
+			}
+		}
+	}
+	.boxCount {
+	    padding: 6% 0 0 0;
+	}
+	.contentBox {
+		@extend .gd12;
+		&.smForm {@extend .gd12;}
+		&.form {
+			margin: $top $right $bottom $left;
+		}
+	}
+	.toggleW {
+	    padding: 4.5% 2% 0 0;
+	    width: 24%;
+	}
+	.liG.listOn .emailL {
+	    float: right;
+	    margin: 0;
+	    width: 20%;
+	}
+	.overlayboxlightbox {
+		left: 20%;
+    	width: 60%;
+    	padding:0;
+    	margin: 0;
+    	& .subBox {
+			padding: 2% 3% 3% 3%;
+		}
+	}
+	// signIn
+	.signIn {
+		& .contentBox {
+			width: 65%;
+		}
+	}
+	.overlayHowTo {
+		& .overGWrap {
+			& .box h4 {
+				font-size: 100%;
+				padding:10% 38% 10% 0;
+				bottom:50%;
+			}
+		}
+	}
+	.updateStat li {
+	    padding: 0.9em 1.4em 0.9em 3em;
+	}
+	.openMe .overlayboxlightbox {
+	    left: 1%;
+	    margin: 0;
+	    padding: 0;
+	    top: 10%;
+	    width: 100%;
+	    & > .subBox, & .controlW {
+			width:98%;
+		}
+	}
+}
+@media only screen and (min-width: $mobile-sm) and (max-width: $mobile-lr)
+{
+	@include grid-custom($gw-width: 100%);
+	body {font-size:110%;}
+	// Active Box
+	.box {
+		height: 130px;
+		&.leads, &.rem, &.perfStat, &.accSet, &.prodSet, &.share {@extend .gd6;}
+		&.active {
+			@extend .gd12;
+			height: auto;
+			& .newL, & .allL {
+				width:100%; 
+				float:left; 
+				min-height:auto; 
+				height:auto;
+			}
+			& .allL {
+				float:right;
+			}
+		}		
+	}
+    .main .box {
+    	height: 130px;
+		&.leads, &.share, &.rem, &.perfStat, &.accSet, &.prodSet {@extend .gd6;}
+		&.leads, &.share, &.rem, &.perfStat {
+			& .iconBox {
+				width:100%;
+			}
+			& .boxCount {
+				position: absolute;
+				right: 0;
+				top: 0;
+				font-size: 1.4em;
+				padding:.2em;
+				width: auto;
+				height:auto;
+				z-index: 9;
+			}
+		}
+		
+	}
+	.header {
+		& h1 {
+		    float: none;
+		    padding: 2%;
+		    text-align: center;
+		}
+		& .logo {
+		    background-position: center center;
+		    border-right: 0 none;
+		    height: 72px;
+		    margin: 0;
+		    width: 100%;
+		    display: block;
+		    float: none;
+		}
+	}
+	.iconBox {
+		padding:0;
+		& h2 {
+			font-size:80%;
+			line-height: 1.2em;
+		}
+		.box.leads &, .box.rem &, .box.perfStat & {
+			width: 100%;
+		}
+	}
+	.contentBox {
+		@extend .gd12;
+		&.smForm {@extend .gd12;}
+		&.form {
+			margin: $top $right $bottom $left;
+			& .subBox h2 {
+				width: auto;
+			}
+			& .subBox {
+				@extend .gd12;
+			}
+		}
+		& h2 {
+			line-height: 1.2em;
+		    font-size: 132%;
+		    text-align: left;
+		    width: 62%;
+		}
+		& .iconBox h2 {
+			line-height: 1.1em;
+		    padding: 2% 0;
+		    width: 88%;
+		}
+		& input[type="text"] {
+			width:34%;
+		}
+		& .updateStat {
+		    float: left;
+		    width: 96%;
+		    & h5 {
+		    	width: 77%;
+		    }
+		    & ul {
+		    	width:100%;
+		    }
+		}
+	}
+	.box.active {
+		& h2 {
+			line-height: 1.2em;
+		    font-size: 132%;
+		    width: 62%;
+		    text-align: left;
+		}
+		&.leads h2 {
+			width: 36%;
+		}
+		& .iconBox h2 {
+			line-height: 1.1em;
+		    padding: 2% 0;
+		    width: 88%;
+		}
+	}
+	// .social .subBox.emailTrack {
+	// 	@extend .gd12;
+	// 	height: auto;
+	// }
+	.subBox {
+		@extend .gd12;
+		height: auto;
+		& .subHead .subAdd {
+			width:26%;
+		}
+		&.message {
+			& input[type="text"] {
+				width:100%;
+				float: left;
+			}
+			& label {
+				clear: both;
+				display: block;
+			}
+		}
+	}
+	span.selWrap.savedTemp {
+	    width: 100%;
+	    margin: 4% 0;
+	}
+	.toggleW {
+		width: 36%;
+	    padding: 6.5% 2% 0 0;
+	}
+	// .liG.listOn li, .liG.listOn a {
+	// 	padding:5.8% 1.8% 0.8% 1.8%;
+	// }
+	.liG.listOn a span.editLoc {
+		width:98%;	
+	}
+	.liG li, .liG > a {
+		@extend .gd6;
+	}
+	.liG.listOn > li, .liG.listOn > a {
+	    padding: 7.8% 1.8% 0.8% 1.8%;
+	}
+	.liG.listOn p {
+		right: 3%;
+    	top: 6%;
+    	left:auto;
+	}
+	.liG.listOn h3, .liG.listOn h4 {
+		width: 42%;
+	}
+	.liG.listOn .phNum, .liG.listOn .emailL {
+		width: 46%;
+		margin: 0 2% 2% 2%;
+	}
+	.liG.listOn .editLoc {
+		margin: 0 3% 0 0;
+	}
+	.liG.listOn .editLoc, .liG.listOn input[type="text"] {
+		width:48%;
+	}
+	.liG.listOn h4 {
+		margin: 0 1% 3% 0;
+	}
+	.liG .liHeader {display:none;}
+	.phNum {
+	    clear: both;
+	}
+	.overlayboxlightbox {
+		left: 5%;
+		top:16%;
+    	width: 90%;
+    	margin: 0;
+    	padding:0;
+    	& .subBox {
+			padding: 2% 3% 3% 3%;
+		}
+	}
+	// signIn
+	.signIn {
+		& .contentBox {
+			width: 92%;
+			h2 {
+				font-size: 100%;
+				padding: 10% 0 0 0;
+			}
+			.formlayout h2{
+				width:99%;
+				padding:0;
+			}
+		}
+	}
+	.formlayout {
+		& label {
+		    text-align: left;
+		    width: 100%;
+		    & span {
+		    	float:right; 
+		    	font-size: 80%;
+		    }
+		}
+		& .button {
+			width: 100%;
+			float: none;
+		}
+		& input[type="text"], & input[type="number"], & input[type="email"], & input[type="password"],  {
+			margin: 0 0 2% 0;
+	    	width: 100%;
+		}
+	}
+	// span.selWrap
+	span.selWrap {
+		&.sort	{
+			margin: 2% 12% 0 0;
+			padding: 0 0 0 10%;
+		    width: 40%;
+		}
+	}
+	// export
+	.export {
+		font-size:100%;
+		padding:.2em .6em .2em 10%;
+	}
+	.overlayHowTo {
+		& .overGWrap {
+			& .box h4 {
+				font-size: 80%;
+				padding:10% 38% 10% 0;
+				bottom:50%;
+			}
+		}
+	}
+	.header .logo span {
+	    text-align: center;
+	}
+	.productSet .menu, .menu {
+	    background-position: -5px 73%;
+	    height: 30px;
+	    margin: 9% 2% 0 0;
+	    overflow: hidden;
+	    padding: 30px 0 0;
+	    width: 30px;
+	    &:hover, &.active {
+	    	background-position: -5px 73%;
+	    }
+	}
+	#top-navigation {text-align:center; float:none; }
+	// button
+	.button {
+		@include border-radius(0);
+	}
+	.overlayboxlightbox {
+		& h3 {
+			font-size: 1.5em;
+			padding: 4% 0 2% 40px;
+		}
+	}
+	.mLinks a {
+		width: 98%;
+		margin: 1% 1% 0 1%;
+	}
+	.pagging .left {
+		width: 100%;
+		text-align: center;
+		margin: 2% 0;
+	}
+	.pagging .right {
+		width:100%;
+	}
+	.toolTip {
+	    height: 52%;
+	    left: 12%;
+	}
+	.openMe .overlayboxlightbox {
+	    left: 1%;
+	    margin: 0;
+	    padding: 0;
+	    top: 4%;
+	    width: 100%;
+	    height: 90%;
+	    & > .subBox, & .controlW {
+			width:98%;
+		}
+		& > .subBox > .subBox {
+			height: 86%;
+		}
+	}
+	.messCount {
+	    text-align: center;
+	}
+	.toolSignUp {display:none;}
+}
+
+

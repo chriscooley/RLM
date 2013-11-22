@@ -1,0 +1,93 @@
+// Base Colors
+$white: #ffffff;
+$black: #000000;
+$gray: #43484e;
+$red: #e64849;
+$orange: #f18c2c;
+$blue: #44a9de;
+$green: #8fbf26;
+$purp: #a433a9;
+// New Colors
+$dark-blue: #011931;
+$baby-blue: #8ACDE6;
+$teal: #3fb1a4;
+$teal-soft: #e3f4f2;
+$gray-blue: #b7c0c4;
+
+// DONT CHANGE VARIABLE NAMES BELOW THIS POINT 
+// _base.scss AND mixins.scss ARE DEPENDENT ON THESE VARS
+
+// body Background
+$body-bg: url(../images/bgM.jpg) center top no-repeat $dark-blue;
+$body-text-color: $gray;
+$body-font-family: 'Lato', sans-serif;
+$body-font-size: 100%;
+
+// headline color
+$head-line: $white;
+
+// Base font-size
+$h1-size: 2em;
+$h2-size: 1.3em;
+$h3-size: 1.2em;
+$h4-size: 1em;
+$h5-size: .8em;
+$h6-size: .6em;
+$label-size: 1em;
+$p-size: .8em;
+$li-size: .7em;
+
+// input style
+$input-bg: $white;
+$input-text-color: $gray;
+$input-focus-text-color: $gray;
+$input-focus-border-color: $red;
+
+// custom select drop down
+$select-text-color: #757474;
+$select-gradent-to: $white; 
+$select-gradent-from: #e7e7e7;
+$select-gradent-default: $white;
+
+// btn color
+$btn-bg: $red;
+$btn-text-color: $white;
+$btn-bg-hover: $orange;
+
+// Elements
+$link: $blue;
+$linkHover: $red; 
+$uiBorder: 4px solid $baby-blue;
+
+// Spacing
+$auto: 0 auto;
+$padding1: 1.4% 2%;
+$globalSpace: 0 0 2% 0;
+$globalSpaceR: 0 2% 2% 0;
+
+// Grid Margin Spacing
+$top: .45%;
+$right: .45%;
+$bottom: .45%;
+$left: .45%;
+
+// Grid
+$gd-1: 8.33%;
+$gd-2: 16.66%;
+$gd-3: 25%;
+$gd-4: 33.33%;
+$gd-5: 41.67%;
+$gd-6: 50%;
+$gd-7: 58.33%;
+$gd-8: 66.67%;
+$gd-9: 75%;
+$gd-10: 83.34%;
+$gd-11: 91.67%;
+$gd-12: 100%;
+
+// Braking Points
+$start-width: 1140px;
+$mid-lr: 767px;
+$mid-sm: 481px;
+$mobile-lr: 480px;
+$mobile-sm: 0;

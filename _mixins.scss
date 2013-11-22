@@ -1,0 +1,135 @@
+@mixin letterpress($opacity){
+    text-shadow:0 1px 1px rgba(255,255,255,$opacity);
+}
+@mixin blackShadow($opacity){
+    text-shadow:0 1px 1px rgba(0,0,0,$opacity);
+}
+@mixin border-radius ($borderRadius){
+	-webkit-border-radius: $borderRadius;
+	-moz-border-radius: $borderRadius;
+	border-radius: $borderRadius;
+}
+@mixin box-shadow ($boxShadow){
+	-moz-box-shadow: $boxShadow;
+	-webkit-box-shadow: $boxShadow;
+	-ms-box-shadow: $boxShadow;
+	-o-box-shadow: $boxShadow;
+	box-shadow: $boxShadow;
+}
+@mixin box-shadow-2 ($boxShadow, $boxShadowInset){
+	-moz-box-shadow: $boxShadow, $boxShadowInset;
+	-webkit-box-shadow: $boxShadow, $boxShadowInset;
+	-ms-box-shadow: $boxShadow, $boxShadowInset;
+	-o-box-shadow: $boxShadow, $boxShadowInset;
+	box-shadow: $boxShadow, $boxShadowInset;
+}
+@mixin linear-gradient ($gradentTo, $gradentFrom, $noGradent){
+	background: $noGradent;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($gradentFrom), to($gradentTo)); 
+	background: -webkit-linear-gradient(top, $gradentTo, $gradentFrom);
+	background: -moz-linear-gradient(top, $gradentTo, $gradentFrom);
+	background: -ms-linear-gradient(top, $gradentTo, $gradentFrom);  
+	background: -o-linear-gradient(top, $gradentTo, $gradentFrom);
+	background: linear-gradient(top, $gradentTo, $gradentFrom);
+}
+@mixin image-linear-gradient ($imgPath, $gradentToImg, $gradentFromImg, $noGradentImg){
+	background:$imgPath no-repeat scroll $noGradentImg;
+	background:$imgPath no-repeat scroll, -webkit-gradient(linear, left bottom, left top, from($gradentFromImg), to($gradentToImg));
+	background:$imgPath no-repeat scroll, -webkit-linear-gradient(center top, $gradentToImg, $gradentFromImg);
+	background:$imgPath no-repeat scroll, -moz-linear-gradient(center top , $gradentToImg, $gradentFromImg);
+	background:$imgPath no-repeat scroll, -ms-linear-gradient(center top, $gradentToImg, $gradentFromImg);  
+	background:$imgPath no-repeat scroll, -o-linear-gradient(center top, $gradentToImg, $gradentFromImg);
+}
+// transition
+@mixin transition ($tr){
+	-webkit-transition:$tr;  
+    -moz-transition:$tr;    
+    -o-transition:$tr;     
+    -ms-transition:$tr;      
+    transition:$tr;
+}
+// Custom grid
+@mixin grid-wrap ($t:$top, $r:$right, $b:$bottom, $l:$left, $gw-class:'', $gw-width: $start-width, $gw-margin: $auto){
+	.gw#{$gw-class} {
+		overflow: hidden;
+		width: $gw-width;
+		margin: $gw-margin;
+		padding:$t $r $b $l;
+	}
+}
+@mixin grid ($t:$top, $r:$right, $b:$bottom, $l:$left, $mobile: false, $gd-width: 100%, $gd-class:'', $gd-float: left, $gd-clear: none){
+	@if $mobile == true {
+		.gd#{$gd-class} {
+			float:none;
+			clear:both;
+			margin:$t $r $b $l;
+			width:100% - $r - $l;
+		}
+		.gd#{$gd-class}1  {@extend .gd#{$gd-class};}
+		.gd#{$gd-class}2  {@extend .gd#{$gd-class};}
+		.gd#{$gd-class}3  {@extend .gd#{$gd-class};}
+		.gd#{$gd-class}4  {@extend .gd#{$gd-class};}
+		.gd#{$gd-class}5  {@extend .gd#{$gd-class};}
+		.gd#{$gd-class}6  {@extend .gd#{$gd-class};}
+		.gd#{$gd-class}7  {@extend .gd#{$gd-class};}
+		.gd#{$gd-class}8  {@extend .gd#{$gd-class};}
+		.gd#{$gd-class}9  {@extend .gd#{$gd-class};}
+		.gd#{$gd-class}10 {@extend .gd#{$gd-class};}
+		.gd#{$gd-class}11 {@extend .gd#{$gd-class};}
+		.gd#{$gd-class}12 {@extend .gd#{$gd-class};}
+	}
+	@else {
+		.gd#{$gd-class} {
+			float:$gd-float;
+			clear:$gd-clear;
+			margin:$t $r $b $l;
+		}
+		.gd#{$gd-class}1  {width: $gd-1 - $r - $l; @extend .gd#{$gd-class};}
+		.gd#{$gd-class}2  {width: $gd-2 - $r - $l; @extend .gd#{$gd-class};}
+		.gd#{$gd-class}3  {width: $gd-3 - $r - $l; @extend .gd#{$gd-class};}
+		.gd#{$gd-class}4  {width: $gd-4 - $r - $l; @extend .gd#{$gd-class};}
+		.gd#{$gd-class}5  {width: $gd-5 - $r - $l; @extend .gd#{$gd-class};}
+		.gd#{$gd-class}6  {width: $gd-6 - $r - $l; @extend .gd#{$gd-class};}
+		.gd#{$gd-class}7  {width: $gd-7 - $r - $l; @extend .gd#{$gd-class};}
+		.gd#{$gd-class}8  {width: $gd-8 - $r - $l; @extend .gd#{$gd-class};}
+		.gd#{$gd-class}9  {width: $gd-9 - $r - $l; @extend .gd#{$gd-class};}
+		.gd#{$gd-class}10 {width: $gd-10 - $r - $l; @extend .gd#{$gd-class};}
+		.gd#{$gd-class}11 {width: $gd-11 - $r - $l; @extend .gd#{$gd-class};}
+		.gd#{$gd-class}12 {width: $gd-12 - $r - $l; @extend .gd#{$gd-class};}
+	}
+}
+@mixin grid-custom ($t:$top, $r:$right, $b:$bottom, $l:$left, $gd-width:'', $gd-class:'', $gd-type: false, $gw: false, $mobile: false, $gw-mobile: false, $gw-class: '', $gw-width: $start-width, $gw-margin: $auto){
+	@if $gw == true {
+		@include grid-wrap($t, $r, $b, $l, $gw-class, $gw-width, $gw-margin);
+		@include grid();
+	}
+	@else if $gw-mobile == true {
+		@include grid-wrap($t, $r, $b, $l, $gw-class, $gw-width, $gw-margin);
+		@include grid($mobile: true);
+	}
+	@else if $mobile == true {
+		@include grid($mobile: true);
+	} 
+	@else {
+		@include grid();
+	}
+}
+// li grid 
+@mixin grid-li ($gd-li-count: 5, $li-t:$top, $li-r:$right, $li-b:$bottom, $li-l:$left){
+	.gdL#{$gd-li-count}  {
+		overflow:hidden;
+	}
+	.gdL#{$gd-li-count} li {
+		float:left;
+		margin: $li-t $li-r $li-b $li-l;
+		width: 100% / $gd-li-count - $li-r -$li-l;
+	}
+}
+
+// ellipsis
+@mixin ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+
