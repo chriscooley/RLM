@@ -1,0 +1,384 @@
+@mixin letterpress($opacity){
+    text-shadow:0 1px 1px rgba(255,255,255,$opacity);
+}
+@mixin blackShadow($opacity){
+    text-shadow:0 1px 1px rgba(0,0,0,$opacity);
+}
+@mixin border-radius ($borderRadius){
+	-webkit-border-radius: $borderRadius;
+	-moz-border-radius: $borderRadius;
+	border-radius: $borderRadius;
+}
+@mixin box-shadow ($boxShadow){
+	-moz-box-shadow: $boxShadow;
+	-webkit-box-shadow: $boxShadow;
+	-ms-box-shadow: $boxShadow;
+	-o-box-shadow: $boxShadow;
+	box-shadow: $boxShadow;
+}
+@mixin box-shadow-2 ($boxShadow, $boxShadowInset){
+	-moz-box-shadow: $boxShadow, $boxShadowInset;
+	-webkit-box-shadow: $boxShadow, $boxShadowInset;
+	-ms-box-shadow: $boxShadow, $boxShadowInset;
+	-o-box-shadow: $boxShadow, $boxShadowInset;
+	box-shadow: $boxShadow, $boxShadowInset;
+}
+@mixin linear-gradient ($gradentTo, $gradentFrom, $noGradent){
+	background: $noGradent;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($gradentFrom), to($gradentTo)); 
+	background: -webkit-linear-gradient(top, $gradentTo, $gradentFrom);
+	background: -moz-linear-gradient(top, $gradentTo, $gradentFrom);
+	background: -ms-linear-gradient(top, $gradentTo, $gradentFrom);  
+	background: -o-linear-gradient(top, $gradentTo, $gradentFrom);
+	background: linear-gradient(top, $gradentTo, $gradentFrom);
+}
+@mixin image-linear-gradient ($imgPath, $gradentToImg, $gradentFromImg, $noGradentImg){
+	background:$imgPath no-repeat scroll $noGradentImg;
+	background:$imgPath no-repeat scroll, -webkit-gradient(linear, left bottom, left top, from($gradentFromImg), to($gradentToImg));
+	background:$imgPath no-repeat scroll, -webkit-linear-gradient(center top, $gradentToImg, $gradentFromImg);
+	background:$imgPath no-repeat scroll, -moz-linear-gradient(center top , $gradentToImg, $gradentFromImg);
+	background:$imgPath no-repeat scroll, -ms-linear-gradient(center top, $gradentToImg, $gradentFromImg);  
+	background:$imgPath no-repeat scroll, -o-linear-gradient(center top, $gradentToImg, $gradentFromImg);
+}
+// transition
+@mixin transition ($tr){
+	-webkit-transition:$tr;  
+    -moz-transition:$tr;    
+    -o-transition:$tr;     
+    -ms-transition:$tr;      
+    transition:$tr;
+}
+// transform-rotate
+@mixin transform-rotate ($trr){
+	-webkit-transform:rotate($trr);  
+    -moz-transform:rotate($trr);    
+    -o-transform:rotate($trr);     
+    -ms-transform:rotate($trr);      
+    transform:rotate($trr);
+}
+// grid wrap
+@mixin grid-wrap (){
+	.gW {
+		overflow:visible;
+		width: $startWidth;
+		margin: $auto;
+		padding:0 0 2% 0;
+		position: relative;
+	}
+}
+@mixin grid-wrap-mq (){
+	.gW {width:100%;}
+}
+// grid
+@mixin grid (){
+	.gd {float:left;}
+	.gd1 {width: 8.33%; @extend .gd;}
+	.gd2 {width: 16.66%; @extend .gd;}
+	.gd3 {width: 25%; @extend .gd;}
+	.gd4 {width: 33.33%; @extend .gd;}
+	.gd5 {width: 41.67%; @extend .gd;}
+	.gd6 {width: 50%; @extend .gd;}
+	.gd7 {width: 58.33%; @extend .gd;}
+	.gd8 {width: 66.67%; @extend .gd;}
+	.gd9 {width: 75%; @extend .gd;}
+	.gd10 {width: 83.34%; @extend .gd;}
+	.gd11 {width: 91.67%; @extend .gd;}
+	.gd12 {width: 100%; @extend .gd;}
+}
+@mixin grid-mq (){
+	.gd {float:none; width:100%;}
+	.gd1 { @extend .gd;}
+	.gd2 { @extend .gd;}
+	.gd3 { @extend .gd;}
+	.gd4 { @extend .gd;}
+	.gd5 { @extend .gd;}
+	.gd6 { @extend .gd;}
+	.gd7 { @extend .gd;}
+	.gd8 { @extend .gd;}
+	.gd9 { @extend .gd;}
+	.gd10 { @extend .gd;}
+	.gd11 { @extend .gd;}
+	.gd12 { @extend .gd;}
+}
+// Grid left right merge
+@mixin grid-m (){
+	.gdM {
+		float:right; 
+		clear:right;
+	}
+	.gdM1 {width: 8.33%; @extend .gdM;}
+	.gdM2 {width: 16.66%; @extend .gdM;}
+	.gdM3 {width: 25%; @extend .gdM;}
+	.gdM4 {width: 33.33%; @extend .gdM;}
+	.gdM5 {width: 41.67%; @extend .gdM;}
+	.gdM6 {width: 45%; @extend .gdM;}
+	.gdM7 {width: 58.33%; @extend .gdM;}
+	.gdM8 {width: 66.67%; @extend .gdM;}
+	.gdM9 {width: 75%; @extend .gdM;}
+	.gdM10 {width: 83.34%; @extend .gdM;}
+	.gdM11 {width: 91.67%; @extend .gdM;}
+	.gdM12 {width: 100%; @extend .gdM;}
+}
+@mixin grid-m-mq (){
+	.gdM {
+		float:none; 
+		width:100%;
+	}
+	.gdM1 { @extend .gdM;}
+	.gdM2 { @extend .gdM;}
+	.gdM3 { @extend .gdM;}
+	.gdM4 { @extend .gdM;}
+	.gdM5 { @extend .gdM;}
+	.gdM6 { @extend .gdM;}
+	.gdM7 { @extend .gdM;}
+	.gdM8 { @extend .gdM;}
+	.gdM9 { @extend .gdM;}
+	.gdM10 { @extend .gdM;}
+	.gdM11 { @extend .gdM;}
+	.gdM12 { @extend .gdM;}
+}
+// Grid space
+@mixin grid-s (){
+	.gdS  {
+		float:left; 
+		margin:0 .5% 2% .5%;
+	}
+	.gdS1 {width: 7.33%; @extend .gdS;}
+	.gdS2  {width: 19.2%; @extend .gdS;}
+	.gdS3 {width: 24%; @extend .gdS;}
+	.gdS4 {width: 32.33%; @extend .gdS;}
+	.gdS5 {width: 30.67%; @extend .gdS;}
+	.gdS6 {width: 38%; @extend .gdS;}
+	.gdS7 {width: 57.33%; @extend .gdS;}
+	.gdS8 {width: 65.67%; @extend .gdS;}
+	.gdS9 {width: 74%; @extend .gdS;}
+	.gdS10 {width: 82.34%; @extend .gdS;}
+	.gdS11 {width: 89.67%; @extend .gdS;}
+	.gdS12 {width: 99%; @extend .gdS;}
+}
+@mixin grid-s-mq (){
+	.gdS {
+		float:none; 
+		width:100%; 
+		margin:0;
+		overflow: hidden;
+		height: auto;
+	}
+	.gdS1 {@extend .gdS;}
+	.gdS2 {@extend .gdS;}
+	.gdS3 {@extend .gdS;}
+	.gdS4 {@extend .gdS;}
+	.gdS5 {@extend .gdS;}
+	.gdS6 {@extend .gdS;}
+	.gdS7 {@extend .gdS;}
+	.gdS8 {@extend .gdS;}
+	.gdS9 {@extend .gdS;}
+	.gdS10 {@extend .gdS;}
+	.gdS11 {@extend .gdS;}
+	.gdS12 {@extend .gdS;}
+}
+// Grid Center
+@mixin grid-c (){
+	.gdC {
+		margin: $auto; 
+		clear:both;
+	}
+	.gdC1 {width: 8.33%; @extend .gdC;}
+	.gdC2 {width: 16.66%; @extend .gdC;}
+	.gdC3 {width: 25%; @extend .gdC;}
+	.gdC4 {width: 33.33%; @extend .gdC;}
+	.gdC5 {width: 41.67%; @extend .gdC;}
+	.gdC6 {width: 50%; @extend .gdC;}
+	.gdC7 {width: 58.33%; @extend .gdC;}
+	.gdC8 {width: 66.67%; @extend .gdC;}
+	.gdC9 {width: 80%; @extend .gdC;}
+	.gdC10 {width: 83.34%; @extend .gdC;}
+	.gdC11 {width: 91.67%; @extend .gdC;}
+	.gdC12 {width: 100%; @extend .gdC;}
+}
+@mixin grid-c-mq (){
+	.gdC {margin: $auto; width:100%;}
+	.gdC1 { @extend .gdC;}
+	.gdC2 { @extend .gdC;}
+	.gdC3 { @extend .gdC;}
+	.gdC4 { @extend .gdC;}
+	.gdC5 { @extend .gdC;}
+	.gdC6 { @extend .gdC;}
+	.gdC7 { @extend .gdC;}
+	.gdC8 { @extend .gdC;}
+	.gdC9 { @extend .gdC;}
+	.gdC10 { @extend .gdC;}
+	.gdC11 { @extend .gdC;}
+	.gdC12 { @extend .gdC;}
+}
+// li grid 
+@mixin grid-l (){
+	.gdL {
+		float:left; 
+		clear:left;
+	}
+	.gdL1 li {width: 8.33%; @extend .gdL;}
+	.gdL2 li {width: 16.66%; @extend .gdL;}
+	.gdL3 li {width: 25%; @extend .gdL;}
+	.gdL4 li {width: 33.33%; @extend .gdL;}
+	.gdL5 li {width: 41.67%; @extend .gdL;}
+	.gdL6 li {width: 50%; @extend .gdL;}
+	.gdL7 li {width: 58.33%; @extend .gdL;}
+	.gdL8 li {width: 66.67%; @extend .gdL;}
+	.gdL9 li {width: 75%; @extend .gdL;}
+	.gdL10 li {width: 83.34%; @extend .gdL;}
+	.gdL11 li {width: 91.67%; @extend .gdL;}
+	.gdL12 li {width: 100%; @extend .gdL;}
+}
+@mixin grid-l-mq (){
+	.gdL {margin: $auto; width:100%;}
+	.gdL1 li { @extend .gdL;}
+	.gdL2 li { @extend .gdL;}
+	.gdL3 li { @extend .gdL;}
+	.gdL4 li { @extend .gdL;}
+	.gdL5 li { @extend .gdL;}
+	.gdL6 li { @extend .gdL;}
+	.gdL7 li { @extend .gdL;}
+	.gdL8 li { @extend .gdL;}
+	.gdL9 li { @extend .gdL;}
+	.gdL10 li { @extend .gdL;}
+	.gdL11 li { @extend .gdL;}
+	.gdL12 li { @extend .gdL;}
+}
+// grid margin
+@mixin grid-margin ($t, $r, $b, $l){
+	.gWm {
+		overflow: hidden;
+		width: $startWidth;
+		margin: $auto;
+		padding:$t $r $b $l;
+	}
+	.gdMargin {
+		float:left;
+		margin:$t $r $b $l;
+		// Just for testing
+		min-height: 40px;
+		text-align: center;
+		background:rgba(255,255,255,.4);
+		border:4px solid #fff;
+	}
+	.gdMargin1 {width: 8.33% - $r - $l; @extend .gdMargin;}
+	.gdMargin2 {width: 16.66% - $r - $l; @extend .gdMargin;}
+	.gdMargin3 {width: 25% - $r - $l; @extend .gdMargin;}
+	.gdMargin4 {width: 33.33% - $r - $l; @extend .gdMargin;}
+	.gdMargin5 {width: 41.67% - $r - $l; @extend .gdMargin;}
+	.gdMargin6 {width: 50% - $r - $l; @extend .gdMargin;}
+	.gdMargin7 {width: 58.33% - $r - $l; @extend .gdMargin;}
+	.gdMargin8 {width: 66.67% - $r - $l; @extend .gdMargin;}
+	.gdMargin9 {width: 75% - $r - $l; @extend .gdMargin;}
+	.gdMargin10 {width: 83.34% - $r - $l; @extend .gdMargin;}
+	.gdMargin11 {width: 91.67% - $r - $l; @extend .gdMargin;}
+	.gdMargin12 {width: 100% - $r - $l; @extend .gdMargin;}
+}
+@mixin grid-wrap-margin-mq ($t, $r, $b, $l){
+	.gWm {
+		width: 100% - $r - $l;
+		padding:$t $r $b $l;
+	}
+}
+@mixin grid-margin-mq ($t, $r, $b, $l){
+	.gdMargin {
+		float:none; 
+		width:100% - $r - $l; 
+		margin:$t $r $b $l;
+	}
+	.gdMargin1 {@extend .gdMargin;}
+	.gdMargin2 {@extend .gdMargin;}
+	.gdMargin3 {@extend .gdMargin;}
+	.gdMargin4 {@extend .gdMargin;}
+	.gdMargin5 {@extend .gdMargin;}
+	.gdMargin6 {@extend .gdMargin;}
+	.gdMargin7 {@extend .gdMargin;}
+	.gdMargin8 {@extend .gdMargin;}
+	.gdMargin9 {@extend .gdMargin;}
+	.gdMargin10 {@extend .gdMargin;}
+	.gdMargin11 {@extend .gdMargin;}
+	.gdMargin12 {@extend .gdMargin;}
+}	
+
+
+// Custom grid
+@mixin grid-custom-w ($t:$top, $r:$right, $b:$bottom, $l:$left, $wrap-class:'', $gw-width: $start-width, $gw-margin: $auto){
+	.gw#{$wrap-class} {
+		overflow: hidden;
+		width: $gw-width;
+		margin: $gw-margin;
+		padding:$t $r $b $l;
+	}
+}
+@mixin grid-custom ($t:$top, $r:$right, $b:$bottom, $l:$left, $class:'', $wrap: false, $wrap-class: '', $gw-width: $start-width, $gw-margin: $auto){
+	@if $wrap {
+		@include grid-custom-w($t, $r, $b, $l, $wrap-class, $gw-width, $gw-margin);
+	}
+	.gd#{$class} {
+		float:left;
+		margin:$t $r $b $l;
+	}
+	.gd#{$class}1 {width: 8.33% - $r - $l; @extend .gd#{$class};}
+	.gd#{$class}2 {width: 16.66% - $r - $l; @extend .gd#{$class};}
+	.gd#{$class}3 {width: 25% - $r - $l; @extend .gd#{$class};}
+	.gd#{$class}4 {width: 33.33% - $r - $l; @extend .gd#{$class};}
+	.gd#{$class}5 {width: 41.67% - $r - $l; @extend .gd#{$class};}
+	.gd#{$class}6 {width: 50% - $r - $l; @extend .gd#{$class};}
+	.gd#{$class}7 {width: 58.33% - $r - $l; @extend .gd#{$class};}
+	.gd#{$class}8 {width: 66.67% - $r - $l; @extend .gd#{$class};}
+	.gd#{$class}9 {width: 75% - $r - $l; @extend .gd#{$class};}
+	.gd#{$class}10 {width: 83.34% - $r - $l; @extend .gd#{$class};}
+	.gd#{$class}11 {width: 91.67% - $r - $l; @extend .gd#{$class};}
+	.gd#{$class}12 {width: 100% - $r - $l; @extend .gd#{$class};}
+}
+@mixin grid-custom-w-mq ($t:$top, $r:$right, $b:$bottom, $l:$left, $wrap-class:'', $gw-width: 100%){
+	.gw#{$wrap-class} {
+		width: $gw-width - $r - $l;
+		padding:$t $r $b $l;
+	}
+}
+@mixin grid-custom-mq ($t:$top, $r:$right, $b:$bottom, $l:$left, $class:'', $wrap: false, $wrap-class: '', $gw-width: 100%){
+	@if $wrap {
+		@include grid-custom-w-mq($t, $r, $b, $l, $wrap-class, $gw-width);
+	}
+	.gd#{$class} {
+		float:none; 
+		width:$gw-width - $r - $l;
+		margin:$t $r $b $l;
+	}
+	.gd#{$class}1 {@extend .gd#{$class};}
+	.gd#{$class}2 {@extend .gd#{$class};}
+	.gd#{$class}3 {@extend .gd#{$class};}
+	.gd#{$class}4 {@extend .gd#{$class};}
+	.gd#{$class}5 {@extend .gd#{$class};}
+	.gd#{$class}6 {@extend .gd#{$class};}
+	.gd#{$class}7 {@extend .gd#{$class};}
+	.gd#{$class}8 {@extend .gd#{$class};}
+	.gd#{$class}9 {@extend .gd#{$class};}
+	.gd#{$class}10 {@extend .gd#{$class};}
+	.gd#{$class}11 {@extend .gd#{$class};}
+	.gd#{$class}12 {@extend .gd#{$class};}
+}
+// li grid 
+@mixin grid-l-span ($gdl-class: '', $gdl-count: 5, $parent-width: 100%){
+	$gdl-width: 100 / $gdl-count - 5%;
+	.gdL#{$gdl-class} {
+		overflow:hidden; 
+		width:$parent-width;
+	}
+	.gdL#{$gdl-class} li {
+		@extend .gdL#{$gdl-class};
+	}
+	// .gdL#{$gdl-class} li span, .gdL#{$gdl-class} li input[type="text"], .gdL#{$gdl-class} li input[type="number"], .gdL#{$gdl-class} li span.selWrap {
+	// 	float:left;
+	// 	width: $gdl-width + 0%; 
+	// }
+	// .gdL#{$gdl-class} li span {
+	// 	&:first-child {
+	// 		width: $gdl-width + 40%;
+	// 		text-align: left;
+	// 		padding:0 0 0 2%;
+	// 	}
+	// }
+}

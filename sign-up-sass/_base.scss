@@ -1,0 +1,162 @@
+* {
+	margin:0; 
+	padding:0; 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+img {
+	border: 0 none;
+}
+body {
+	background: url(../images/bgM.jpg) fixed center top no-repeat #011931;
+	color: $gray;
+	font-family: 'Lato', sans-serif;
+	font-size: 100%;
+}
+.mOff {
+	display: block;
+}
+.mOn {
+	display: none;
+}
+.none {
+	display: none;
+}
+a {
+	color:$link;
+	text-decoration: none;
+	&:hover {
+		color:$linkHover;
+	}
+}
+.headLine {
+	color: $white;
+}
+h1 {
+    @extend .headLine;
+    font-size: 2em;
+}
+h2 {
+    @extend .headLine;
+    font-size: 1.56em;
+}
+h3 {
+    @extend .headLine;
+    font-size: 1.2em;
+}
+h4 {
+    @extend .headLine;
+    font-size: 1em;
+}
+h5 {
+    @extend .headLine;
+    font-size: .8em;
+}
+h6 {
+    @extend .headLine;
+    font-size: .6em;
+}
+label {
+    font-size: 1em;
+}
+p {
+    font-size: .8em;
+}
+ul {
+	list-style:none;
+	li {
+		font-size:.7em;
+	}
+}
+ol {
+	list-style-position:inside;
+}
+// Form Elements
+input[type="text"], input[type="number"], input[type="email"], input[type="password"], textarea {
+    padding: 1% 2%;
+    border: 0 none;
+    font-size: 1em;
+    background: $white;
+    border: $uiBorder;
+	@include border-radius(0);
+	margin: 0 auto;
+    width: 100%;
+    display: block;
+    height: 36px;
+}
+textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus {    
+	color: $gray;
+	@include box-shadow(none);
+	border: 4px solid $red;
+}
+input:focus::-webkit-input-placeholder, input:focus::-moz-placeholder {
+    color: $red;
+    @include box-shadow(none);
+}
+// Drop Downs
+span.selWrap {
+	padding:0;
+	height: 36px;
+	display:block;
+	position:relative;
+	margin: 0 auto;
+    width: 100%;
+}
+span.selText {
+	width: 100%;
+	height: 36px; 
+	display:block;
+	font-weight:normal;
+	color: #757474;
+	display: block;
+	font-size: .9em;
+	padding: 0 2em 0 .4em;
+	position:absolute;
+	margin:0;
+	z-index:1;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	line-height:28px;
+	@include letterpress(0.6);
+	background:url("../images/arrow.png") no-repeat scroll 100% 97.8% $white;
+	border:$uiBorder;
+}
+select.selIner {
+	width: 100%;
+	height: 36px;
+	position:absolute;
+	z-index:2;
+	opacity:0;
+	padding:0;
+	margin:0;
+	border:0 none;
+	float:none;
+	filter: alpha(opacity=00);
+	-webkit-appearance: menulist-button;
+}
+// Btn
+.btnAll {
+	background: $red;
+	font-size:1.6em;
+	padding:.5% 0;
+	margin:0 auto;
+	border:0 none;
+    color:$white;
+    width: 100%;
+    cursor: pointer;
+    display: block;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    @include border-radius(0);
+    #ccform & {
+    	float: left;
+    	margin: 0 auto 3% auto;
+    }
+	&:hover {
+		background:$orange;
+		cursor:pointer;
+	}
+}

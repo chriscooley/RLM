@@ -1,0 +1,37 @@
+// Colors
+$red: #e53f2d;
+$orange: #f18c2c;
+$purp: #8d0093;
+$purpRGBA: rgba(141,0,147,1);
+$blue: #43a9dd;
+$blueLight: #8ACDE6;
+$green: #8fbf26;
+$greenDar: #3fb1a4;
+$gray: #011931;
+$white: #ffffff;
+$black: #000000;
+
+// Elements
+$link: $blue;
+$linkHover: $red; 
+$uiBorder: 4px solid $blueLight;
+
+// Spacing
+$auto: 0 auto;
+$padding1: 1.4% 2%;
+$globalSpace: 0 0 2% 0;
+$globalSpaceR: 0 2% 2% 0;
+
+// Grid Margin Spacing
+$top: .45%;
+$right: .45%;
+$bottom: .45%;
+$left: .45%;
+
+// Braking Points
+$startWidth: 1140px;
+$start-width: 1140px;
+$mid-lr: 767px;
+$mid-sm: 481px;
+$mobil-lr: 480px;
+$mobil-sm: 320px;

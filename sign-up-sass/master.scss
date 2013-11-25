@@ -1,0 +1,1280 @@
+// Global Elements 
+@import "mixins";
+@import "var2";
+@import "base";
+
+// Grid
+@include grid-wrap();
+@include grid();
+@include grid-s();
+@include grid-l-span ($gdl-class: '', $gdl-count: 4, $parent-width: 100%);
+
+// UI Styles
+.header {
+    overflow: hidden;
+	& h1 {
+	    color: #fff;
+	    float: left;
+	    font-size: 1.4em;
+	    font-weight: 400;
+	    padding: 46px 0 0 28px;
+	}
+	& .logo {
+	    background: url(../images/logo.png) no-repeat scroll left center transparent;
+	    border-right: 1px solid #fff;
+	    height: 72px;
+	    margin: 20px 0;
+	    width: 154px;
+	    display: block;
+	    float: left;
+	    & span {
+		    color: #FFFFFF;
+		    display: block;
+		    font-size: 82%;
+		    font-weight: normal;
+		    padding: 58px 0 0;
+		}
+	}
+}
+// box
+.boxWrap {
+	float: right;
+	width: 0;
+	height: 0;
+	display:block;
+	overflow:hidden;
+}
+.box {
+	background:url(../images/spacer.png);
+	min-height:410px;
+	@extend .gdS2;
+	@include transition(width 0.5s ease-in-out);
+    & .hideShow { // Required for winflip
+		display: none;
+		& h1 {
+			font-size: 132%;
+    		margin: 2% 1%;
+		}
+	}
+	& .icon {
+		float:none;
+		width:95px;
+		height:95px;
+		margin:50% auto 0 auto;
+		background:url(../images/icon.png) no-repeat 0 95px; 
+	}
+	& .checkLabel,& .check {
+		color: #FFFFFF;
+	    display: block;
+	    font-size: 0.8em;
+	    height: 20px;
+	    line-height: 1.2em;
+	    margin: 0;
+	    padding: 0;
+	}
+	& .check {
+		float:left;
+    	margin: 0 1% 0 0;
+	}
+	& h2, & h3 {
+		font-weight:700;
+	}
+	& h2 {
+		background:rgba(255,255,255,.2);
+		padding:2% 70px 2% 3%;
+		margin: -3% -3% 3% -3%;
+	}
+	& h3 {
+		font-size:1.375em;
+		text-align:center;
+		margin:10px 0 0 0;
+	}
+	& h4 {
+		margin:1% auto;
+	    color:$white;
+	}
+	& label {
+		margin:3px auto;
+		font-size:.875em;
+		display: block;
+	    color:$white;
+	}
+	& p {
+		color: #F7F7F7;
+	    font-size: 1em;
+	    padding: 0 1% 2% 1%;
+	}
+	& .addLabel {
+		width:50%;
+		float: right;
+		margin:$globalSpace;
+	}
+	&.active { // Required for winflip
+		@extend .gdS6;
+		background:rgba(46,159,203,.8);
+		position:relative;
+		& h3 {
+			display: none;
+		}
+		& .hideShow { // Required for winflip
+			display: block;
+			padding:3%;
+		}
+		& .icon {
+			float: right;
+			width:50px;
+			height:50px;
+		    margin: 0;
+		    right:0;
+		    top:0;
+		    position: absolute;
+		    display: block;
+		}
+	}
+	&.offnone { // Required for winflip
+		background: none;
+		position: relative;
+		overflow: visible;
+		& .icon {
+			display: none;
+		}
+	}
+}
+// Box icon
+.icon {
+	&.loginIf {
+		background-position: center -383px;
+		.active & {
+			background-position: center -670px;
+		}
+	}
+	&.conIf {
+		background-position: center -3px;
+		.active & {
+			background-position: center -522px;
+		}
+	}
+	&.payIf {
+		background-position: center -124px;
+		.active & {
+			background-position: center -574px;
+		}
+	}
+	&.locIf {
+		background-position: center -252px;
+		.active & {
+			background-position: center -620px;
+		}
+	}
+}
+// Button Extend
+button {
+	@extend .btnAll;
+	&:hover {
+		@extend .btnAll:hover;
+	}
+	&.catTopEdit {
+		background:$green;
+		color:$white;
+		font-size: .8em;
+		float: left;
+		width: auto;
+		margin:0 1%;
+		padding:0 2%;
+		&.addCat {
+			float: right;
+			padding: 0.5% 2%;
+			margin: -3% -3% 2% 0;
+			background:#2D4E77;
+		}
+		&:hover {
+			background:$orange;
+		}
+	}
+}
+.btnAdd {
+	@extend .btnAll;
+	text-align:center;
+	background: $green;
+	font-size:1em;
+	margin:1.2% auto 4% auto;
+	width:25%;
+	float:right;
+}
+// loginWrap
+.loginWrap {
+	background:url(../images/spacer.png) repeat 0 0;
+    color: #FFFFFF;
+    line-height: 1em;
+    margin: 0;
+    padding: 0.4% 2%;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    &:hover {
+    	color: #FFFFFF;
+    	background:$green;
+    }
+}
+//  leadW
+ul.gdL {
+	margin: 0 0 2% 0;
+	width:100%;
+	& li {
+		position:relative;
+		width:49%;
+		margin: 0 1% 2% 0;
+		font-size:106%;
+		padding:2%;
+		float: left;
+		text-align: center;
+		background:rgba(255,255,255,.2);
+		&.liHead {
+			display: none;
+		}
+		&:nth-child(odd) {
+			margin: 0 0 2% 1%;
+			// background:rgba(255,255,255,.2);
+		}
+		& .edit {
+			display: none;
+			position:absolute;
+			left: 0;
+			width: 100%;
+			height:2em;
+			& button {
+				height: 100%;
+				padding: 0 1%;
+				font-size: 1em;
+				&.editMe {
+					float: right;
+				}
+			}
+		}
+		& span, & input[type="text"], & input[type="number"]  {
+			height: autop;
+    		line-height: 22px;
+			text-align: center;
+			border:none;
+			background:none;
+			color: $white;
+			&:focus {    
+				color: $gray;
+				background:$white;
+				border-bottom:none;
+				@include box-shadow(0 1px 1px rgba(0,0,0,.7) inset);
+			}
+			&:focus::-webkit-input-placeholder, &:focus::-moz-placeholder {
+			    @include box-shadow(none);
+			    color: $gray;
+			    border-bottom:none;
+			}
+		}
+		& span {
+			// white-space: nowrap;
+			// overflow: hidden;
+			// text-overflow:ellipsis;
+			display: block;
+		    height: 92px;
+		    padding: 6% 0 0;
+		    width: 100%;
+		}
+		label {
+			font-size: 0.8em;
+		    height: 36px;
+		    line-height: 1.1em;
+		    padding: 0.3em 0;
+		    text-align: left;
+		}
+		& input[type="text"], & input[type="number"]  {
+			background:$white;
+			background:none repeat scroll 0 0 rgba(255, 255, 255, 0.6);
+			border-bottom:2px solid #105270;
+			@include letterpress(1);
+			margin: 2% 0 0 1%;
+    		width: 66%;
+    		color: $gray;
+    		float: right;
+    		font-weight: bold;
+    		text-align: left;
+    		padding:1% 6%;
+			&:hover {
+				border-bottom:none;
+				cursor: pointer;
+				background:$white;
+				background:none repeat scroll 0 0 rgba(255, 255, 255, 0.8);
+				&:focus {    
+					color: $gray;
+					background:$white;
+					border-bottom:none;
+				}
+			}
+		}
+		& span.st-icon {
+			background:url(../images/strength.png) no-repeat 94% -78px;
+			height: 22px;
+			width: 38px;
+			bottom: 53px;
+		    position: absolute;
+		    right: 8px;
+		    z-index: 99999;
+			&.great {
+				background-position: center -62px;
+			}
+			&.good {
+				background-position: center -41px;
+			}
+			&.fair {
+				background-position: center -17px;
+			}
+			&.poor {
+				background-position: center 4px;
+			}
+		}
+		& span.selWrap{
+		    height: 22px;
+		    margin: 0 0 1px 0;
+		    padding: 0;
+		    & select.selIner {
+			    height: 22px;
+			    left: 0;
+			}
+			& span.selText {
+				width:100%;
+				padding: 0 16px 0 0;
+				background:url(../images/sm-arrow-green.png) no-repeat 100% 97.8% $white;
+				color:$gray;
+				border-bottom:2px solid #105270;
+				@include letterpress(0);
+			}
+		}
+	}
+}
+
+.toolSignUp {
+    background: none repeat scroll 0 0 rgba(255,255,255,.9);
+    font-size: 120%;
+    left: -61%;
+    padding: 4.6% 4%;
+    position: absolute;
+    text-align: center;
+    top: 184px;
+    width: 50%;
+    z-index: 99999;
+    b {font-size:120%;}
+    &::after, &:after {
+		background:url("../images/arrowToolSignUp.png") no-repeat scroll 0 0 transparent;
+	    clear: both;
+	    content: "";
+	    display: block;
+	    height: 93px;
+	    position: absolute;
+	    right: -21%;
+	    top: 0;
+	    width: 45px;
+	    display:none\9; /* ie fix */
+	}
+	&.rightSelect {
+		top: 140px;
+		left:500px;
+		&::after, &:after {
+			background:url("../images/arrowToolSignUp-left.png") no-repeat scroll 0 0 transparent;
+			left:-45px;
+		}
+	}
+	&.billingCard {
+    	top: 349px;
+    	 &::after, &:after {
+    		top: 26px;
+    	}
+    }
+}
+// proSelect
+.proSelect {
+	display:none;
+	clear:both;
+	margin:0 0 2% 0;
+	.box.active & h3 {
+		display: block;
+	    font-size: 1.2em;
+	    text-align: left;
+	}
+	& h4 {
+		padding:0 6%;
+		font-weight: normal;
+		cursor: pointer;
+		&:hover {
+	    	background:url("../images/icon.png") no-repeat scroll -40px -934px $red;
+	    }
+	}
+}
+// creditIcon
+.creditWrap {
+	float: right;
+    margin: 2% 0;
+    overflow: hidden;
+    width: 40%;
+	& span {
+		background:url(../images/credit.png) no-repeat 0 0;
+		background-size: 100% auto;
+		width:22%;
+		height:30px;
+		display: block;
+		float: left;
+		margin: 0 1%;
+		&.visa {
+			background-position: 0 0;
+		}
+		&.master {
+			background-position: 0 29.586%;
+		}
+		&.discover {
+			background-position: 0 59.241%;
+		}
+		&.amex {
+			background-position: 0 88.361%;
+		}
+	}
+}
+// Select width
+span.selWrap {
+	&.catSel {
+		width: 100%;
+		margin:0 auto 2% auto;
+	}
+	&.servSel {
+		width: 70%;
+		margin:$globalSpace;
+		float: left;
+	}
+	&.scc {
+		width:47%;
+		margin:$globalSpace;
+		float: left;
+	}
+	&.radSel {
+		width:49%;
+		margin:$globalSpace;
+		float: left;
+	}
+	&.expDM {
+		width: 33%;
+		float: left;
+		margin:$globalSpaceR;
+	}
+	&.expY {
+		width: 21%;
+		float: left;
+		margin:$globalSpaceR;
+	}
+	&.wekBudg {
+
+	}
+}
+// Input Size
+input[type="number"] {
+	-webkit-appearance:none;
+}
+input[type="text"], input[type="number"] {
+	// &.fName {
+	// 	width:49%;
+	// 	float:left;
+	// 	margin: $globalSpaceR;
+	// 	}
+	// &.lName {
+	// 	@extend .fName;
+	// 	margin:$globalSpace;
+	// }
+	// &.fName {
+	// 	margin: $globalSpaceR;
+	// 	}
+	// &.lName {
+	// 	margin:$globalSpace;
+	// }	
+	&.zip{
+		margin: 0 auto 2% auto;
+	}
+	&.phone1 {
+		width:18%;
+		float:left;
+		margin: $globalSpaceR;
+	}
+	&.phone2 {
+		@extend .phone1;
+	}
+	&.phone3 {
+		width:22%;
+		@extend .phone1;
+	}
+	&.searchLi {
+		width:47%;
+		float:left;
+		margin:$globalSpace;
+		display: none;
+	}
+	&.radZip {
+		width:49%;
+	 	float:left;
+	 	margin: $globalSpaceR;
+	}
+	// &.cardNum {
+	// 	width:56%;
+	// 	float:left;
+	//  	margin: $globalSpaceR;
+	// }
+	// &.cvs-bill, &.zip-bill {
+	// 	width:41%;
+	// 	float: right;
+	// 	margin:$globalSpace;
+	// }
+}
+// terms
+.terms {
+	overflow:hidden;
+	margin:2% 0;
+	float:left;
+	& input[type="checkbox"] {
+		float: left;
+		margin:.5% 0 0 0;
+	}
+	& label {
+		float: left;
+	    margin: 0 0 0 1%;
+	    width: 92%;
+	    & a {
+	    	color: $green;
+	    	&:hover {
+	    		color: $orange;
+	    	}
+	    }
+	}
+}
+.radioWrap {
+	float: right;
+    overflow: hidden;
+    width: 50%;
+    height: 36px;
+    margin: 2% 0 0;
+	& input[type="radio"] {
+		margin: 0 1% 0 3%;
+		display: inline-block;
+	}
+	& label {
+		display: inline-block;
+		width: auto;
+		font-size: 74%;
+	}
+}
+// Add Remove 
+.addMe {
+    float: left;
+    height: auto;
+    margin:$globalSpace;
+    width: 47%;
+    position:relative;
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: $uiBorder;
+	height: 200px;
+	padding:0;
+	overflow: scroll;
+	overflow-x: hidden;
+    & li{
+    	font-weight: 700;
+    	cursor: pointer;
+    	font-size: .7em;
+    	line-height: 1.5em;
+    	padding:1% 2%;
+    	color:$gray;
+    	display: block;
+    	position:relative;
+    	width: 200%;
+    	padding: 1% 2% 1% 13%;
+	    background:url("../images/icon.png") no-repeat scroll 3px -944px ;
+    	&:hover, &.added {
+		    color:$white;
+		    background-position:3px -834px;
+		    background-color: $green;
+	    }
+	    &:hover {
+	    	width:100%;
+	    }
+	}
+}
+.removeMe {
+	clear: right;
+    float: right;
+    width: 50%;
+    @extend .addMe;
+    & li{
+    	padding: 1% 2%;
+	    background-position:3px -965px;
+	    &:hover {
+	    	width:100%;
+	    	padding: 1% 2% 1% 13%;
+	    	background-position:3px -873px;
+	    	background-color: $red;
+	    }
+    }
+}
+.mapBox {
+    background:url("../images/map.jpg") no-repeat scroll center center #FFFFFF;
+    border: $uiBorder;
+    clear: both;
+    height: 224px;
+    width: 100%;
+    margin:$globalSpace;
+}
+.mapClick {
+    background: none repeat scroll 0 0 #2D4E77;
+    padding: 0.5% 0;
+    float: right;
+    font-size: 1em;
+    margin: -3%;
+    width: 26%;
+}
+// addRemoveBtn
+.addRemoveBtn {
+	display:none;
+}
+.addRemoveText {
+	float:right;
+}
+// hideServ 
+.hideServ {
+	clear: both;
+    display: none;
+    overflow: hidden;
+}
+.hideServ h5, .hideServ h6, .hideShow h5, .hideShow h6 {
+	font-size: 100%;
+	color: $white;
+	z-index: 999;
+	float:left;
+	width:50%;
+	clear: right;
+	padding: 0 0 0 1%;
+}
+.hideServ h6, .hideShow h6 {
+	float:right;
+}
+// Leads per
+.leadsPer {
+	margin: 4% auto;
+    width: 42%;
+    .box.active & .icon {
+    	background-position: center -800px;
+	    float: left;
+	    height: 30px;
+	    margin: 3px 6px 0 0;
+	    position: relative;
+	    right: auto;
+	    top: auto;
+	    width: 20%;
+    }
+    & h5 {
+	     display: block;
+	    font-size: 100%;
+	    line-height: 1em;
+	    margin: 0;
+	    padding: 0;
+	    width: 74%;
+	}
+	& h6 {
+	    font-size: 0.79em;
+	    font-weight: 400;
+	    line-height: 1em;
+	    margin: 0;
+	    padding: 0;
+	    width: 74%;
+	    float: left;
+	}
+}
+.lpWrap, .header h2 {display:none;}
+// body start 
+ul.lpInfo {display:none;}
+body.start {
+	& ul.lpInfo {
+		    height: 360px;
+		    width: 100%;
+	    	color: #fff;
+	    	display: block;
+	    	list-style:none;
+	    	float: left;
+	    	overflow: visible;
+    	& li {
+    		@extend .gdS3;
+    		font-size: 1.08em;
+    		padding:0 2% 3% 2%;
+	    	text-align: center;
+	    	line-height: 1.6em;
+	    	font-weight: normal;
+			height: 100%;
+    		background:url(../images/spacer.png);
+    		position:relative;
+    		& .getStarted {
+    			margin: 4% 0 0 0;
+    			padding:3% 0;
+    			font-size: 2em;
+    			@extend .btnAll;
+    		}
+    		& h4 {
+	    		font-size: 2em;
+			    margin: 16% 0 0;
+			    text-align: center;
+	    	}
+    		& .icon {
+    			display: block;
+				float:none;
+				width:95px;
+				height:95px;
+				margin:10% auto;
+				background:url(../images/icon.png) no-repeat 0 95px;
+				&.cv {
+					background-position: center -1212px;
+				}
+				&.qu {
+					background-position: center -1036px;
+				}
+				&.tar {
+					background-position: center -1556px;
+				}
+				&.gSt {
+					background-position: center -1384px;
+				}
+			}
+    	}
+	}
+	& .header {
+		& h1{
+		    padding: 24px 0 0 20px;
+		    width: 84%;
+		}
+		& h2{
+			color: #FFFFFF;
+		    display: block;
+		    line-height: 1em;
+		    float: left;
+		    font-size: 2em;
+		    font-weight: 400;
+		    padding: 0 0 0 20px;
+		}
+	}
+}
+.free5 {
+	width:200px;
+	height:200px;
+	position:absolute;
+	top:410px;
+	left:-130px;
+	background: url(../images/free5.png) 0 0 no-repeat transparent;
+}
+body.start ul.lpInfo li.bottomBox {
+    height: auto;
+    min-height: auto;
+    width: 100%;
+    & h4 {
+    	margin: 2% 0;
+    	font-size: 206%;
+    }
+    & h5 {
+    	font-size: 3.4em;
+    	margin: 3% 0 0 0;
+    }
+    & p {
+    	font-size: 1.2em;
+    	line-height: 1.6em;
+    	margin: 0 0 2% 0;
+    }
+}
+// Webkit input number fix
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.inTip {
+	position:relative;
+	& .inLabel {
+		display: none;
+	}
+	&.inOn {
+		& .inLabel {
+			bottom: 0;
+		    color: $blue;
+		    display: block;
+		    font-size: 63%;
+		    position: absolute;
+		    right: 6px;
+		    z-index: 999999;
+		}
+	}
+	&.open {
+		& .inLabel {
+		    color: $red;
+		}
+	}
+	&.zip {
+		clear: both;
+	}
+	&.fName, &.lName, &.halfInput {
+		width:49%;
+		float:left;
+		margin: $globalSpaceR;
+	}
+	&.lName {
+		margin:$globalSpace;
+	}
+	&.fullInput {
+	    margin:$globalSpace;
+	}
+	&.halfInput {
+		width:56%;
+	}
+	&.cardNum {
+		width:56%;
+		float:left;
+	 	margin: $globalSpaceR;
+	}
+	&.cvs-bill, &.zip-bill {
+		width:41%;
+		float: left;
+		margin:$globalSpace;
+	}
+	&.cvs-bill {
+		width:32%;
+	}
+}
+.udall {
+    height: 100%;
+    position: absolute;
+    right: 21%;
+    width: 9px;
+}
+.udall.active { 
+	background: url("../images/ud_arrw.png") no-repeat center center transparent; 
+	cursor:pointer; 
+}
+//infoTool
+.infoTool {
+    float: right;
+    height: 0;
+    padding: 0 0 5% 0;
+    position: relative;
+    margin: 1% 2%;
+    width: 5%;
+    clear: both;
+    &.cvv {
+	    clear: none;
+	    margin: 2%;
+	}
+    & > span {
+    	cursor: pointer;
+	    background: none repeat scroll 0 0 $blueLight;
+	    @include border-radius(50%);
+	    color: #fff;
+	    font-weight: bold;
+	    font-size: 100%;
+	    display: block;
+	    height: 0;
+	    padding: 0 0 100%;
+	    text-align: center;
+	    width: 100%;
+	}
+	&:hover > span {
+		background:$red;
+	}
+	& > p, & > img {
+		display: none;
+	    background: none repeat scroll 0 0 #FFFFFF;
+	    @include box-shadow(0 0 6px #000);
+	    bottom: 0;
+	    color: $gray;
+	    padding: 10px;
+	    position: absolute;
+	    right: 120%;
+	    width: 200px;
+	    z-index: 99999999999;
+	}
+	&:hover > p,&:hover > img {
+		display: block;
+	}
+}
+#ccform > h4 {
+	float:left;
+	width:86%;
+}
+span.selWrap.wekBudg {
+	float:left;
+}
+
+.adWrap {
+	display:none;
+}
+
+// HI ad
+body.hiAd {
+	    background-attachment: fixed;
+	.header {
+	    position: fixed;
+	    top: 0;
+	}
+	.howIt {
+		top: 38%;
+	}
+	.gdS12 {
+		width: 1140px;
+	}
+	.adWrap {
+		width: $start-width;
+		margin: 120px auto 0 auto;
+		padding: 3%;
+		display: block;
+		text-align: center;
+		text-shadow: 0 1px 1px rgba(0,0,0,.5);
+		min-height: 700px;
+		background: url(../images/bgRoof.png) center top no-repeat;
+		position: relative;
+		z-index: 99;
+		&.HVAC {
+			background: url(../images/bgHVAC.png) center top no-repeat;
+		}
+		&.Windows {
+			background: url(../images/bgWindows.png) center top no-repeat;
+		}
+	}
+	.adWrap h1, .adWrap h2  {
+		font-size: 7em;
+    	width: 53%;
+	}
+	.adWrap h2  {
+		font-size: 2em;
+	}
+	.adWrap h4 {
+	    background: url(../images/LPimages.png) no-repeat scroll 4% 99% transparent;
+	    color: #E53F2D;
+	    float: left;
+	    font-size: 1.6em;
+	    padding: 7% 9%;
+	    transform: rotate(-5deg);
+	}
+	.infoWrap {
+		width: 43%;
+		float: right;
+		background: url(../images/LPimages.png) center -455px no-repeat rgba(255,255,255,0.6);
+		padding: 4%;
+
+	}
+	.infoWrap p {
+		color: #011931;
+		margin: 22% 0 0 0;
+		font-size: 2.2em;
+		line-height: 1.4em;
+		text-shadow:0 1px 1px #fff;
+	}
+	.imgWrap {
+		width: 55%;
+		margin: 4.5% 0;
+	}
+	.imgWrap img {
+		width: 30%;
+		margin: 0 1%;
+		border-radius: 50%;
+		border: 4px solid #fff;
+		box-shadow: 0 2px 4px rgba(0,0,0,.5);
+	}
+	.asSeen {
+		width: 55%;
+		padding: 2%;
+		margin: 2% 0 0 0;
+		overflow: hidden;
+		background: rgba(255,255,255,.4);
+	}
+	.asSeen span {
+		background: url(../images/LPimages23.png) center 4% no-repeat;
+		background-size:100% auto;
+		width: 25%;
+		padding: 0 0 10% 0;
+		margin: 0;
+		display: block;
+		float: left;
+	}
+	.asSeen span.hgtvPro {background-position: center 23%;}
+	.asSeen span.diy {background-position: center 43%;}
+	.asSeen span.fln {background-position: center 61%;}
+	.asSeen h5 {
+		text-align: left;
+		color: #333;
+		text-shadow: 0 1px 1px rgba(255,255,255,.5);
+		font-size: 1em;
+	}
+}
+
+// how it
+.howIt {
+	background: url("../images/lead-icon.png") no-repeat scroll 94% 95% rgba(255, 255, 255, 0.1);
+    display: inline-block;
+    height: 50px;
+    margin: 0 0 4%;
+    padding: 0.8em 3em 0.8em 1em;
+    position: absolute;
+    right: 0;
+    top: 5%;
+    width: 15%;
+}
+
+// Error
+input.inputred[type="text"] {
+	background:#E53F2D !important;
+	color:#fff !important;
+	text-shadow:0 -1px 1px rgba(0,0,0,.5) !important;
+}
+
+// Media Querys
+@media only screen and (max-width: 1340px)
+{
+	.free5 {
+		display: none;
+	}
+}
+@media only screen and (max-width: $startWidth)
+{
+    body {font-size:80%;}
+    @include grid-wrap-mq();
+    .leadsPer {
+	    width: 56%;
+	    & h5 {
+		    padding: 3% 0 0 0;
+		}
+	}
+	body.start .header h1, body.start .header h2 {
+	    padding: 32px 0 0 20px;
+	    width: 68%;
+	}
+	body.start .header h2 {
+	    padding: 0 0 0 20px;
+	}
+	body.hiAd {
+		.adWrap {
+			width: 100%;
+		}
+		.infoWrap {
+			p {margin:38% 0 0 0;}
+		}
+		.gdS12 {
+			width: 100%;
+		}
+	}
+}
+@media only screen and (min-width: 561px) and (max-width: 800px)
+{
+	@include grid-wrap-mq();
+	.box {
+		width: 15.8%;
+		& h3 {
+			font-size: 100%;
+			margin: 0;
+		}
+	    &.active {
+	    	width: 48%;
+	    	& h3 {
+				font-size: 90%;
+				margin: 0;
+			}
+		}
+	}
+	.leadsPer {
+	    width: 56%;
+	    & h5 {
+		    padding: 3% 0 0 0;
+		}
+	}
+	.howIt {
+		text-indent: -9999px;
+		width: auto;
+		padding: 0.8em 2.2em 0.8em 1em;
+	}
+	// .creditWrap span {
+	// 	&.visa {
+	// 		background-position: 0 0;
+	// 	}
+	// 	&.master {
+	// 		background-position: 0 31.586%;
+	// 	}
+	// 	&.discover {
+	// 		background-position: 0 64.241%;
+	// 	}
+	// 	&.amex {
+	// 		background-position: 0 94.361%;
+	// 	}
+	// }
+}
+@media only screen and (min-width: 561px) and (max-width: 570px)
+{
+	.box {
+		@include transition(none);
+	}
+}
+@media only screen and (min-width: 320px) and (max-width: 760px)
+{
+	body.hiAd {
+		.adWrap h1 {display:none;}
+		.adWrap {
+			width: 100%;
+			background-position: center top; 
+		}
+		.infoWrap {width:90%; margin: 0 auto; float:none; background-image:none;
+			p {margin:0;}
+		}
+		.asSeen {width:90%; margin: 0 auto; float:none; margin:3% auto;}
+		.imgWrap {display:none;}
+		.gdS12 {
+			width: 100%;
+		}
+	}
+}
+@media only screen and (min-width: 320px) and (max-width: 560px)
+{
+	.howIt {
+		display:none;
+	}
+	.mOff {display: none;}
+	.mOn {display: block;}
+	@include grid-wrap-mq();
+	@include grid-mq();
+	@include grid-s-mq();
+	.header {
+		height:auto;
+		padding:0 4%;
+		& h1 {
+			float: none;
+		    padding: 0 0 1%;
+		    text-align: center;
+		}
+		& .logo {
+		    border-right: medium none;
+		    display: block;
+		    float: none;
+		    height: 42px;
+		    margin: 3% auto;
+		    width: 124px;
+		    & span {display:none;}
+		}
+	}
+	.logo {
+		margin: 3% 0;
+		width:148px;
+	}
+	.box {
+		float: left;
+		width: 30.2%;
+		height: auto;
+		min-height:10px;
+		margin: 2% 1.5%;
+	    @extend .gdS2;
+	    background:rgba(255,255,255,.2);
+	    padding:2% 0;
+		@include transition(none);
+		& h3 {
+			font-size: 90%;
+			margin: 0;
+		}
+		& .icon {
+		    width:50px;
+			height:50px;
+		    margin: 1% auto 0 auto;
+		}
+	    &.active {
+	    	padding:0;
+	    	@extend .gdS6;
+	    	min-height:322px;
+	    	margin: 0 2%;
+	    	width: 96%;
+	    	& h3 {
+				font-size: 90%;
+				margin: 0;
+			}
+		}
+	}
+	// Box icon
+	.icon {
+		&.loginIf {
+			background-position: center -670px;
+		}
+		&.conIf {
+			background-position: center -522px;
+		}
+		&.payIf {
+			background-position: center -574px;
+		}
+		&.locIf {
+			background-position: center -620px;
+		}
+	}
+	// fix
+	.mapBox {
+		height: 162px;
+		width: 100%;
+	}
+	.leadsPer {
+		width: 48%;
+	}
+	// Input width
+	input[type="text"], input[type="number"] {
+		&.phone1 {
+			width:24%;
+			}
+		&.phone2 {
+			width:24%;
+			}
+		&.phone3 {
+			width:28%;
+		}
+	}
+	body.start {
+		& ul.lpInfo {
+			overflow: visible;
+			height: auto;
+		}
+		& .header h1, & .header h2 {
+		    padding: 0 0 1%;
+		    text-align: center;
+		    width: 100%;
+		    font-size: 100%;
+		}
+		& ul.lpInfo li {
+		    float: left;
+		    height: auto;
+		    margin: 1%;
+		    min-height: 170px;
+		    overflow: hidden;
+		    width: 48%;
+		}
+		& ul.lpInfo li h4 {
+		    float: right;
+		    font-size: 1.5em;
+		    margin: 16% 0 0 4%;
+		    text-align: left;
+		    width: 72%;
+		}
+		& ul.lpInfo li .icon {
+			background-size: 70px auto;
+		    float: right;
+		    height: 56px;
+		    margin: 2% 0;
+		    width: 24%;
+		}
+		& ul.lpInfo li .icon.cv {
+		    background-position: center -413px;
+		}
+		& ul.lpInfo li .icon.qu {
+		    background-position: center -352px;
+		}
+		& ul.lpInfo li .icon.tar {
+		    background-position: center -533px;
+		}
+		& ul.lpInfo li .icon.gSt {
+		    background-position: center -474px;
+		}
+	}
+
+}
