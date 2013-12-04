@@ -9,7 +9,7 @@
 	-moz-border-radius: $borderRadius;
 	border-radius: $borderRadius;
 }
-@mixin box-shadow ($boxShadow){
+@mixin box-shadow ($boxShadow...){
 	-moz-box-shadow: $boxShadow;
 	-webkit-box-shadow: $boxShadow;
 	-ms-box-shadow: $boxShadow;

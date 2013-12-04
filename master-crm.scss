@@ -51,12 +51,12 @@
 			background: none repeat scroll 0 0 transparent;
 		}
 	}
-	&.leads, &.rem, &.perfStat, &.accSet, &.prodSet, &.share {
+	&.leads, &.clicks, &.rem, &.perfStat, &.accSet, &.prodSet, &.ecSet, &.share {
 		@extend .gd2;
 	}
 	&.active {
 		@extend .gd8;
-		min-height: 400px;
+		min-height: 580px;
 		height:auto;
 		& h2 {
 			font-size: 2em;
@@ -81,12 +81,34 @@
 			}
 		}
 	}
+	& .myurl {
+		float: left;
+		clear: both;
+	}
+	& .sitepreviewimg {
+		float: right;
+		height: auto;
+		width: 50%;
+		margin: -80px 0 0;
+		@include transition(all 0.2s ease 0s);
+
+		&:hover {
+			width: 100%;
+		}
+	}
 }
 // Main Page
 .main .box {
-	&.leads, &.share, &.rem, &.perfStat {
+	&.leads, &.clicks, &.share, &.rem, &.perfStat {
 		@extend .gd5;
-		& .iconBox {width:50%;}
+		& .iconBox {
+			width:50%; 
+			position: relative;
+
+			& h2 {
+				font-size: 1.1em;
+			}
+		}
 		&:hover {
 			@include box-shadow(none);
 			& .iconBox {
@@ -104,16 +126,27 @@
     	}
 	}
 	&.perfStat {
-		background: $purp; 
+		//background: $purp; 
 		& .perFace {
 			background: url("../images/face.png") no-repeat scroll center 34% transparent;
-		    float: right;
-		    margin: 6% 0 1.8% 0;
+		    float: none;
+		    margin: 1% 0 0;
 		    min-height: 100px;
-		    width: 50%;
+		    width: 100%;
 		    &.high {background-position:center 34%;}
 		    &.med {background-position:center 67%;}
 		    &.low {background-position:center 100%;}
+		}
+		& .iconBox {
+			width:49%;
+		}
+		&:hover {
+			& .iconBox {
+				background: url("../images/spacer.png") repeat scroll 0 0 $purp;
+			}
+			& .performance {
+				background: $purp;
+			}
 		}
 	}
 	&.leads {
@@ -127,6 +160,15 @@
 	}
 	&.share {
 		background: $blue;
+	}
+	&.clicks {
+		background: $blue;
+		& .openBtn {
+    		background:$red;
+    		&:hover {
+    			background:$orange;
+    		}
+    	}
 	}
 	& p {
 		padding:4% 6% 0 6%;
@@ -146,7 +188,7 @@
 		margin: $top $right 26% $left;
 	}
 	&.smForm {
-		@extend .gd6;
+		@extend .gd8;
 		& .subBox {
 			margin: 2%;
 			width: 96%;
@@ -336,6 +378,18 @@
 		width:33%;
 		margin: 0;
 	}
+	&.balact {
+		& span {
+			margin: 0;
+			width: 10%;
+		}
+		& .nohover:hover {
+			background: none repeat scroll 0 0 #DDDDDD;
+		    border-bottom: 2px solid #43484E;
+		    color: #FFFFFF;
+		    cursor: default;
+		}
+	}
 }
 // pagging
 .pagging {
@@ -344,6 +398,10 @@
 	width:98%;
 	margin:1%;
 	font-size:80%;
+	& .left,
+	& .right {
+		color: #555555;
+	}
 	& .left {
 		float: left;
 	}
@@ -353,14 +411,133 @@
 }
 // Body color
 .main {}
-.myLead {
+.myLead,
+.myClicks {
 	& .box:hover {background: $red repeat scroll 0 0;}
 	& .contentBox, & .box.active, & .box.leads {background: $teal repeat scroll 0 0;@include box-shadow(0 0 10px #000);}
+	& .box.active {clear: left;}
 	& .box.leads:hover {@include box-shadow(0 0 10px #000);}
+
+	& ul.mList {
+		margin: 2%;
+    	width: 96%;
+
+    	& .lHead {
+    		background: #31877D;
+    	}
+    	& .view,
+    	& .info {
+			display: inline-block;
+			width: 12px;
+			height: 13px;
+			margin: 0 5%;
+			cursor: pointer;
+			vertical-align: -2px;
+			background: url(../images/customicons.png) center -234px;
+
+			&.open {
+				background-position: center -252px;
+			}
+		}
+		& .moreinfo {
+			width: 100%;
+			padding: 1em;
+			clear: both;
+			overflow: hidden;
+			font-size: 100%;
+			margin: 0 0 0.5em;
+			border: 0 none;
+			@include box-shadow(inset 0 0 10px rgba(0,0,0,1));
+
+			& textarea {
+				float: right;
+			    min-height: 100px;
+			    width: 50%;
+			}
+			& h3,
+			& h4,
+			& p {
+				width: 48%;
+				float: left;
+				clear: left;
+				color: #555;
+				text-align: left;
+				margin: 0 0 5px;
+			}
+			& h3 { font-size: 1em; }
+			& h4 { font-size: 0.8em; }
+			& p { font-size: 0.7em; }
+
+			& .applyBtn {
+				display: block;
+				width: 30%;
+				padding: 1% 5%;
+				background: none repeat scroll 0 0 #E64849;
+				float: right;
+				cursor: pointer;
+				color: #fff;
+
+				&:hover {
+					background: none repeat scroll 0 0 #F18C2C;
+				}
+			}
+		}
+		& .clickinfo {
+			width: 100%;
+			margin: 0 0 0.5em;
+			padding: 2% 1%;
+			clear: both;
+			overflow: hidden;
+			border: 0 none;
+			@include box-shadow(inset 0 0 10px rgba(0,0,0,1));
+
+			&.show {
+				padding: 2% 1%;
+				height: auto;
+
+				& ul {
+					display: block;
+				}
+			}
+
+			& ul {
+				//display: none;
+				font-size: 120%;
+				margin: 0;
+				width: 100%;
+
+				& .lHead {
+					background: #44A9DE;
+				}
+
+				& li{
+					background: #E3F4F2;
+					&:nth-child(2n) {
+						background: darken(#E3F4F2, 5%);
+					}
+				}
+
+				
+			}
+		}
+	}
+	& span.campaign {
+		margin: 0 1%;
+		text-align: left;
+		width: 33%;
+	}
+
+}
+.myClicks {
+	& .box:hover {background: $red repeat scroll 0 0;}
+	& .contentBox, & .box.active.leads, & .box.active.leads:hover, & .box.clicks {background: $teal repeat scroll 0 0;@include box-shadow(0 0 10px #000);}
+	& .box.leads {background: none;@include box-shadow(none);}
+	& .box.active {clear: left;}
+	& .box.leads:hover {background: $red repeat scroll 0 0;@include box-shadow(0 1px 3px rgba(255, 255, 255, 0.6), 0 1px 4px rgba(0, 0, 0, 0.8) inset)}
 }
 .social {
 	& .box:hover {background: $teal repeat scroll 0 0;}
-	& .contentBox, & .box.active, & .box.share {background: $blue repeat scroll 0 0;}
+	& .contentBox, & .box.active, & .box.share {background: $purp repeat scroll 0 0;}
 	// & .subBox.emailTrack {
 	//     float: right;
 	//     margin: 1% 2% 1% 0;
@@ -469,6 +646,50 @@
 	}
 
 }
+.options {
+	padding: 0.9em 0.9em 0;
+	clear: both;
+	//overflow: hidden;
+
+	.export {
+		margin: 0 20px 0 0;
+	}
+	.manage {
+
+	}
+	.button {
+		width: 20%;
+		float: right;
+		clear: right;
+		font-size: 110%;
+		margin: -34px 0 0;
+	}
+}
+.timeframe,
+.campaignselect {
+	float: right;
+	margin: 0 0 0 2%;
+	width: 20%;
+}
+.timeframe {
+	margin: 0 22% 0 2%;
+	position: relative;
+}
+#dbarcustom {
+	position: absolute;
+	bottom: 40px;
+	right: 0%;
+	width: 200%;
+	padding:10px;
+	background:#fff;
+	z-index: 1;
+	@include box-shadow(0 0 10px rgba(0,0,0,0.6));
+
+	.datefield {
+		display: inline-block;
+		width: 46%;
+	}
+}
 .account {
 	& .box:hover {background: $teal repeat scroll 0 0;}
 	& .contentBox, & .box.active, & .box.accSet {background: $blue repeat scroll 0 0;}
@@ -487,10 +708,12 @@
 		clear: left;
 	}
 }
-.productSet {
+.productSet,
+.enhancedClickSet {
 	& .box:hover {background: $red repeat scroll 0 0;}
-	& .contentBox, & .box.active, & .box.prodSet {background: $blue repeat scroll 0 0;}
-	& .contentBox .box {overflow:visible;}
+	& .contentBox, & .box.active {background: $blue repeat scroll 0 0;@include box-shadow(0 0 10px #000000);}
+	& .contentBox .boxWrap, & .contentBox .box {overflow:visible;}
+	& .contentBox {width: 49%;}
 	& .boxWrap .box.active {background: none repeat scroll 0 0;}
 	& .mLinks a {
 	    margin: 0 2%;
@@ -501,7 +724,58 @@
 		width: 16%;
 		z-index: 9999;
 	}
+	& .box .urldiv h3 {
+		color: #555;
+	}
+	& .box .previewdiv h3 {
+		color: #555;
+		float: left;
+	}
+	& #deliveryurl,
+	& #sitepreview,
+	& #category,
+	& #subcategory,
+	& #georadius,
+	& #geofull,
+	& #bids {
+		@include box-shadow(none);
+
+		& .sitepreviewimg {
+			margin: 0;
+		}
+		& .toolSignUp {
+			display: none;
+		}
+	}
+	& #category,
+	& #subcategory {
+		& .addMe li, & .removeMe li {
+			line-height: 1.3em;
+		}
+	}
+	& #subcategory .toolSignUp.rightSelect {
+		left: 115%;
+	    top: 0px;
+	    width: 27%;
+	    font-size: 90%;
+	}
+	& #durls .selWrap.undefined {
+		//display: none;
+	}
+	& #sitepreview .previewdiv {
+		clear: both;
+		overflow: hidden;
+	}
 }
+.productSet {
+	& .box.prodSet {background: $blue repeat scroll 0 0;@include box-shadow(0 0 10px #000000);}
+	& .box.prodSet.active { clear: left; }
+}
+.enhancedClickSet {
+	& .box.ecSet {background: $blue repeat scroll 0 0;@include box-shadow(0 0 10px #000000);}
+	& .box.ecSet.active { clear: left; }
+}
+
 .performance {
 	& .box:hover {background: $teal repeat scroll 0 0;}
 	& .contentBox, & .box.active, & .box.perfStat {background: $purp repeat scroll 0 0;}
@@ -526,7 +800,9 @@
 	}
 }
 .signIn {
-	& .contentBox {background: $teal repeat scroll 0 0;}
+	& .contentBox {
+		background: $teal repeat scroll 0 0;
+	}
 }
 .interstial {
 	& .boxW {
@@ -593,7 +869,56 @@
     font-size: 90%;
     line-height: 36px;
     margin: 0 0 0 2%;
-}	
+}
+// Tabs 
+.tabs {
+	position: relative;
+	display: block;
+    bottom: -0.5em;
+    float: left;
+    width: 200px;
+    margin: 5px 5px 0;
+    padding: 0.5em;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: center;
+
+    .myLead &,
+    .myClicks &,
+    .productSet &,
+    .enhancedClickSet & {
+    	color: #ddd;
+    	&.active {
+    		color: #fff;
+			z-index: 1;
+    	}
+    }
+    .myLead &,
+    .myClicks & { 
+    	background: #268A7F;
+    	&.active {
+    		background: #56BAAF;
+    	}
+    }
+    .productSet &,
+    .enhancedClickSet & { 
+    	background: #2B83B2;
+    	width: 250px;
+    	&.active {
+    		background: #5BB3E2;
+    	}
+    }
+    &.active a {
+    	color: #fff;
+    }
+    & span {
+    	font-weight: normal;
+    }
+    a {
+    	color: #DDDDDD;
+    }
+    
+}
 // Toggle links
 .toggleW {
     float: right;
@@ -603,7 +928,7 @@
     overflow: hidden;
 }
 .gridT, .listT {
-	background:url(../images/crm-icons.png) center 70% no-repeat;
+	background:url(../images/crm-icons.png) center -745px no-repeat;
 	width:46px;
 	height:46px;
 	margin:0 1.5%;
@@ -612,11 +937,11 @@
 	float:right;
 }
 .gridT {
-	&:hover, &.open {background-position: center 78%;}
+	&:hover, &.open {background-position: center -667px;}
 }
 .listT {
-	background-position: center 87%;
-	&:hover, &.open {background-position: center 97%;}
+	background-position: center -924px;
+	&:hover, &.open {background-position: center -830px;}
 }
 // List grid
 .liG {
@@ -711,6 +1036,9 @@
 	}
 	& .emailL {}
 	& p {color:$red;}
+	.leads & {
+		cursor: pointer;
+	}
 }
 .liG.listOn {
 	& > li, & > a {
@@ -722,10 +1050,10 @@
 	}
 	& .listIcon, & h3, & h4, & .phNum, & .emailL, & .editLoc, & input[type="text"], & p {float:left;}
 	& .bidWeek {
-		width: 30%;
+		width: 22%;
 		float: right;
 		input[type="text"] {
-			width: 65%;
+			width: 100%;
 			margin: 0 0 .4em 0;
 		}
 		input.weekBudget[type="text"] {
@@ -734,8 +1062,15 @@
 		}
 		label {
 			float: right;
-			font-size: .8em;
-			line-height: 2em;
+			font-size: 0.6em;
+			line-height: 0.9em;
+			color: #43484E;
+			margin: 3px 5px -30px;
+
+			span {
+				display: block;
+				font-weight: bold;
+			}
 		}
 	}
 	& .listIcon {}
@@ -750,26 +1085,58 @@
 	    top: 8%;
 	    color: $red;
 	}
-	.productSet & > li, .productSet & > a {
-		padding:1.8%;
+	.productSet & > li, .productSet & > a,
+	.enhancedClickSet & > li, .enhancedClickSet & > a {
+		padding: 1.8%;
 	}
-	.productSet & .listIcon {
+	.productSet & .listIcon,
+	.enhancedClickSet & .listIcon {
 		min-height: 0;
 		height:0;
 		width: 10%;
 		padding:0 0 5% 0;
+		margin: 0 2% 0 0;
 		cursor: pointer;
 		background: url("../images/onOff.png") no-repeat scroll 0 0 transparent;
-		background-size:100% auto;
+		background-size:70% auto;
 		&.enabled {
 			background-position: 0 0;
 		}
 		&.disabled {
-			background-position: 0 100%;
+			background-position: 0 122%;
 		}
 	}
 	& li.liHeader {
 		padding:1% 1.8%;
+
+		&.ec {
+			h5,
+			span {
+				width: 16%;
+			}
+			h5 {
+				margin: 0 2% 0 0;
+				width: 10%;
+			}
+			& .catType {
+				margin: 0 2% 0 0;
+    			width: 54%;
+			}
+			& .editLocation {
+				width: 6%;
+			}
+			& .bidWeek {
+				float: right;
+    			width: 20%;
+			}
+		}
+		&.ecl {
+			span,
+			h5 {
+				width: 25%;
+			}
+		}
+		
 		& span, & h5 {
 			color: #43484E;
 		    display: block;
@@ -783,6 +1150,41 @@
 		}
 		& h5 {
 			width:12%;
+		}
+	}
+	& .catType {
+		float: left;
+		overflow: hidden;
+		width: 54%;
+		margin: 0 2% 0 0;
+
+		& h3, & h4 {
+			display: block;
+			float: none;
+			margin: 0;
+			width: 100%;
+		}
+		& .url {
+			display: block;
+			font-size: 0.7em;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			width: 100%;
+		}
+	}
+	& .editLocation {
+		float: left;
+		width: 6%;
+
+		& a {
+			display: block;
+			min-height: 40px;
+			width: 100%;
+			padding: 36px 0 0;
+			font-size: 0.8em;
+			text-align: center;
+			background: url('../images/customicons.png') no-repeat center 55%;
+			background-size: 100% auto;
 		}
 	}
 	& .editLoc {
@@ -799,7 +1201,7 @@
 	}
 	&.col3 {
 		& h5, & span, & h4, & input[type="text"], & .liHeader span {
-			width:41%;
+			width:100%;
 		}
 		// & .listIcon, & .liHeader h5 {
 		// 	width:16%;
@@ -829,13 +1231,13 @@
 		background-position: 0 85%;
 	}
 }
-.social .contentBox { 
+.social .contentBox {
 	min-height:auto;
 	padding:0 0 1% 0;
 	& .iconBox {
 		margin: 0 0 1% 0;
 		& .icon {
-			background-position: 0 35%;
+			background-position: 0 -320px;
 		}
 	}
 	& .subBox{
@@ -858,6 +1260,10 @@
 	margin:2% 2% 1% 2%;
 	& p {
 		font-size: 96%;
+		color: #fff;
+	}
+	& .mList {
+		padding: 5px 0 0;
 	}
 }
 .socialLins {
@@ -969,6 +1375,12 @@
 				background: url("../images/lead-icon-color.png") no-repeat scroll 0 0 transparent;
 			}
 		}
+		&.newMsg {
+			background: $teal;
+			& h3 {
+				background: url("../images/lead-icon-color.png") no-repeat scroll 0 0 transparent;
+			}
+		}
 	}
 	&.requ, &.selLoc, &.message {
 		height: auto;
@@ -1013,6 +1425,11 @@
 			font-size: 100%;
 			line-height: 1.6em;
 		}
+	}
+	&.details:hover {
+		box-shadow: 0 1px 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.8) inset;
+	    overflow-y: scroll;
+	    padding: 2% 0 2% 2%;
 	}
 }
 // extraBox
@@ -1093,7 +1510,41 @@
 		.perfStat & {background-position:center -240px;}
 		.accSet & {background-position:center -560px;}
 		.prodSet & {background-position:center -480px;}
+		.ecSet & {background-position:center -480px;}
 		.share & {background-position:center -320px;}
+		.clicks & {background-position:center -990px;}
+	}
+	&.share,
+	&.performance {
+		padding: 3% 2% 0;
+		background: $purp;
+		width: 49%;
+
+		& .openBtn {
+			margin: 10% 5% 0;
+			width: 90%;
+		}
+	}
+	&.share {
+		background: url("../images/spacer.png") repeat scroll 0 0 $purp;
+		margin: 0 1% 0 0;
+		& .icon {
+			height: 30px;
+			background-position:center -1110px;
+		}
+		& .boxCount {
+			float: none;
+			font-size: 5em;
+			width: 100%;
+			height: 44%;
+		}
+	}
+	&.performance {
+		margin: 0 0 0 1%;
+		// background: none;
+	}
+	& span {
+		font-weight: normal;
 	}
 }
 // boxCount
@@ -1179,7 +1630,7 @@
 	left: 50%;
 	margin:0 0 0 -200px; 
     padding: 0;
-    display: block;
+    display: none;
     height: auto; 
     position: fixed;
     top: 25%;
@@ -1197,6 +1648,7 @@
     & .result h3 {
     	background-position:0 -7px;
     	font-size: 1em;
+    	width: 100%;
     }
     & .button {
     	text-align:center;
@@ -1518,6 +1970,7 @@ input[type="text"], input[type="number"] {
 }
 // hideServ 
 .hideServ {
+	display: none;
 	clear: both;
     overflow: hidden;
 }
@@ -1730,13 +2183,19 @@ input[type="text"], input[type="number"] {
 			    top: 20px;
 			}
 			&.rightTop {
-				background-position: right -211px;
+				background-position: right -55px;
 			    left: auto;
-			    right: 8px;
-			    top: 20px;
+			    right: 20px;
+			    top: 8px;
+			}
+			&.rightBottom {
+				background-position: right -106px;
+			    left: auto;
+			    right: 20px;
+			    bottom: 8px;
 			}
 		}
-		&.grid-tool, &.sort-tool, &.email-tool, &.phone-tool, &.leads-home, &.share-home, &.reminders-home, &.perf-home, &.setting-home, &.setup-home, &.menu-lead, &.menu-click, &.menu-campaign, &.status-lead, &.value-lead, &.contact-lead, &.detail-lead, &.bid-lead, &.notes-lead, &.reminder-lead {
+		&.grid-tool, &.sort-tool, &.email-tool, &.phone-tool, &.timeframe-tool, &.leads-home, &.clicks-home, &.share-home, &.reminders-home, &.perf-home, &.setting-home, &.setup-home, &.menu-lead, &.menu-click, &.menu-campaign, &.status-lead, &.value-lead, &.contact-lead, &.detail-lead, &.bid-lead, &.notes-lead, &.reminder-lead, &.campaign-clicks, &.num-clicks, &.bid-clicks, &.spent-clicks, &.conversions-clicks, &.cr-clicks, &.url-clicks, &.zipcode-clicks, &.ip-clicks, &.date-clicks, &.price-clicks, &.conversion-clicks {
 		    position: absolute;
 		}
 		&.export-tool {
@@ -1747,32 +2206,37 @@ input[type="text"], input[type="number"] {
 		}
 		&.grid-tool {
 		    right: -122px;
-		    top: -80px;
+		    top: -50px;
 		}
 		&.sort-tool {
 		    right: -323px;
-		    top: 32px;
+		    top: 62px;
 		    width: 47%;
 		}
 		&.email-tool {
-		    right: -242px;
-    		top: 168px;
-		    width: 40%;
+		    right: 118px;
+    		top: 248px;
+		    width: 60%;
 		}
 		&.phone-tool {
-		    right: 134px;
-		    top: 212px;
+		    right: 574px;
+		    top: 262px;
+		    width: 20%;
+		}
+		&.timeframe-tool {
+		    right: 38px;
+		    top: 20px;
 		    width: 30%;
 		}
 		&.service-tool {
 			left: 20px;
-    		top: -48px;
-		    width: 28%;
+    		top: 0px;
+		    width: 48%;
 		}
 		&.lead-tool {
-			left: 250px;
+			left: 80px;
     		top: -10px;
-		    width: 27%;
+		    width: 30%;
 		}
 		// Home
 		&.leads-home {
@@ -1780,9 +2244,19 @@ input[type="text"], input[type="number"] {
 		    top: 22px;
 		    width: 28%;
 		}
+		&.clicks-home {
+			right: 340px;
+		    top: 28px;
+		    width: 26%;
+		}
 		&.share-home {
-			right: 390px;
-		    top: 8px;
+			right: 550px;
+		    top: 248px;
+		    width: 22%;
+		}
+		&.clicks-home {
+			right: 340px;
+		    top: 28px;
 		    width: 22%;
 		}
 		&.reminders-home {
@@ -1791,7 +2265,7 @@ input[type="text"], input[type="number"] {
 		    width: 25%;
 		}
 		&.perf-home {
-			right: 345px;
+			right: 295px;
 		    top: 250px;
 		    width: 20%;
 		}
@@ -1817,7 +2291,7 @@ input[type="text"], input[type="number"] {
 		}
 		&.menu-campaign {
 			right: -120px;
-		    top: -90px;
+		    top: -40px;
 		    width: 30%;
 		}
 		&.status-lead {
@@ -1873,7 +2347,7 @@ input[type="text"], input[type="number"] {
 		// Setup
 		&.main-setup {
 			left: 20%;
-		    top: -130px;
+		    top: -90px;
 		    width: 46%;
 		}
 		&.bid-setup {
@@ -1882,34 +2356,117 @@ input[type="text"], input[type="number"] {
 		    width: 28%;
 		}
 		&.loc-setup {
-			left: 400px;
+			left: 500px;
 		    top: -170px;
 		    width: 27%;
 		}
 		&.adjust-setup {
 			left: 600px;
-		    top: -180px;
+		    top: -80px;
 		    width: 27%;
 		}
+		&.campaign-clicks {
+			left: 20px;
+			top: 100px;
+			width: 40%;
+		}
+		&.num-clicks {
+			left: 60px;
+			top: 220px;
+			width: 35%;
+		}
+		&.bid-clicks {
+			left: 290px;
+			top: 20px;
+			width: 20%;
+		}
+		&.spent-clicks {
+			left: 300px;
+			top: 220px;
+			width: 30%;
+		}
+		&.conversions-clicks {
+			left: 560px;
+			top: 220px;
+			width: 30%;
+		}
+		&.cr-clicks {
+			left: 730px;
+			top: 100px;
+			width: 30%;
+		}
+		&.url-clicks, &.zipcode-clicks, &.ip-clicks, &.date-clicks, &.price-clicks, &.conversion-clicks {
+			display: none;
+		}
+		&.url-clicks {
+			left: 30px;
+			top: 130px;
+			width: 28%;
+		}
+		&.zipcode-clicks {
+			left: 200px;
+			top: 100px;
+			width: 20%;
+		}
+		&.ip-clicks {
+			left: 230px;
+			top: 270px;
+			width: 27%;
+		}
+		&.date-clicks {
+			left: 330px;
+			top: 110px;
+			width: 25%;
+		}
+		&.price-clicks {
+			left: 400px;
+			top: 270px;
+			width: 28%;
+		}
+		&.conversion-clicks {
+			left: 700px;
+			top: 160px;
+			width: 28%;
+		}
+
 	}
 	&.listOn {
 		& .toolPage {
 			&.email-tool {
 			    right: -182px;
-			    top: 108px;
+			    top: 138px;
+			    width: 35%;
 			}
 			&.phone-tool {
 			    right: 78px;
-			    top: 184px;
+			    top: 224px;
+			    width: 30%;
 			}
 			&.service-tool {
 				left: 70px;
-			    top: -30px;
+			    top: 10px;
+			    width: 25%;
 			}
 			&.lead-tool {
 				left: 240px;
-			    top: -40px;
+			    top: -10px;
 			}
+		}
+	}
+	&.clicksOn {
+		& .toolPage {
+			&.campaign-clicks,
+			&.num-clicks,
+			&.bid-clicks,
+			&.spent-clicks,
+			&.conversions-clicks,
+			&.cr-clicks {
+				display: none;
+			}
+			&.url-clicks, &.zipcode-clicks, &.ip-clicks, &.date-clicks, &.price-clicks, &.conversion-clicks {
+				display: block;
+			}
+
 		}
 	}
 }
@@ -1933,21 +2490,21 @@ input[type="text"], input[type="number"] {
 .fixed .msg {
 	position:fixed;
 }
-.msg p{ 
-	padding:.9em .6em .9em 40px; 
-	font-size:1.6em; 
+.msg p{
+	padding:.9em .6em .9em 40px;
+	font-size:1.6em;
 	background-repeat:no-repeat; 
 	background-position:10px 51%;
 }
 .msg a.close{ 
 	font-size:0; 
-	line-height:0; 
+	line-height:0;
 	position:absolute; 
-	top:0; 
-	right:0; 
-	width:34px; 
-	height:34px; 
-	background:url(../images/crm/close.gif); 
+	top:0;
+	right:0;
+	width:34px;
+	height:34px;
+	background:url(../images/crm/close.gif);
 	text-indent: -4000px;
 }
 .msg-ok p { 
@@ -1965,13 +2522,22 @@ input[type="text"], input[type="number"] {
 }
 .msg-prepay p { padding-left:50px; background-color:#f3c598; border:solid 1px #e8b084; color:#ba4c32; background-image:url(../images/msg-prepay_30x21.png);  }
 .msg p { -moz-border-radius:6px; -webkit-border-radius:6px; }
-.overlaybox .msg {
-	left: 0;
-    position: absolute;
-    top: -40px;
-    width: 100%;
-    font-size: 46%;
-}
+.overlaybox {
+	& .msg {
+		left: 0;
+	    position: absolute;
+	    top: -40px;
+	    width: 100%;
+	    font-size: 46%;
+	}
+	& textarea,
+	& textarea[name="comments"],
+	& input {
+		font-family: arial;
+	}
+
+} 
+
 
 // overlayHowTo
 .overlayHowTo {
@@ -1983,7 +2549,8 @@ input[type="text"], input[type="number"] {
     top:0;
     right:0;
     left:0;
-	& .overLeadWrap {
+	& .overLeadWrap,
+	& .overClicksWrap {
 		@extend .gw;
 		margin: 134px auto 0 auto !important;
 	    overflow: visible !important;
@@ -2153,6 +2720,9 @@ input[type="text"], input[type="number"] {
 		& > div {
 			background:$red;
 		}
+	}
+	&.active > div {
+		background: $red;
 	}
 }
 .earnedAmount {
@@ -2399,6 +2969,216 @@ input.inputred[type="text"] {
 	color:#fff !important;
 	text-shadow:0 -1px 1px rgba(0,0,0,.5) !important;
 }
+
+.about {
+	@extend .gd12;
+	padding: 1% 30% 0 2%;
+
+	& h3 {
+		margin: 0 0 10px;
+		font-size: 1.4em;
+	}
+	& p {
+		margin: 0 0 15px;
+		color: #fff;
+		font-size: 1.1em;
+		line-height: 1.2em;
+	}
+	& ul {
+		list-style: inside;
+		margin: 10px 0 0;
+
+		li {
+			font-size: 110%;
+			color: #fff;
+			margin: 0 0 15px;
+		}
+	}
+	& .signup {
+		@extend .btnAll;
+		@extend .gd5;
+		margin: 20px 0;
+	    padding: 0.5% 0 1%;
+	    text-align: center;
+	}
+}
+
+//Adds
+.small-nav {
+	color: #DDDDDD;
+    font-size: 11px;
+    margin: 0 0 0 10px;
+}
+.bxactlnk, .bxactlnk:hover {
+    color: #FFFFFF;
+}
+.ajaxloader {
+    height: 100%;
+    width: 100%;
+    background: url("../images/loader_50x50.gif") no-repeat scroll center center rgba(255, 255, 255, 0.8);
+}
+.medal {
+    height: 118px;
+    width: 116px;
+    background-image: url("../images/medal_116x118.png");
+}
+.medalwrap {
+    padding: 20px 0 0 100px;
+}
+.overlayboxbuttonrow {
+    clear: both;
+}
+.alerttable {
+	border-spacing: 0;
+	width: 100%;
+
+	td {
+	    border-bottom: 1px solid #E0E0E0;
+	    font-size: 11px;
+	    height: 25px;
+	    padding: 5px;
+	    vertical-align: top;
+	}
+	tr.pastdue {
+	    background: none repeat scroll 0 0 #FCCF88;
+	}
+}
+.overlayboxreviewtext {
+	clear: both;
+    float: left;
+    font-size: 10px;
+    margin: 10px 10px 10px 15px;
+}
+.cardList {
+	padding: 10px;
+
+	h5,
+	h4 {
+		color: #555;
+	}
+	h4 {
+		margin: 15px 0 0;
+	}
+}
+.prodSetup {
+	.box {
+		display: none;
+
+		&.active {
+			display: block;
+		}
+	}
+}
+.udall {
+	float: right;
+    height: 18px;
+    width: 9px;
+    
+    &.active {
+    	cursor: pointer;
+    	background: url("../images/ud_arrw.png") no-repeat scroll 0 0;
+    }
+}
+.cancel-text {
+    clear: both;
+    color: #EFEFEF;
+    display: block;
+    font-size: 10px;
+    margin-right: 10px;
+    margin-top: -20px;
+    text-align: right;
+
+    a {
+	    color: #EFEFEF;
+	    text-decoration: underline;
+	}
+}
+.boxFooter {
+	color: #AAAAAA;
+    font-size: 0.8em;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    text-align: center;
+    span {
+    	margin: 0 20px 0 0;
+    }
+    a {
+    	margin: 0 5px 0 0;
+    }
+}
+.clear10 {
+	clear: both;
+	height: 10px;
+}
+.inputred {
+	color: #ff0000;
+}
+.getStarted {
+    //border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    padding-left: 11px;
+    padding-right: 11px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    background: none repeat scroll 0 0 #E53F2D;
+}
+li.ecrow span {
+	width: 16%;
+}
+li.eclrow span {
+	width: 25%;
+}
+.search {
+	float: right;
+	height: 36px;
+	margin: 2% 2% 0 0;
+	overflow: hidden;
+	width: 36%;
+
+	&.open {
+		position: absolute;
+		height: auto;
+		right: 0;
+		top: 5%;
+		padding: 2%;
+		overflow: visible;
+		box-shadow: 0 0 10px rgba(0,0,0,.6);
+		z-index: 9999999;
+		background: #56baaf;
+
+		label,
+		span,
+		.button {
+			display: block;
+		}
+
+		#dbarcustom {
+			display: block;
+			width: 100%;
+			right: 0;
+			top: 100%;
+			.datefield {
+				width: 44%;
+			}
+		}
+	}
+	label,
+	span,
+	.button {
+		display: none;
+	}
+	#dbarcustom {
+		display: none;
+	}
+}
+
+.search .button {
+	margin: 4% 0 0 0;
+} 
+
+
 // Media Querys
 @media only screen and (max-width: $start-width + 70px)
 {
@@ -2436,21 +3216,36 @@ input.inputred[type="text"] {
 	    font-size: 7em;
 	    padding: 8% 0 0 0;
 	}
+	.signIn {
+		& .contentBox {
+			background: $teal repeat scroll 0 0;
+			& .icon {
+				width: 20%;
+			}
+		}
+	}
 }
 @media only screen and (min-width: $mid-sm) and (max-width: $mid-lr)
 {
     @include grid-custom($gw-width: 100%);
     body {font-size:80%;}
 	.box {
-		&.leads, &.rem, &.perfStat, &.accSet, &.prodSet, &.share {@extend .gd4;}
-		&.active {&.leads, &.rem, &.perfStat, &.accSet, &.prodSet, &.share {@extend .gd12;}}
+		&.leads, &.rem, &.perfStat, &.accSet, &.prodSet, &.ecSet, &.share, &.clicks {@extend .gd4;}
+		&.active {&.leads, &.rem, &.perfStat, &.accSet, &.prodSet, &.ecSet, &.share, &.clicks {@extend .gd12;}}
 	}
 	.main .box {
-		&.leads, &.rem {@extend .gd6;}
-		&.share, &.accSet, &.prodSet, &.perfStat {width:24%;}
+		&.leads, &.clicks {@extend .gd6;}
+		&.share, &.rem, &.accSet, &.prodSet, &.perfStat {width:24%;}
 		&.share, &.perfStat {
 			& .iconBox {
-				width:100%;
+				width:49%;
+
+				& .boxCount {
+					font-size: 3em;
+				}
+			}
+			& .perFace {
+				background-size: 90% auto;
 			}
 		}
 	}
@@ -2485,7 +3280,10 @@ input.inputred[type="text"] {
 	// signIn
 	.signIn {
 		& .contentBox {
-			width: 65%;
+			background: $teal repeat scroll 0 0;
+			& .icon {
+				width: 20%;
+			}
 		}
 	}
 	.overlayHowTo {
@@ -2518,7 +3316,7 @@ input.inputred[type="text"] {
 	// Active Box
 	.box {
 		height: 130px;
-		&.leads, &.rem, &.perfStat, &.accSet, &.prodSet, &.share {@extend .gd6;}
+		&.leads, &.rem, &.perfStat, &.accSet, &.prodSet, &.ecSet, &.share, &.clicks {@extend .gd6;}
 		&.active {
 			@extend .gd12;
 			height: auto;
@@ -2535,10 +3333,21 @@ input.inputred[type="text"] {
 	}
     .main .box {
     	height: 130px;
-		&.leads, &.share, &.rem, &.perfStat, &.accSet, &.prodSet {@extend .gd6;}
-		&.leads, &.share, &.rem, &.perfStat {
+		&.leads, &.share, &.clicks, &.rem, &.perfStat, &.accSet, &.prodSet, &.ecSet {@extend .gd6;}
+		&.leads, &.share, &.clicks, &.rem, &.perfStat,{
 			& .iconBox {
 				width:100%;
+
+				&.share,
+				&.performance {
+					width: 49%;
+				}
+				&.performance{
+					& .perFace {
+						background-size: 70% auto;
+						min-height: 70px;
+					}
+				}
 			}
 			& .boxCount {
 				position: absolute;
@@ -2577,6 +3386,17 @@ input.inputred[type="text"] {
 		}
 		.box.leads &, .box.rem &, .box.perfStat & {
 			width: 100%;
+		}
+		&.share,
+		&.performance {
+			& .openBtn {
+				font-size: 56%;
+			}
+		}
+		&.share {
+			& .icon {
+				margin: 42px auto 0px;
+			}
 		}
 	}
 	.contentBox {
@@ -2626,16 +3446,26 @@ input.inputred[type="text"] {
 		&.leads h2 {
 			width: 36%;
 		}
+		& .iconBox .icon {
+			width: 20%;
+		}
 		& .iconBox h2 {
 			line-height: 1.1em;
 		    padding: 2% 0;
-		    width: 88%;
+		    width: 80%;
 		}
 	}
 	// .social .subBox.emailTrack {
 	// 	@extend .gd12;
 	// 	height: auto;
 	// }
+	.options {
+		.export {
+			margin: 0;
+			font-size: 0.7em;
+		}
+
+	}
 	.subBox {
 		@extend .gd12;
 		height: auto;
@@ -2693,6 +3523,14 @@ input.inputred[type="text"] {
 	}
 	.liG.listOn h4 {
 		margin: 0 1% 3% 0;
+	}
+	.liG.listOn .editLocation a {
+		font-size: 0.6em;
+		padding: 22px 0 0;
+		min-height: 20px;
+	}
+	.liG.listOn .bidWeek label {
+		display: none;
 	}
 	.liG .liHeader {display:none;}
 	.phNum {
@@ -2765,7 +3603,7 @@ input.inputred[type="text"] {
 	.header .logo span {
 	    text-align: center;
 	}
-	.productSet .menu, .menu {
+	.productSet .menu, .enhancedClickSet .menu, .menu {
 	    background-position: -5px 73%;
 	    height: 30px;
 	    margin: 9% 2% 0 0;
