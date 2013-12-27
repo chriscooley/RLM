@@ -245,6 +245,10 @@
 	& .myurl {
 		float: left;
 		clear: both;
+		width: 46%;
+		word-wrap: break-word;
+		text-align: left;
+		font-size: 0.8em;
 	}
 	& .sitepreviewimg {
 		float: right;
@@ -271,7 +275,8 @@
 	}
 	&.active { // Required for winflip
 		@extend .gdS6;
-		background:rgba(46,159,203,.8);
+		//background:rgba(46,159,203,.8);
+		background: #2E9FCB;
 		position:relative;
 		& h3 {
 			display: none;
@@ -868,6 +873,7 @@ body.start {
 	    	list-style:none;
 	    	float: left;
 	    	overflow: visible;
+	    	margin: 0 auto 20px;
     	& li {
     		@extend .gdS3;
     		font-size: 1.08em;
@@ -1094,102 +1100,112 @@ span.selWrap.wekBudg {
 }
 
 // HI ad
-body.hiAd {
+body{
+	&.hiAd,
+	&.reAd {
 	    background-attachment: fixed;
-	.header {
-	    position: fixed;
-	    top: 0;
-	}
-	.howIt {
-		top: 38%;
-	}
-	.gdS12 {
-		width: 1140px;
-	}
-	.adWrap {
-		width: $start-width;
-		margin: 120px auto 0 auto;
-		padding: 3%;
-		display: block;
-		text-align: center;
-		text-shadow: 0 1px 1px rgba(0,0,0,.5);
-		min-height: 700px;
-		background: url(../images/bgRoof.png) center top no-repeat;
-		position: relative;
-		z-index: 99;
-		&.HVAC {
-			background: url(../images/bgHVAC.png) center top no-repeat;
+		.header {
+		    position: fixed;
+		    top: 0;
 		}
-		&.Windows {
-			background: url(../images/bgWindows.png) center top no-repeat;
+		.howIt {
+			top: 38%;
 		}
-	}
-	.adWrap h1, .adWrap h2  {
-		font-size: 7em;
-    	width: 53%;
-	}
-	.adWrap h2  {
-		font-size: 2em;
-	}
-	.adWrap h4 {
-	    background: url(../images/LPimages.png) no-repeat scroll 4% 99% transparent;
-	    color: #E53F2D;
-	    float: left;
-	    font-size: 1.6em;
-	    padding: 7% 9%;
-	    transform: rotate(-5deg);
-	}
-	.infoWrap {
-		width: 43%;
-		float: right;
-		background: url(../images/LPimages.png) center -455px no-repeat rgba(255,255,255,0.6);
-		padding: 4%;
+		.gdS12 {
+			width: 1140px;
+		}
+		.adWrap {
+			width: $start-width;
+			margin: 120px auto 0 auto;
+			padding: 3%;
+			display: block;
+			text-align: center;
+			text-shadow: 0 1px 1px rgba(0,0,0,.5);
+			min-height: 700px;
+			background: url(../images/bgRoof.png) center top no-repeat;
+			position: relative;
+			z-index: 99;
+			&.HVAC {
+				background: url(../images/bgHVAC.png) center top no-repeat;
+			}
+			&.Windows {
+				background: url(../images/bgWindows.png) center top no-repeat;
+			}
+		}
+		.adWrap h1, .adWrap h2  {
+			font-size: 7em;
+	    	width: 53%;
+		}
+		.adWrap h2  {
+			font-size: 2em;
+		}
+		.adWrap h4 {
+		    background: url(../images/LPimages.png) no-repeat scroll 4% 99% transparent;
+		    color: #E53F2D;
+		    float: left;
+		    font-size: 1.6em;
+		    padding: 7% 9%;
+		    transform: rotate(-5deg);
+		}
+		.infoWrap {
+			width: 43%;
+			float: right;
+			background: url(../images/LPimages.png) center -455px no-repeat rgba(255,255,255,0.6);
+			padding: 4%;
 
+		}
+		.infoWrap p {
+			color: #011931;
+			margin: 22% 0 0 0;
+			font-size: 2.2em;
+			line-height: 1.4em;
+			text-shadow:0 1px 1px #fff;
+		}
+		.imgWrap {
+			width: 55%;
+			margin: 4.5% 0;
+		}
+		.imgWrap img {
+			width: 30%;
+			margin: 0 1%;
+			border-radius: 50%;
+			border: 4px solid #fff;
+			box-shadow: 0 2px 4px rgba(0,0,0,.5);
+		}
+		.asSeen {
+			width: 55%;
+			padding: 2%;
+			margin: 2% 0 0 0;
+			overflow: hidden;
+			background: rgba(255,255,255,0.8);
+		}
+		.asSeen span {
+			background: url(../images/LPimages23.png) center 4% no-repeat;
+			background-size:100% auto;
+			width: 25%;
+			min-width: 135px;
+			padding: 0 0 10% 0;
+			margin: 0;
+			display: block;
+			float: left;
+		}
+		.asSeen span.hgtvPro {background-position: center 23%;}
+		.asSeen span.diy {background-position: center 43%;}
+		.asSeen span.fln {background-position: center 61%;}
+		.asSeen h5 {
+			text-align: left;
+			color: #333;
+			text-shadow: 0 1px 1px rgba(255,255,255,.5);
+			font-size: 1em;
+		}
 	}
-	.infoWrap p {
-		color: #011931;
-		margin: 22% 0 0 0;
-		font-size: 2.2em;
-		line-height: 1.4em;
-		text-shadow:0 1px 1px #fff;
-	}
-	.imgWrap {
-		width: 55%;
-		margin: 4.5% 0;
-	}
-	.imgWrap img {
-		width: 30%;
-		margin: 0 1%;
-		border-radius: 50%;
-		border: 4px solid #fff;
-		box-shadow: 0 2px 4px rgba(0,0,0,.5);
-	}
-	.asSeen {
-		width: 55%;
-		padding: 2%;
-		margin: 2% 0 0 0;
-		overflow: hidden;
-		background: rgba(255,255,255,.4);
-	}
-	.asSeen span {
-		background: url(../images/LPimages23.png) center 4% no-repeat;
-		background-size:100% auto;
-		width: 25%;
-		padding: 0 0 10% 0;
-		margin: 0;
-		display: block;
-		float: left;
-	}
-	.asSeen span.hgtvPro {background-position: center 23%;}
-	.asSeen span.diy {background-position: center 43%;}
-	.asSeen span.fln {background-position: center 61%;}
-	.asSeen h5 {
-		text-align: left;
-		color: #333;
-		text-shadow: 0 1px 1px rgba(255,255,255,.5);
-		font-size: 1em;
+	&.reAd {
+		.asSeen span {
+			background: url(../images/LPimages24.png) center 4% no-repeat;
+		}
 	}
 }
+
 
 // how it
 .howIt {
@@ -1291,8 +1307,13 @@ input.inputred[type="text"] {
     margin-bottom: 10px;
 }
 .boxFooter {
+	text-align:center;
+	clear:both;
+	margin: 20px auto;
+
 	span {
 		margin: 0 20px 0 0;
+		color: #888;
 	}
 	a {
 		margin: 0 5px 0 0;
@@ -1348,7 +1369,8 @@ input.inputred[type="text"] {
 	body.start .header h2 {
 	    padding: 0 0 0 20px;
 	}
-	body.hiAd {
+	body.hiAd,
+	body.reAd {
 		.adWrap {
 			width: 100%;
 		}
@@ -1363,6 +1385,7 @@ input.inputred[type="text"] {
 @media only screen and (min-width: 561px) and (max-width: 800px)
 {
 	@include grid-wrap-mq();
+	
 	.box {
 		width: 15.8%;
 		& h3 {
@@ -1437,6 +1460,28 @@ input.inputred[type="text"] {
 	@include grid-wrap-mq();
 	@include grid-mq();
 	@include grid-s-mq();
+
+	body.hiAd,
+	body.reAd {
+		.infoWrap {
+			width: 100%;
+			background: rgba(255,255,255,0.6);
+
+			p {
+				margin: 0;
+			}
+		}
+		.adWrap {
+			h2 {
+				width: 100%;
+			}
+
+		}
+		.imgWrap,
+		.asSeen {
+			width: 100%;
+		}
+	}
 	.header {
 		height:auto;
 		padding:0 4%;
