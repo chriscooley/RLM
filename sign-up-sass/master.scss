@@ -661,20 +661,13 @@ input[type="text"], input[type="number"] {
 		margin: 0 auto 2% auto;
 	}
 	&.phone1 {
-		width:18%;
-		float:left;
-		margin: $globalSpaceR;
-	}
-	&.phone2 {
-		@extend .phone1;
-	}
-	&.phone3 {
-		width:22%;
-		@extend .phone1;
+		// // width:76%;
+		// // float:left;
+		// margin: $globalSpaceR;
 	}
 	&.phone4 {
-		width: 18%;
-		@extend .phone1;
+		width: 22%;
+		margin: 0;
 	}
 	&.searchLi {
 		width:47%;
@@ -995,6 +988,15 @@ input::-webkit-inner-spin-button {
 		float:left;
 		margin: $globalSpaceR;
 	}
+	&.phone1 {
+		width:76%;
+		float:left;
+		margin: $globalSpaceR;
+	}
+	// &.phone4 {
+	// 	width:22%;
+	// 	margin:0;
+	// }
 	&.lName {
 		margin:$globalSpace;
 	}
@@ -1559,20 +1561,20 @@ input.inputred[type="text"] {
 		width: 48%;
 	}
 	// Input width
-	input[type="text"], input[type="number"] {
-		&.phone1 {
-			width:24%;
-			}
-		&.phone2 {
-			width:24%;
-			}
-		&.phone3 {
-			width:28%;
-		}
-		&.phone4 {
-			width: 18%;
-		}
-	}
+	// input[type="text"], input[type="number"] {
+	// 	&.phone1 {
+	// 		width:24%;
+	// 		}
+	// 	&.phone2 {
+	// 		width:24%;
+	// 		}
+	// 	&.phone3 {
+	// 		width:28%;
+	// 	}
+	// 	&.phone4 {
+	// 		width: 18%;
+	// 	}
+	// }
 	body.start {
 		& ul.lpInfo {
 			overflow: visible;
