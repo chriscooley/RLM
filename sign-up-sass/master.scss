@@ -660,14 +660,15 @@ input[type="text"], input[type="number"] {
 	&.zip{
 		margin: 0 auto 2% auto;
 	}
-	&.phone1 {
-		// // width:76%;
-		// // float:left;
+	//&.phone1 {
+		// width:76%;
+		// float:left;
 		// margin: $globalSpaceR;
-	}
+	//}
 	&.phone4 {
 		width: 22%;
 		margin: 0;
+		float: right;
 	}
 	&.searchLi {
 		width:47%;
