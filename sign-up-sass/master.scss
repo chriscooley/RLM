@@ -666,7 +666,7 @@ input[type="text"], input[type="number"] {
 		// margin: $globalSpaceR;
 	//}
 	&.phone4 {
-		width: 100%;
+		width: 22%;
 		margin: 0;
 		float: right;
 	}
@@ -994,11 +994,11 @@ input::-webkit-inner-spin-button {
 		float:left;
 		margin: $globalSpaceR;
 	}
-	&.phone4 {
-	 	width:22%;
-	 	float: right;
-	// 	margin:0;
-	}
+	// &.phone4 {
+	//  	width:22%;
+	//  	float: right;
+	// // 	margin:0;
+	// }
 	&.lName {
 		margin:$globalSpace;
 	}
