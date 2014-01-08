@@ -836,7 +836,15 @@ body {
 	&.error,
 	&.notify {
 		margin: 37px 0 0;
+
+		& .iconKey.hiw {
+			top: 161px;
+		}
+		& .iconKey.fixed {
+			top: 37px;
+		}
 	}
+
 }
 #fullwempty {
 	position: fixed;
@@ -923,16 +931,116 @@ body {
 }
 
 .interstial {
+	background: url('../images/bgM.jpg') no-repeat center top #011931;
+
+	& .boxW {
+		padding: 0.45%;
+		// @extend .signIn;
+	}
+	
+	& .inBox {
+		padding:0;
+		min-height: 168px;
+		&.a1 li, &.a2 li, &.a3 li, &.a4 li, &.a5 li, & .li0 {display:none;}
+		&.a1 .li1{display:block;}
+		&.a2 .li2{display:block;}
+		&.a3 .li3{display:block;}
+		&.a4 .li4{display:block;}
+		&.a5 .li5{display:block;}
+	}
+	& .inBox {
+		position:relative;
+		height:100%;
+		overflow: hidden;
+	}
+	& .inBox li{
+		width:100%;
+		height:100%;
+		float: left;
+		padding:0 16% 2% 16%;
+		margin: 0;
+		font-size: 80%;
+		display: none;
+		&.odd {
+			background:$teal-soft;
+		}
+		& h2, & p {
+			text-align: center;
+			color: #fff;
+			margin:0 10%;
+			padding:2% 0;
+		}
+		& p {
+			font-size: 1.6em;
+		}
+		& h2 {
+			font-size: 4em;
+			background:url(../images/border-in.png) left bottom repeat-x;
+		}
+	}
+	& .imgLoader {
+		display: block;
+	    float: right;
+	    margin: 9.5% 4% 0 20.5%;
+	    position: absolute;
+	    width: 40px;
+	}
+	& .formlayout {
+		& h2 {
+			text-align: left;
+		}
+		& .inTip {
+			position: relative;
+
+			&.fName,
+			&.lName {width: 49%; float: left;}
+			&.fName { margin:0 2% 2% 0;}
+			&.lName { margin: 0 0 2%;}
+			&.zip {clear: both; margin: 0 0 2%;}
+
+			& .inLabel {display: none;}
+			&.inOn .inLabel {
+				width: auto;
+				bottom: 6px;
+			    color: #43A9DD;
+			    display: block;
+			    font-size: 63%;
+			    position: absolute;
+			    right: 6px;
+			    z-index: 999999;
+			}
+			&.inOn.open .inLabel {
+				color: #E53F2D;
+			}
+		}
+		& #firstname,
+		& #lastname,
+		& #email { width: 100%; height: 40px; margin: 0;}
+		& .ph.phone1,
+		& .ph.phone2,
+		& .ph.phone4 {
+			width: 18%; float: left; margin: 0 2% 2% 0;
+		}
+		& .ph.phone3 {
+			width: 20%; float: left; margin: 0 2% 2% 0;
+		}
+
+		& label {width: 100%; clear: both;}
+	}
+}
+.howitworks {
 	background: #fff;
+
+	& .boxW {
+		padding: 0 0.45%;
+		// @extend .signIn;
+	}
 
 	& .top-container {
 		overflow: hidden;
 		background: url('../images/bgM.jpg') no-repeat center top #011931;
 	}
-	& .boxW {
-		padding: 0 0.45%;
-		// @extend .signIn;
-	}
+
 	& .answer {
 
 		a{
@@ -1372,95 +1480,6 @@ body {
 				background-size: 100% auto;
 			}
 		}
-	}
-	& .inBox {
-		padding:0;
-		min-height: 168px;
-		&.a1 li, &.a2 li, &.a3 li, &.a4 li, &.a5 li, & .li0 {display:none;}
-		&.a1 .li1{display:block;}
-		&.a2 .li2{display:block;}
-		&.a3 .li3{display:block;}
-		&.a4 .li4{display:block;}
-		&.a5 .li5{display:block;}
-	}
-	& .inBox {
-		position:relative;
-		height:100%;
-		overflow: hidden;
-	}
-	& .inBox li{
-		width:100%;
-		height:100%;
-		float: left;
-		padding:0 16% 2% 16%;
-		margin: 0;
-		font-size: 80%;
-		display: none;
-		&.odd {
-			background:$teal-soft;
-		}
-		& h2, & p {
-			text-align: center;
-			color: #fff;
-			margin:0 10%;
-			padding:2% 0;
-		}
-		& p {
-			font-size: 1.6em;
-		}
-		& h2 {
-			font-size: 4em;
-			background:url(../images/border-in.png) left bottom repeat-x;
-		}
-	}
-	& .imgLoader {
-		display: block;
-	    float: right;
-	    margin: 9.5% 4% 0 20.5%;
-	    position: absolute;
-	    width: 40px;
-	}
-	& .formlayout {
-		& h2 {
-			text-align: left;
-		}
-		& .inTip {
-			position: relative;
-
-			&.fName,
-			&.lName {width: 49%; float: left;}
-			&.fName { margin:0 2% 2% 0;}
-			&.lName { margin: 0 0 2%;}
-			&.zip {clear: both; margin: 0 0 2%;}
-
-			& .inLabel {display: none;}
-			&.inOn .inLabel {
-				width: auto;
-				bottom: 6px;
-			    color: #43A9DD;
-			    display: block;
-			    font-size: 63%;
-			    position: absolute;
-			    right: 6px;
-			    z-index: 999999;
-			}
-			&.inOn.open .inLabel {
-				color: #E53F2D;
-			}
-		}
-		& #firstname,
-		& #lastname,
-		& #email { width: 100%; height: 40px; margin: 0;}
-		& .ph.phone1,
-		& .ph.phone2,
-		& .ph.phone4 {
-			width: 18%; float: left; margin: 0 2% 2% 0;
-		}
-		& .ph.phone3 {
-			width: 20%; float: left; margin: 0 2% 2% 0;
-		}
-
-		& label {width: 100%; clear: both;}
 	}
 }
 .iconSprite {
@@ -2755,6 +2774,44 @@ input[type="text"], input[type="number"] {
 		&.lead-notContact {background-position:center 9.6%;}
 		&.help {background-position:center 95%;}
 	}
+	&.hiw {
+		position: absolute;
+		top: 124px;
+		width: 60px;
+		background: rgba(255,255,255,0.9);
+		@include box-shadow(0 4px 11px rgba(0, 0, 0, 0.25));
+		//@include transition(top 0.5s ease);
+
+		&.fixed {
+			position: fixed;
+			top: 0;
+		}
+
+		h4 {
+			width: 100%;
+			color: #777;
+		}
+		& .key {
+			float: left;
+			width: 100%;
+			height: auto;
+			padding: 3px 0;
+			margin: 0;
+			text-align: center;
+			background: none;
+			a {
+				display: block;
+				width: 100%;
+				font-size: 0.8em;
+			}
+			&:hover .toolTip{
+				min-width: 200px;
+			}
+			& .toolTip {
+				z-index: 1;
+			}
+		}
+	}
 }
 // toolPage
 .toolWrapper {
@@ -3361,7 +3418,6 @@ input[type="text"], input[type="number"] {
 .faq h2, .faq p {
 	padding:0 2%;
 	margin:2% 0 0 0;
-	clear: both;
 }
 .faq p {
 	font-size: 1.2em;
@@ -3798,10 +3854,19 @@ li.eclrow span {
 
 
 // Media Querys
+@media only screen and (max-height: 600px){
+	.iconKey.hiw {
+		width:100px; 
+		.key {
+			width: 50px;
+		}
+	}
+}
 @media only screen and (max-width: $start-width + 70px)
 {
 	.iconKey {
 		display:none;
+		&.hiw {display: block;}
 	}
 }
 @media only screen and (max-width: $start-width)
@@ -3873,6 +3938,10 @@ li.eclrow span {
 				background-size: 90% auto;
 			}
 		}
+	}
+	.iconKey {
+		display:none;
+		&.hiw {display: none;}
 	}
 	.boxCount {
 	    padding: 6% 0 0 0;
@@ -4012,6 +4081,10 @@ li.eclrow span {
 		    display: block;
 		    float: none;
 		}
+	}
+	.iconKey {
+		display:none;
+		&.hiw {display: none;}
 	}
 	.iconBox {
 		padding:0;
@@ -4195,7 +4268,7 @@ li.eclrow span {
 			}
 		}
 	}
-	.interstial {
+	.howitworks {
 
 		& .answer {
 			&.a0,&.a1,&.a2,&.a3,&.a4,&.a5,&.a6,&.a7,&.a8,&.a9,&.a10,&.a11,&.a12,&.a13,&.a14,&.a15,&.a16,&.a17,&.a18,&.a19 {
