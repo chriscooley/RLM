@@ -1,0 +1,214 @@
+* {
+	margin:0; 
+	padding:0; 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+img {
+	border: 0 none;
+}
+body {
+	background: #ffffff;
+	color: $gray;
+	font-family: 'Lato', sans-serif;
+	font-size: 100%;
+    width: 100%;
+    min-height: 100%;
+
+    background: url(../images/rlm-desk.jpg) no-repeat center top fixed;
+
+	background-size: cover;
+	// // background-position: center top;
+	// background-position:fixed;
+}
+html, body {
+    height: 100%;
+}
+.mOff {
+	display: block;
+}
+.mOn {
+	display: none;
+}
+.none {
+	display: none;
+}
+a {
+	color:darken($blue, 20%);
+	text-decoration: none;
+	&:hover {
+		color: $blue;
+	}
+}
+.headLine {
+	color: $main-font-color;
+}
+h1 {
+    @extend .headLine;
+    font-size: 2em;
+}
+h2 {
+    @extend .headLine;
+    font-size: 1.56em;
+}
+h3 {
+    @extend .headLine;
+    font-size: 1.2em;
+}
+h4 {
+    @extend .headLine;
+    font-size: 1em;
+}
+h5 {
+    @extend .headLine;
+    font-size: .8em;
+}
+h6 {
+    @extend .headLine;
+    font-size: .6em;
+}
+label {
+    font-size: 1em;
+}
+p {
+    font-size: .8em;
+}
+ul {
+	list-style:none;
+	li {
+		font-size:.7em;
+	}
+}
+ol {
+	list-style-position:inside;
+}
+// Form Elements
+input[type="text"], input[type="number"], input[type="tel"], input[type="email"], input[type="password"], textarea {
+    padding: 0 0.6em;
+    border: 0 none;
+    font-size: 1em;
+    background: $white;
+    border: $uiBorder;
+	@include border-radius(.1em);
+	margin: 0 auto;
+    width: 100%;
+    display: block;
+    height: 40px;
+}
+textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="email"]:focus {    
+	color: $gray;
+	outline:none;
+	@include box-shadow(none);
+	border: 1px solid $greenDar;
+}
+input:focus::-webkit-input-placeholder, input:focus::-moz-placeholder {
+    color: $red;
+    @include box-shadow(none);
+}
+
+// custome select
+select::-ms-expand {
+    display: none;
+}
+select {
+	width:100%;
+	font-size:1em;
+	line-height:1.2em;
+	margin: 0 0 2% 0;
+	background-image: url(../images/selectAr.png);
+	background-position: 100% -12px;
+	background-repeat: no-repeat;
+	background-color: #fff;
+	border: $uiBorder;
+	@include border-radius(.1em);
+	text-indent: 0.01px;
+    text-overflow: "";
+    padding:.5em 2em .5em .3em ;
+    padding:.3em .2em .3em .3em \9;
+    color: lighten($main-font-color, 30%);
+    *background-image:none;    
+    &:focus{
+    	color: $main-font-color;
+    	outline:none;
+   	 	background-position: 100% -72px;
+    	@include box-shadow(none);
+		border: 1px solid $greenDar;
+    }
+}
+button, input[type="button"], input[type="submit"], select {
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	-ms-appearance:none;
+	-o-appearance:none;
+	appearance:none;
+	@include border-radius(0);
+}
+// Drop Downs
+// span.selWrap {
+// 	padding:0;
+// 	height: 36px;
+// 	display:block;
+// 	position:relative;
+// 	margin: 0 auto;
+//     width: 100%;
+// }
+// span.selText {
+// 	width: 100%;
+// 	height: 36px; 
+// 	display:block;
+// 	font-weight:normal;
+// 	color: #757474;
+// 	display: block;
+// 	font-size: .9em;
+// 	padding: 0 2em 0 .4em;
+// 	position:absolute;
+// 	margin:0;
+// 	z-index:1;
+// 	white-space: nowrap;
+// 	overflow: hidden;
+// 	text-overflow:ellipsis;
+// 	line-height:28px;
+// 	@include letterpress(0.6);
+// 	background:url("../images/arrow.png") no-repeat scroll 100% 97.8% $white;
+// 	border:$uiBorder;
+// }
+// select.selIner {
+// 	width: 100%;
+// 	height: 36px;
+// 	position:absolute;
+// 	z-index:2;
+// 	opacity:0;
+// 	padding:0;
+// 	margin:0;
+// 	border:0 none;
+// 	float:none;
+// 	filter: alpha(opacity=00);
+// 	-webkit-appearance: menulist-button;
+// }
+// Btn
+.btnAll {
+	background: $greenDar;
+	font-size:1.6em;
+	padding:1.2% 0;
+	margin:0 auto;
+	border:0 none;
+    color:$white;
+    width: 100%;
+    cursor: pointer;
+    display: block;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    @include border-radius(.1em);
+    border: $uiBorder;
+    #ccform & {
+    	float: left;
+    	margin: 0 auto 3% auto;
+    }
+	&:hover {
+		color: $greenDar;
+		background:#f6f7f9;
+		cursor:pointer;
+	}
+}
