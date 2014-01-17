@@ -133,3 +133,23 @@
 	text-overflow:ellipsis;
 }
 
+@mixin clearfix() {
+    *zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+        content: " ";
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin opacity($opacity){
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity}*10)";
+  filter: alpha(opacity=#{$opacity}*100);
+  -moz-opacity: $opacity;
+  -khtml-opacity: $opacity;
+  opacity: $opacity;
+}
+

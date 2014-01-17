@@ -125,9 +125,9 @@ select {
 	text-indent: 0.01px;
     text-overflow: "";
     padding:.5em 2em .5em .3em ;
-    padding:.3em .2em .3em .3em \9;
+    padding:.6em .2em .5em .3em \9;
     color: lighten($main-font-color, 30%);
-    *background-image:none;    
+    *background-image:none;
     &:focus{
     	color: $main-font-color;
     	outline:none;

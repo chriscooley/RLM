@@ -85,8 +85,8 @@
 		position: absolute;
 		top: 10%;
 		left: 50%;
-		width: 60%;
-		margin: 0 0 0 -30%;
+		width: 700px;
+		margin: 0 0 0 -350px;
 		padding: 2%;
 		background: #fff;
 		@include box-shadow(0 1px 5px rgba(0,0,0,0.3));
@@ -103,7 +103,7 @@
 		background: url(../images/customicons.png) no-repeat 22px -302px #3FB1A4;
 	}
 	h2 {
-		margin: 0 0 20px;
+		margin: 10px 0 20px;
 		text-align: center;
 		color: #3FB1A4;
 	}
@@ -117,6 +117,50 @@
 		font-size: 0.8em;
 		margin: 0 0 5px;
 	}
+	.helpfullinks,
+	.asseenin {
+		width: 100%;
+		clear: both;
+	}
+	.helpfullinks {
+		margin: 0 0 20px;
+		overflow: hidden;
+		ul {
+
+		}
+		li {
+			float: left;
+			margin: 0 30px 0 0;
+		}
+	}
+	.asseenin {
+		background: none repeat scroll 0 0 #EEEEEE;
+	    border-radius: 5px;
+	    overflow: hidden;
+	    padding: 10px;
+
+		span {
+			background: url("../images/LPimages24.png") no-repeat scroll center 4% rgba(0, 0, 0, 0);
+    		min-width: 135px;
+    		display: block;
+		    float: left;
+		    margin: 0;
+		    padding: 0 0 44px;
+		    width: 25%;
+		}
+		.hgtv {
+
+		}
+		.hgtvPro {
+			background-position: center 23%;
+		}
+		.diy {
+			background-position: center 43%;
+		}
+		.fln {
+			background-position: center 61%;
+		}
+	}
 }
 
 .free {
@@ -129,7 +173,9 @@
 	img {width: 100%;}
 }
 
-
+#bizinfoInfoBox {
+	.infoTool {display: none;}
+}
 
 // infoSection
 .infoSection {
@@ -184,6 +230,7 @@
 		&.active {
 			display: table;
 		}
+		& .qlink {cursor: pointer;}
 		&#billingInfoBox {
 			ul {
 				li {
@@ -212,10 +259,6 @@
 		display: block;
 		margin: 8px 0 0 0;
 	}
-	.sec1 {@extend %section; left: 0; &.active {left:-6%; background-position: 0 center;}}
-	.sec2 {@extend %section; left: 33%; &.active {left:27%; background-position: -60px center;}}
-	.sec3 {@extend %section; left: 66%; &.active {left:60%; background-position: -120px center;}}
-	.sec4 {@extend %section; left: 98%; &.active {left:89%; background-position: -180px center;}}
 	%section {
 		@include border-radius(50%);
 		width: 20px;
@@ -230,10 +273,10 @@
 		@include transition(all 0.4s ease-in-out);
 		.toolInfo {
 			display: none;
-			width: 300px;
+			width: 180px;
 			position: absolute;
 			bottom: 32px;
-			left: -150px;
+			left: -90px;
 			padding: 10px;
 			@include border-radius(.1em);
 			background-color: #3fc6f3;
@@ -248,11 +291,12 @@
 				height: 9px;
 				position: absolute;
 				bottom: -9px;
-				left: 150px;
+				left: 90px;
 			}
 			h3 {
 				text-align: center;
 				color: #ffffff;
+				font-size: 0.8em;
 			}
 		}
 		&:hover {
@@ -286,6 +330,17 @@
 			}
 		}
 	}
+	.sec1 {@extend %section; left: 0; &.active {left:-6%; background-position: 0 center;}}
+	.sec2 {@extend %section; left: 33%; &.active {left:27%; background-position: -60px center;}}
+	.sec3 {@extend %section; left: 66%; &.active {left:60%; background-position: -120px center;}}
+	.sec4 {@extend %section; left: 96%; &.active {left:89%; background-position: -180px center;}}
+	.sec4 .toolInfo {
+		&:after {
+			left: 150px;
+		}
+		left: -150px;
+	}
+	
 }
 
 // stickyWrap 
@@ -295,6 +350,8 @@
 	position: relative;
 	padding: 0;
 	margin: 0;
+	//overflow-x: hidden;
+
 }
 
 // learnMore
@@ -514,7 +571,7 @@
 		font-weight:700;
 	}
 	& h2 {
-		font-size: 2.2em;
+		font-size: 2em;
 		font-weight: 200;
 	    line-height: 1em;
 	    padding: 0 0 4%;
@@ -652,12 +709,18 @@
 			}
 		}
 	}
+	&#inquirytype {
+		h4 {
+			font-size: 1.4em;
+		}
+	}
 	&#inquirytype label {
 		background-color: rgba(238, 240, 241, 0.5);
     	border: 1px solid #C5CED8;
 	    margin: 0 1% 10px;
 	    padding: 1% 1% 4%;
 	    width: 48%;
+	    min-height: 210px;
 	    float: left;
 	    cursor: pointer;
 	    overflow: hidden;
@@ -1102,8 +1165,8 @@ ul.gdL {
 	& span {
 		background:url(../images/credit.png) no-repeat 0 0;
 		background-size: 100% auto;
-		width:22%;
-		height:30px;
+		width: 22%;
+		height: 26px;
 		display: block;
 		float: left;
 		margin: 0 1%;
@@ -1623,6 +1686,33 @@ input::-webkit-inner-spin-button {
 		display: block;
 	}
 }
+
+.showInfo {
+	position: absolute;
+	top: 50px;
+	left: -130px;
+	width:100px;
+	padding: 2%;
+	background: #fff;
+
+	span {
+		position: absolute;
+		bottom: 0;
+    	right: -20px;
+    	text-indent: -9999px;
+    	@include triangle(20px, #fff, right);
+	}
+	.toolBox {
+		span {
+			position: relative;
+			bottom: auto;
+			right: auto;
+			text-indent: 0;
+			@include triangle(0px, #fff, right);
+		}
+	}
+}
+
 #payment {
 	& .hideshow {
 		overflow: hidden;
@@ -1947,6 +2037,14 @@ input.inputred[type="text"] {
 		top: 8%;
 	}
 }
+@media only screen and (max-width: 1140px){
+	.stickyWrap {
+		overflow-x: visible;
+	}
+	.btmWrap {
+		width: 1140px;
+	}
+}
 // @media only screen and (max-device-width: $start-width)
 // {
 // 	.gW {width:100%;}
@@ -1968,6 +2066,9 @@ input.inputred[type="text"] {
 {
 	html, body, .stickyWrap {
 	    height: auto;
+	}
+	.stickyWrap {
+		overflow-x: visible;
 	}
 	small {display: none;}
 	body {
@@ -2071,6 +2172,9 @@ input.inputred[type="text"] {
 	.boxFooter span {
 	    display: block;
 	    margin: 8px 0;
+	}
+	.btmWrap {
+		width: 100%;
 	}
 	#sub.box {
 		.option {
