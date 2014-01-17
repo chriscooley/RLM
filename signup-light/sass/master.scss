@@ -36,6 +36,18 @@
 	    font-weight: 400;
 	    padding: 22px 20px 0 28px;
 	}
+	.chat {
+		position: absolute;
+		top: 0;
+		right: 110px;
+		width: 120px;
+		line-height: 1em;
+		padding: 0.4% 2%;
+		text-align: center;
+		color: #fff;
+		cursor: pointer;
+		background: rgba(#474F5D, 0.6);
+	}
 }
 .breadcrumb {
 	width: 5%;
@@ -61,6 +73,52 @@
 	top: 50%;
 }
 
+.aboutOverlay {
+	display: none;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background: url("../images/spacer.png") repeat scroll 0 0 rgba(238, 240, 241, 0.5);
+	z-index: 9999999;
+
+	.overlayContent {
+		position: absolute;
+		top: 10%;
+		left: 50%;
+		width: 60%;
+		margin: 0 0 0 -30%;
+		padding: 2%;
+		background: #fff;
+		@include box-shadow(0 1px 5px rgba(0,0,0,0.3));
+	}
+	.close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 70px;
+		height: 30px;
+		padding: 4px 5px;
+		color: #fff;
+		cursor: pointer;
+		background: url(../images/customicons.png) no-repeat 22px -302px #3FB1A4;
+	}
+	h2 {
+		margin: 0 0 20px;
+		text-align: center;
+		color: #3FB1A4;
+	}
+	p {
+		margin: 0 0 10px;
+	}
+	ul {
+
+	}
+	li {
+		font-size: 0.8em;
+		margin: 0 0 5px;
+	}
+}
+
 .free {
     height: 200px;
     position: absolute;
@@ -78,9 +136,21 @@
 	left:0;
 	width: 46%;
     font-size: 90%;
-    padding: 0 4%;
+    padding: 0 4% 3%;
+    margin: -220px 0 0 8px;
     background-color: rgba(255, 255, 255, 0.56);
     @extend %centerMe;
+
+    .ribbon {
+    	position: absolute;
+    	bottom: -13px;
+    	left: -12px;
+    	width: 158px;
+    	height: 158px;
+    	cursor: pointer;
+    	background: url(../images/lm-ribbon.png) no-repeat;
+    }
+
 	.infoBox {
 		display: none;
 		height: 400px;
@@ -145,7 +215,7 @@
 	.sec1 {@extend %section; left: 0; &.active {left:-6%; background-position: 0 center;}}
 	.sec2 {@extend %section; left: 33%; &.active {left:27%; background-position: -60px center;}}
 	.sec3 {@extend %section; left: 66%; &.active {left:60%; background-position: -120px center;}}
-	.sec4 {@extend %section; left: 100%; &.active {left:94%; background-position: -180px center;}}
+	.sec4 {@extend %section; left: 98%; &.active {left:89%; background-position: -180px center;}}
 	%section {
 		@include border-radius(50%);
 		width: 20px;
@@ -399,6 +469,20 @@
 	display: none;
 	// @extend .gdS2;
 	@include transition(width 0.5s ease-in-out);
+
+	& .moneyback {
+		height: 178px;
+		width: 178px;
+		position: absolute;
+		top:-30;
+		left: -160px;
+		z-index: -1;
+		background: url(../images/money-back.png) no-repeat;
+
+		&.neon {
+			background: url(../images/neonsign.png) no-repeat;
+		}
+	}
     & .hideShow { // Required for winflip
 		display: none;
 		& h1 {
@@ -510,6 +594,11 @@
 		}
 	}
 	&#sub {
+		.moneyback {
+			right: 10px;
+			left: auto;
+			background-size: 70% auto;
+		}
 		.option {
 			width: 31%;
 			margin: 0 3% 0 0;
@@ -542,10 +631,11 @@
 				.leadIcon{background-position: left center;}
 			}
 			&.better {
+				margin: 0;
 				.leadIcon{background-position: -198px center;}
 			}
 			&.best {
-				margin: 0;
+				
 				.leadIcon{background-position: -396px center;}
 				&:after {
 					content: "";
@@ -608,6 +698,7 @@
 	    	margin: 0 3%;
 	    }
 	    & span {
+	    	text-align: center;
 	    	display: block;
 	    	margin: 1% 0 2%;
 	    	font-size: 1.2em;
@@ -663,6 +754,12 @@
 		word-wrap: break-word;
 		text-align: left;
 		font-size: 0.8em;
+	}
+	& #durlspreview {
+		height: 330px;
+		overflow-y: auto;
+		margin: 0 0 0 5px;
+		padding: 0 5px 0 0;
 	}
 	& .sitepreviewimg {
 		float: right;
@@ -1872,10 +1969,12 @@ input.inputred[type="text"] {
 	html, body, .stickyWrap {
 	    height: auto;
 	}
+	small {display: none;}
 	body {
 		background-size: auto auto;
 		background-position: 80% 0;
 	}
+	.lpchat-container {display: none !important;}
 	.header {
 		h1 {display: none;}
 		.logo {
@@ -1883,8 +1982,35 @@ input.inputred[type="text"] {
 			float: none;
 			width: 124px;
 		}
+		.chat {
+			width: 74px;
+			top: 40px;
+			right: 0;
+			color: #929BAB;
+			background: none;
+			&:hover {
+				color: #fff;
+				background: rgba(#474F5D, 0.6);
+			}
+		}
 	}
 	.gW, .learnWrap {width:100%;}
+	.aboutOverlay .overlayContent{
+		top: 2%;
+		width: 90%;
+		margin: 0 0 0 -45%;
+	}
+	#payment.box .moneyback,
+	#sub.box .moneyback {
+		right: auto;
+		left: -20px;
+		top: -160px;
+	}
+	.box .moneyback {
+		left: -20px;
+		top: -100px;
+		background-size: 60%;
+	}
 	.box, .infoSection .infoBox {
 		min-height: 0;
 		height: auto;
@@ -1896,7 +2022,10 @@ input.inputred[type="text"] {
 	    top: auto;
 	    clear: both;
 	}
-	.infoSection {margin: 5%;}
+	.infoSection {
+		margin: 5%;
+		padding: 0 4% 25%;
+	}
 	.breadWrap {
 	    margin: 26px 5%;
 	}
@@ -1914,6 +2043,9 @@ input.inputred[type="text"] {
 	.moreBox {
 		width: 100%;
 		min-height: 0;
+	}
+	.learnWrap .moreBox {
+		width: 100%;
 	}
 	.learnWrap .moreImg, .learnWrap .moreContent {
 	    display: block;
@@ -1939,5 +2071,15 @@ input.inputred[type="text"] {
 	.boxFooter span {
 	    display: block;
 	    margin: 8px 0;
+	}
+	#sub.box {
+		.option {
+			width: 80%;
+			margin: 0 auto 2%;
+			float: none;
+			&.better {
+				margin: 0 auto 2%;
+			}
+		}
 	}
 }

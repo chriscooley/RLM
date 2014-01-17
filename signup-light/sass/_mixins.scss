@@ -59,7 +59,7 @@
 // grid wrap
 @mixin grid-wrap (){
 	.gW {
-		overflow:visible;
+		overflow:hidden;
 		height: 100%;
 		min-height: 650px;
 		width: $startWidth;
