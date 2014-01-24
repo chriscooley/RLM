@@ -241,6 +241,39 @@
 			}
 		}
 	}
+	.asseenin {
+	    position: absolute;
+	    bottom: -90px;
+	    left: 0;
+	    width: 100%;
+	    padding: 10px;
+	    overflow: hidden;
+	    background: #eeeeee;
+		background: none repeat scroll 0 0 rgba(255, 255, 255, 0.56);
+
+		span {
+			background: url("../images/LPimages24.png") no-repeat scroll center 4% rgba(0, 0, 0, 0);
+    		background-size: 90% auto;
+    		//min-width: 135px;
+    		display: block;
+		    float: left;
+		    margin: 0;
+		    padding: 0 0 44px;
+		    width: 25%;
+		}
+		.hgtv {
+
+		}
+		.hgtvPro {
+			background-position: center 23%;
+		}
+		.diy {
+			background-position: center 43%;
+		}
+		.fln {
+			background-position: center 61%;
+		}
+	}
 }
 
 // breadWrap
@@ -705,11 +738,9 @@
 				.leadIcon{background-position: left center;}
 			}
 			&.better {
-				margin: 0;
 				.leadIcon{background-position: -198px center;}
 			}
 			&.best {
-				
 				.leadIcon{background-position: -396px center;}
 				&:after {
 					content: "";
@@ -723,6 +754,9 @@
 					background-position: -594px center;
 					background-repeat: no-repeat;
 				}
+			}
+			&.last {
+				margin: 0;
 			}
 		}
 	}
@@ -1634,14 +1668,14 @@ input::-webkit-inner-spin-button {
 		margin:$globalSpace;
 	}
 	&.cvs-bill {
-	    width: 24%;
+		width: 24%;
 	}
 }
 .udall {
-    height: 100%;
-    position: absolute;
-    right: 21%;
-    width: 9px;
+	height: 100%;
+	position: absolute;
+	right: 21%;
+	width: 9px;
 }
 .udall.active { 
 	background: url("../images/ud_arrw.png") no-repeat center center transparent; 
@@ -1649,55 +1683,55 @@ input::-webkit-inner-spin-button {
 }
 //infoTool
 .infoTool, .toolSignUp {
-    float: right;
-    height: 0;
-    padding: 0;
-    position: relative;
-    margin: 1% 2%;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    clear: both;
-    &.cvv {
-	    clear: none;
-	    margin: 2%;
+	float: right;
+	height: 0;
+	padding: 0;
+	position: relative;
+	margin: 1% 2%;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	clear: both;
+	&.cvv {
+		clear: none;
+		margin: 2%;
 	}
 	&.leadsScreen {
 		img {width: 400px;}
 	}
-    & > span {
-    	cursor: pointer;
-	    background: none repeat scroll 0 0 $blueLight;
-	    @include border-radius(50%);
-	    color: #ffffff;
-	    font-weight: bold;
-	    font-size: 13px;
-	    display: block;
-	    height: 0;
-	    padding: 0 0 100%;
-	    text-align: center;
-	    width: 100%;
+	& > span {
+		cursor: pointer;
+		background: none repeat scroll 0 0 $blueLight;
+		@include border-radius(50%);
+		color: #ffffff;
+		font-weight: bold;
+		font-size: 13px;
+		display: block;
+		height: 0;
+		padding: 0 0 100%;
+		text-align: center;
+		width: 100%;
 	}
 	&:hover > span {
 		background:$red;
 	}
 	& > p, & > img, & .toolBox {
 		display: none;
-	    background: none repeat scroll 0 0 #FFFFFF;
-	    @include box-shadow(0 0 6px #000);
-	    bottom: -56px;
-	    color: $gray;
-	    padding: 10px;
-	    font-size: 13px;
-	    position: absolute;
-	    right: 120%;
-	    width: 200px;
-	    z-index: 99999999999;
+		background: none repeat scroll 0 0 #FFFFFF;
+		@include box-shadow(0 0 6px #000);
+		bottom: -56px;
+		color: $gray;
+		padding: 10px;
+		font-size: 13px;
+		position: absolute;
+		right: 120%;
+		width: 200px;
+		z-index: 99999999999;
 	}
 	.box h4 & {
-	    display: inline-block;
-	    float: none;
-	    margin: 0 2%;
+		display: inline-block;
+		float: none;
+		margin: 0 2%;
 	}
 	&:hover > p,&:hover > img, &:hover .toolBox {
 		display: block;
@@ -1715,9 +1749,9 @@ input::-webkit-inner-spin-button {
 	span {
 		position: absolute;
 		bottom: 0;
-    	right: -20px;
-    	text-indent: -9999px;
-    	@include triangle(20px, #fff, right);
+		right: -20px;
+		text-indent: -9999px;
+		@include triangle(20px, #fff, right);
 	}
 	.toolBox {
 		span {
@@ -1735,20 +1769,34 @@ input::-webkit-inner-spin-button {
 		overflow: hidden;
 	}
 	& h2 {
-	    font-size: 1.6em;
-	    padding: 0 0 2%;
-	    text-align: left;
+		font-size: 1.6em;
+		padding: 0 0 2%;
+		text-align: left;
 	}
 	& h4 {
 		float: left;
-	    font-size: 1.2em;
-	    margin: 0 0 2%;
-	    text-align: left;
-	    width: 80%;
+		font-size: 1.2em;
+		margin: 0 0 2%;
+		text-align: left;
+		width: 80%;
 	}
 	& .btnNext {
 		float: left;
 		width: 100%;
+		padding: 1.2% 0 0;
+
+		&:hover span {
+			background: none;
+		}
+
+		& span {
+			display: block;
+			width: 100%;
+			margin: 0;
+			padding: 3px 0;
+			font-size: 0.4em;
+			background: none repeat scroll 0 0 #0F96C3;
+		}
 	}
 }
 #ccform > h4 {
@@ -1767,10 +1815,10 @@ span.selWrap.wekBudg {
 body{
 	&.hiAd,
 	&.reAd {
-	    background-attachment: fixed;
+		background-attachment: fixed;
 		.header {
-		    position: fixed;
-		    top: 0;
+			position: fixed;
+			top: 0;
 		}
 		.howIt {
 			top: 38%;
@@ -1798,18 +1846,18 @@ body{
 		}
 		.adWrap h1, .adWrap h2  {
 			font-size: 7em;
-	    	width: 53%;
+			width: 53%;
 		}
 		.adWrap h2  {
 			font-size: 2em;
 		}
 		.adWrap h4 {
-		    background: url(../images/LPimages.png) no-repeat scroll 4% 99% transparent;
-		    color: #E53F2D;
-		    float: left;
-		    font-size: 1.6em;
-		    padding: 7% 9%;
-		    transform: rotate(-5deg);
+			background: url(../images/LPimages.png) no-repeat scroll 4% 99% transparent;
+			color: #E53F2D;
+			float: left;
+			font-size: 1.6em;
+			padding: 7% 9%;
+			transform: rotate(-5deg);
 		}
 		.infoWrap {
 			width: 43%;
@@ -1875,18 +1923,18 @@ body{
 .howIt {
 	background: url("../images/lead-icon.png") no-repeat scroll 94% 95% #f6f7f9;
 	border: $uiBorder;
-    display: block;
-    height: 50px;
-    margin: 0 0 4%;
-    padding: 0.8em 3em 0.8em 1em;
-    position: relative;
-    float: right;
-    width: 15%;
-    color: $greenDar;
-    &:hover {
-    	background-color: $greenDar;
-    	color: #fff;
-    }
+	display: block;
+	height: 50px;
+	margin: 0 0 4%;
+	padding: 0.8em 3em 0.8em 1em;
+	position: relative;
+	float: right;
+	width: 15%;
+	color: $greenDar;
+	&:hover {
+		background-color: $greenDar;
+		color: #fff;
+	}
 }
 
 // Error
@@ -1899,52 +1947,52 @@ input.inputred[type="text"] {
 //Adds
 .msg {
 	clear: both;
-    margin-bottom: 2%;
-    position: relative;
-    background: url("../images/sprite-white.png") no-repeat 480px 0 #E8E8E8;
-    p {
-	    font-size: 12px;
-	    padding: 4px 4px 4px 40px;
-	    display: table;
-	    height: 44px;
-	    strong {
-	    	display: table-cell;
-	    	vertical-align: middle;
-	    }
-    }
-    a.close {
-	    width: 34px;
-	    height: 34px;
-	    position: absolute;
-	    right: 0;
-	    top: 0;
-	    font-size: 0;
-	    line-height: 0;
-	    text-indent: -4000px;
-	    background: url("../images/crm/close.gif") no-repeat;
-    }
+	margin-bottom: 2%;
+	position: relative;
+	background: url("../images/sprite-white.png") no-repeat 480px 0 #E8E8E8;
+	p {
+		font-size: 12px;
+		padding: 4px 4px 4px 40px;
+		display: table;
+		height: 44px;
+		strong {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+	a.close {
+		width: 34px;
+		height: 34px;
+		position: absolute;
+		right: 0;
+		top: 0;
+		font-size: 0;
+		line-height: 0;
+		text-indent: -4000px;
+		background: url("../images/crm/close.gif") no-repeat;
+	}
 }
 .msg-ok {
 	background-position: -466px -192px;
 	border-bottom: 3px solid $green;
 	p {
-	    color: $green;
+		color: $green;
 	}
 }
 .msg-error {
 	background-position: -466px 10px;
-    border-bottom: 3px solid $red;
+	border-bottom: 3px solid $red;
 	p {
-	    color: $red;
-	    text-shadow: 0 1px 1px #FFFFFF;
+		color: $red;
+		text-shadow: 0 1px 1px #FFFFFF;
 	}
 }
 .msg-prepay {
 	background-position: -466px -92px;
 	border-bottom: 3px solid $blue;
 	p {
-	    color: $blue;
-	    padding-left: 50px;
+		color: $blue;
+		padding-left: 50px;
 	}
 }
 .selIner .ppamt {
@@ -1966,22 +2014,22 @@ input.inputred[type="text"] {
 	}
 }
 #tosbox {
-    clear: both;
-    color: #777777;
-    font-size: 9px;
-    height: 224px;
-    margin: 0 0 2%;
-    overflow-y: auto;
-    white-space: pre-wrap;
-    width: 100%;
-    word-wrap: break-word;
-    border: 4px solid #8ACDE6;
-    background: none repeat scroll 0 0 #FFFFFF;
+	clear: both;
+	color: #777777;
+	font-size: 9px;
+	height: 224px;
+	margin: 0 0 2%;
+	overflow-y: auto;
+	white-space: pre-wrap;
+	width: 100%;
+	word-wrap: break-word;
+	border: 4px solid #8ACDE6;
+	background: none repeat scroll 0 0 #FFFFFF;
 }
 .termsprint {
 	color: #DDDDDD;
-    font-size: 11px;
-    margin-bottom: 10px;
+	font-size: 11px;
+	margin-bottom: 10px;
 }
 .boxFooter {
 	text-align:center;
@@ -2004,21 +2052,21 @@ input.inputred[type="text"] {
 }
 .dontgo {
 	position: absolute;
-    top: 0;
+	top: 0;
 	width: 78%;
 	padding: 15px;
 	margin: 0 0 0 36%;
-    color: $main-font-color;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    z-index: 99999;
-    background-color: #FF0000;
+	color: $main-font-color;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	z-index: 99999;
+	background-color: #FF0000;
 
-    a {
-    	color: $main-font-color;
-    	text-decoration: underline;
-    }
+	a {
+		color: $main-font-color;
+		text-decoration: underline;
+	}
 }
 .powerbtn {
 	cursor: pointer;
@@ -2036,6 +2084,7 @@ input.inputred[type="text"] {
 	h5 {
 		font-weight: normal;
 		width: 100%;
+		font-size: 80%;
 		b {font-weight: bold; color: darken($main-font-color, 1%);}
 	}
 	
@@ -2138,8 +2187,8 @@ input.inputred[type="text"] {
 	    clear: both;
 	}
 	.infoSection {
-		margin: 5%;
-		padding: 0 4% 25%;
+		margin: 5% 5% 20%;
+		padding: 0 4% 14%;
 	}
 	.breadWrap {
 	    margin: 26px 5%;
@@ -2218,6 +2267,9 @@ input.inputred[type="text"] {
 			}
 			&.best .leadIcon {
 				background-position: -238px center;
+			}
+			&.last {
+				margin: 0 auto 2%;
 			}
 		}
 	}
