@@ -42,11 +42,13 @@
 		right: 110px;
 		width: 120px;
 		line-height: 1em;
-		padding: 0.4% 2%;
+		margin: 0;
+		padding: 0 2%;
+		//padding: 0.4% 2%;
 		text-align: center;
 		color: #fff;
 		cursor: pointer;
-		background: rgba(#474F5D, 0.6);
+		//background: rgba(#474F5D, 0.6);
 	}
 }
 .breadcrumb {
@@ -254,7 +256,7 @@
 	&:after {
 		background-color: #757f89;
 		height: 3px;
-		width: 100%;
+		width: 96%;
 		content: "";
 		display: block;
 		margin: 8px 0 0 0;
@@ -652,8 +654,8 @@
 	}
 	&#sub {
 		.moneyback {
-			right: 10px;
-			left: auto;
+			//right: 10px;
+			left: 0;
 			background-size: 70% auto;
 		}
 		.option {
@@ -674,10 +676,25 @@
 			}
 			h4 {
 				float: none;
+				color: #306C9B;
+				font-size: 1.4em;
+				font-weight: normal;
+			}
+			span {
+				color: #46B19B;
+				font-size: 1.6em;
+				font-weight: bold;
+			}
+			h5 {
+				color: #828B9B;
+				margin: 0 0 28px;
+				text-align: center;
+				width: 100%;
+				font-size: 0.8em;
 			}
 			ul {
 				font-size: 130%;
-				text-align: center; 
+				text-align: center;
 				line-height: 1.4em;
 				margin: 0 0 6% 0;
 			}
@@ -2038,6 +2055,9 @@ input.inputred[type="text"] {
 	}
 }
 @media only screen and (max-width: 1140px){
+	body {
+		overflow-x: visible;
+	}
 	.stickyWrap {
 		overflow-x: visible;
 	}
@@ -2101,15 +2121,9 @@ input.inputred[type="text"] {
 		width: 90%;
 		margin: 0 0 0 -45%;
 	}
-	#payment.box .moneyback,
-	#sub.box .moneyback {
-		right: auto;
-		left: -20px;
-		top: -160px;
-	}
 	.box .moneyback {
 		left: -20px;
-		top: -100px;
+		top: -160px;
 		background-size: 60%;
 	}
 	.box, .infoSection .infoBox {
@@ -2176,6 +2190,12 @@ input.inputred[type="text"] {
 	.btmWrap {
 		width: 100%;
 	}
+	#payment.box .moneyback,
+	#sub.box .moneyback {
+		right: auto;
+		left: -20px;
+		top: -160px;
+	}
 	#sub.box {
 		.option {
 			width: 80%;
@@ -2183,6 +2203,21 @@ input.inputred[type="text"] {
 			float: none;
 			&.better {
 				margin: 0 auto 2%;
+			}
+			.leadIcon {
+				background-size: auto 60px;
+				width: 108px;
+				height: 70px;
+				margin: 0 auto;
+			}
+			&.good .leadIcon {
+				background-position: 0 center;
+			}
+			&.better .leadIcon {
+				background-position: -118px center;
+			}
+			&.best .leadIcon {
+				background-position: -238px center;
 			}
 		}
 	}
