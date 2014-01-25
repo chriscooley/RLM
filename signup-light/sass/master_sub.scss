@@ -566,7 +566,7 @@
 		height: 178px;
 		width: 178px;
 		position: absolute;
-		top:-30;
+		top: -30px;
 		left: -160px;
 		z-index: -1;
 		background: url(../images/money-back.png) no-repeat;
@@ -2170,11 +2170,18 @@ input.inputred[type="text"] {
 		width: 90%;
 		margin: 0 0 0 -45%;
 	}
-	.box .moneyback {
-		left: -20px;
-		top: -160px;
-		background-size: 60%;
+	.box {
+		.moneyback {
+			left: -20px;
+			top: -160px;
+			background-size: 60%;
+		}
+		body.startNew & .moneyback {
+			top: -100px;
+		}
 	}
+
+	
 	.box, .infoSection .infoBox {
 		min-height: 0;
 		height: auto;
@@ -2254,6 +2261,7 @@ input.inputred[type="text"] {
 				margin: 0 auto 2%;
 			}
 			.leadIcon {
+				display: none;
 				background-size: auto 60px;
 				width: 108px;
 				height: 70px;
@@ -2270,6 +2278,11 @@ input.inputred[type="text"] {
 			}
 			&.last {
 				margin: 0 auto 2%;
+
+				h5 {
+					margin: 28px 0;
+
+				}
 			}
 		}
 	}
