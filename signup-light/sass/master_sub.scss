@@ -184,7 +184,7 @@
 	left:0;
 	width: 46%;
     font-size: 90%;
-    padding: 0 4% 3%;
+    padding: 4% 4% 7%;
     margin: -220px 0 0 8px;
     background-color: rgba(255, 255, 255, 0.56);
     @extend %centerMe;
@@ -201,7 +201,7 @@
 
 	.infoBox {
 		display: none;
-		height: 400px;
+		//height: 400px;
 		width: 100%;
 		img {
 			width: 40%;
@@ -225,6 +225,9 @@
 					font-size: 20px;
 					margin: 3% 0 0 0;
 					line-height: 1.4em;
+					&.centered {
+						text-align: center;
+					}
 					b {font-weight: normal; font-size: 78%;}
 				}
   			}
@@ -236,7 +239,26 @@
 		&#billingInfoBox {
 			ul {
 				li {
-					h3 {margin: 2% 0 0 0;}
+					h3 {margin: 2% 0 2% 0;}
+				}
+			}
+		}
+		&#contactInfoBox {
+			p {
+				color: #1C729E;
+				font-size: 0.8em;
+				line-height: 1.4em;
+				margin: 10px 0 0;
+				text-align: center;
+
+				&.note {
+					position: absolute;
+					right: 10px;
+					bottom: 10px;
+					width: 65%;
+					color: #333;
+					font-size: 0.7em;
+					text-align: left;
 				}
 			}
 		}
@@ -276,6 +298,8 @@
 	}
 }
 
+
+
 // breadWrap
 .breadWrap {
 	width: 40%;
@@ -284,7 +308,7 @@
 	right: 10px;
 	position: absolute;
 	height: 20px;
-	display: none;
+	display: block;
 	z-index: 99;
 	&:after {
 		background-color: #757f89;
@@ -293,6 +317,9 @@
 		content: "";
 		display: block;
 		margin: 8px 0 0 0;
+	}
+	body.startNew & {
+		display: none;
 	}
 	%section {
 		@include border-radius(50%);
@@ -620,7 +647,7 @@
 	& h4 {
 		float: left;
 		width: 100%;
-	    color: lighten($main-font-color, 30%);
+	    color: lighten($main-font-color, 15%);
 	    text-align: center;
 	    font-size: 1.6em;
 	    font-weight: 200;
@@ -783,6 +810,7 @@
 	    }
 	    &:hover,  &.large {
 	    	background-color: $blue;
+	    	min-height: 210px;
 	    	p {
 	    		color: #ffffff;
 	    	}
@@ -1383,13 +1411,13 @@ p.terms, .terms {
 .addMe {
     float: left;
     height: auto;
-    margin:$globalSpace;
+    margin: $globalSpace;
     width: 47%;
-    position:relative;
+    position: relative;
 	background: none repeat scroll 0 0 #FFFFFF;
 	border: $uiBorder;
 	height: 176px;
-	padding:0;
+	padding: 0;
 	overflow: scroll;
 	overflow-x: hidden;
     & li{
@@ -1397,20 +1425,20 @@ p.terms, .terms {
     	cursor: pointer;
     	font-size: .7em;
     	line-height: 1.5em;
-    	padding:1% 2%;
-    	color:$gray;
+    	padding: 1% 2%;
+    	color: $gray;
     	display: block;
-    	position:relative;
+    	position: relative;
     	width: 200%;
-    	padding: 1% 2% 1% 24px;
-	    background:url("../images/icon.png") no-repeat scroll 3px -944px ;
+    	padding: 2% 2% 2% 24px;
+	    background:url("../images/icon.png") no-repeat scroll 3px -942px ;
     	&:hover, &.added {
 		    color:$white;
-		    background-position:3px -834px;
+		    background-position: 3px -832px;
 		    background-color: $green;
 	    }
 	    &:hover {
-	    	width:100%;
+	    	width:150%;
 	    }
 	}
 }
@@ -1420,12 +1448,12 @@ p.terms, .terms {
     width: 50%;
     @extend .addMe;
     & li{
-    	padding: 1% 2%;
-	    background-position:3px -965px;
+    	padding: 2% 2%;
+	    background-position: 3px -961px;
 	    &:hover {
-	    	width:100%;
-	    	padding: 1% 2% 1% 24px;
-	    	background-position:3px -873px;
+	    	width: 100%;
+	    	padding: 2% 2% 2% 24px;
+	    	background-position: 3px -871px;
 	    	background-color: $red;
 	    }
     }
@@ -1764,21 +1792,35 @@ input::-webkit-inner-spin-button {
 	}
 }
 
+#contact {
+	h2 {
+		span {
+			display: block;
+			font-size: 0.7em;
+		}
+	}
+}
+
 #payment {
 	& .hideshow {
 		overflow: hidden;
 	}
 	& h2 {
-		font-size: 1.6em;
+		font-size: 2em;
 		padding: 0 0 2%;
-		text-align: left;
+		text-align: center;
+
+		span {
+			display: block;
+			font-size: 0.7em;
+		}
 	}
 	& h4 {
 		float: left;
 		font-size: 1.2em;
 		margin: 0 0 2%;
-		text-align: left;
-		width: 80%;
+		text-align: center;
+		width: 100%;
 	}
 	& .btnNext {
 		float: left;
@@ -2170,6 +2212,11 @@ input.inputred[type="text"] {
 		width: 90%;
 		margin: 0 0 0 -45%;
 	}
+
+	.breadWrap {
+		display: none;
+	}
+	
 	.box {
 		.moneyback {
 			left: -20px;
@@ -2178,6 +2225,12 @@ input.inputred[type="text"] {
 		}
 		body.startNew & .moneyback {
 			top: -100px;
+		}
+		&#inquirytype label {
+			& input[type="checkbox"], & input[type="radio"] {
+				height: 20px;
+				width: 20px;
+			}
 		}
 	}
 
